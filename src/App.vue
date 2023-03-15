@@ -56,6 +56,10 @@ nav a.router-link-exact-active {
   margin: 30px;
 }
 
+.pl-pages:hover:not(.router-link-active){
+  color: pink;
+}
+
 /* Pokeball rotation effect */
 .image-rotating {
   position: relative;
