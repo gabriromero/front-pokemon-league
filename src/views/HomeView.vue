@@ -5,11 +5,11 @@
 
       <div class="row">
         <div class="col-lg-4 border">
-          <p class="pl-title text-center">CLASIFICACION</p>
+          <p class="pl-title text-center">CLASIFICACIÓN</p>
           <Classification />
         </div>
         <div class="col-lg-8 border">
-          <p class="pl-title text-center" >JORNADA 1</p>
+          <p class="jornadaTitle text-center" >JORNADA 1</p>
           <Combates />
         </div>
       </div>
@@ -43,7 +43,13 @@ export default {
 
 <style scoped>
 .pl-title {
-  font-size: 0.9em;
+  font-size: 1.3em;
+  padding-top: 5%;
+}
+
+.jornadaTitle{
+  font-size: 1.3em;
+  padding-top: 2.2%;
 }
 
 </style>
