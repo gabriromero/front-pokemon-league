@@ -3,7 +3,7 @@
     <div>
       <router-link :class="{ 'left-padding': !isSmallScreen }" to="/">
         <div class="image-rotating">
-          <img class="pl-logo rotate-on-hover" src="@/assets/pokeball.png" alt="">
+          <img v-on:click="getRandomBall()" class="pl-logo rotate-on-hover" :src="require(`./assets/`+ball+`.png`)" alt="">
         </div>
       </router-link>
     </div>
@@ -32,17 +32,37 @@
 export default {
   data() {
     return {
-      isSmallScreen: false
+      isSmallScreen: false,
+      ball : 'pokeball'
     }
   },
   methods: {
     checkScreenSize() {
       this.isSmallScreen = window.innerWidth < 650;
+      this.ball = 'pokeball';
+    },
+    getRandomBall() {
+      let rnd = Math.floor(Math.random() * 4000) + 1;
+
+      if(rnd < 3800){
+        this.ball = 'pokeball'
+      }
+      else if(rnd >= 3800 && rnd < 3960){
+        this.ball = 'superball_k4xg'
+      }
+      else if(rnd >= 3960 && rnd < 4000){
+        this.ball = 'ultraball_7ns0'
+      }
+      else if(rnd == 4000){
+        this.ball = 'masterball_9bb4'
+      }
     }
   },
   mounted() {
     this.checkScreenSize();
     window.addEventListener('resize', this.checkScreenSize);
+
+    this.getRandomBall();
   }
 }
 </script>
