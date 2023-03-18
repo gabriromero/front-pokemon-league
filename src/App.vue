@@ -1,21 +1,51 @@
 <template>
   <nav class="pl-navbar align-items-center d-flex">
     <div>
-      <router-link to="/">
+      <router-link :class="{ 'left-padding': !isSmallScreen }" to="/">
         <div class="image-rotating">
           <img class="pl-logo rotate-on-hover" src="@/assets/pokeball.png" alt="">
         </div>
       </router-link>
-      
     </div>
     <div class="text-center">
-      <router-link class="pl-pages" to="/combate">COMBATE</router-link>
-      <router-link class="pl-pages" to="/normas">NORMAS</router-link>
-      <router-link class="pl-pages" to="/perfil">PERFIL</router-link>
+      <router-link class="pl-pages" v-if="isSmallScreen" to="/combate">
+        <img class="pl-nav-icon" src="@/assets/combate.png" alt="">
+      </router-link>
+      <router-link class="pl-pages" v-else to="/combate">Combate</router-link>
+
+      <router-link class="pl-pages" v-if="isSmallScreen" to="/normas">
+        <img class="pl-nav-icon" src="@/assets/normas.png" alt="">
+      </router-link>
+      <router-link class="pl-pages" v-else to="/normas">Normas</router-link>
+
+      <router-link class="pl-pages" v-if="isSmallScreen" to="/perfil">
+        <img class="pl-nav-icon" src="@/assets/trainerPixel.png" alt="">
+      </router-link>
+      <router-link class="pl-pages" v-else to="/perfil">Perfil</router-link>
     </div>
   </nav>
   <router-view class="mt-5"/>
 </template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      isSmallScreen: false
+    }
+  },
+  methods: {
+    checkScreenSize() {
+      this.isSmallScreen = window.innerWidth < 650;
+    }
+  },
+  mounted() {
+    this.checkScreenSize();
+    window.addEventListener('resize', this.checkScreenSize);
+  }
+}
+</script>
 
 <style>
 @import '~mdb-ui-kit/css/mdb.min.css';
@@ -52,8 +82,17 @@ nav a.router-link-exact-active {
   width: 80px;
 }
 
+.pl-nav-icon {
+  width: 36px;
+  height: 40px;
+}
+
 .pl-pages {
-  margin: 30px;
+  margin: 20px;
+}
+
+.left-padding {
+  margin-left: 40px;
 }
 
 /* Pokeball rotation effect */
