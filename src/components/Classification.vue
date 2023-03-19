@@ -68,6 +68,7 @@ export default {};
 
 .borderClassification {
   border: 2px solid;
+  border-color: black;
 }
 
 .backgroundClassification {
@@ -75,6 +76,8 @@ export default {};
   border-radius: 15px 15px 15px 15px;
   height: auto;
   margin-bottom: 5%;
+  border: 2px solid;
+  border-color: black;
 }
 
 .tablaClassification {
