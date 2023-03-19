@@ -1,8 +1,64 @@
 <template>
     <div class="firstBorder">
         <div class="matchBorder ">
-            <div class="totalBorder">
+            <div class="totalBorder" style="max-height: 400px; overflow-y: auto;">
                 <div class="mt-2"></div>
+
+                <div class="singleMatchPadding">
+                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
+                        <div>
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png"/> Avdalian
+                        </div>
+                        <div>
+                            VS
+                        </div>
+                        <div class="pe-1">
+                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="singleMatchPadding">
+                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
+                        <div>
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png"/> Avdalian
+                        </div>
+                        <div>
+                            VS
+                        </div>
+                        <div class="pe-1">
+                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="singleMatchPadding">
+                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
+                        <div>
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png"/> Avdalian
+                        </div>
+                        <div>
+                            VS
+                        </div>
+                        <div class="pe-1">
+                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="singleMatchPadding">
+                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
+                        <div>
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png"/> Avdalian
+                        </div>
+                        <div>
+                            VS
+                        </div>
+                        <div class="pe-1">
+                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="singleMatchPadding">
                     <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
