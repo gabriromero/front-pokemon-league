@@ -46,7 +46,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .trainerName {
   vertical-align: middle;
   font-size: 1.3em;

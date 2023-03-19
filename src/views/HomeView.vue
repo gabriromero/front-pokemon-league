@@ -16,7 +16,7 @@
 
       <div class="row border">
         <div>
-          <p class="pl-title text-center">RUTA 1</p>
+          <p class="pl-title text-center">RUTA JORNADA 1</p>
           <NormasRuta />
         </div>
       </div>
