@@ -70,6 +70,13 @@ export default {
 <style>
 @import '~mdb-ui-kit/css/mdb.min.css';
 
+@font-face {
+  font-family: Pokemon GB;
+  src: url('@/assets/fonts/PokemonGb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* General app */
 #app {
   font-family: Pokemon GB, Avenir, Helvetica, Arial, sans-serif;
