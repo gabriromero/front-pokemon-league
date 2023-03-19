@@ -1,7 +1,7 @@
 <template>
     <div class="firstBorder">
         <div class="matchBorder ">
-            <div class="totalBorder" style="max-height: 400px; overflow-y: auto;">
+            <div class="totalBorder">
                 <div class="mt-2"></div>
 
                 <div class="singleMatchPadding">
@@ -213,6 +213,12 @@ export default {
     border-color: black;
     border-radius: 15px;
     background-color: #FFFFFF;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.totalBorder::-webkit-scrollbar{
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
