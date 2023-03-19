@@ -5,37 +5,90 @@
         <tbody>
           <tr class="grayBackColor borderClassification">
             <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
             </th>
             <td class="trainerName">Erdeiby</td>
             <th>
-              <img class="trainerMedal" src="@/assets/goldMedal.png"/>
+              <img class="trainerMedal" src="@/assets/goldMedal.png" />
             </th>
             <td class="trainerScore">3</td>
           </tr>
           <tr class="whiteBackColor borderClassification">
             <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
             </th>
             <td class="trainerName">Guzzom</td>
             <th>
-              <img class="trainerMedal" src="@/assets/silverMedal.png"/>
+              <img class="trainerMedal" src="@/assets/silverMedal.png" />
             </th>
             <td class="trainerScore">1</td>
           </tr>
           <tr class="grayBackColor borderClassification">
             <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png"/>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
             </th>
             <td class="trainerName">Avdalian</td>
             <th>
-              <img class="trainerMedal" src="@/assets/bronzeMedal.png"/>
+              <img class="trainerMedal" src="@/assets/bronzeMedal.png" />
             </th>
             <td class="trainerScore">1</td>
           </tr>
-          
-          
-          
+          <tr class="whiteBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Kmilon</td>
+            <th></th>            
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="grayBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Syo</td>  
+            <th></th>          
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="whiteBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Suli</td>
+            <th></th>            
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="grayBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Filgui</td> 
+            <th></th>           
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="whiteBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Guiri</td> 
+            <th></th>           
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="grayBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Guiri2</td> 
+            <th></th>           
+            <td class="trainerScore">1</td>
+          </tr>
+          <tr class="whiteBackColor borderClassification">
+            <th>
+              <img class="trainerImage" src="@/assets/trainerPixel.png" />
+            </th>
+            <td class="trainerName">Guiri3</td> 
+            <th></th>           
+            <td class="trainerScore">1</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -52,7 +105,7 @@ export default {};
   font-size: 1.3em;
 }
 
-.trainerScore{
+.trainerScore {
   font-size: 1.5em;
   vertical-align: middle;
   text-align: center;
@@ -78,17 +131,24 @@ export default {};
   margin-bottom: 5%;
   border: 2px solid;
   border-color: black;
+  
 }
 
 .tablaClassification {
   padding: 3%;
+  max-height: 430px !important;  
+  overflow-y: auto;
 }
 
-th{  
+.tablaClassification::-webkit-scrollbar{
+  display: none;
+}
+
+th {
   width: 14%;
 }
 
-.trainerImage{
+.trainerImage {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -96,12 +156,12 @@ th{
   height: auto;
 }
 
-.trainerMedal{
+.trainerMedal {
   width: 80%;
-  height: auto;  
+  height: auto;
 }
 
-.table{
+.table {
   margin-bottom: 0px;
 }
 </style>
