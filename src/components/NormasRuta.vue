@@ -2,10 +2,15 @@
   <div class="backgroundNormasRuta container-fluid">
     <div class="row">
       <div class="col-sm-3 col-6">
-        <Limites :titulo="'STATS BASE'" :rango="'0 - 350'"></Limites>        
+        <Limites :titulo="'STATS BASE'" :rango="'0 - 350'"></Limites>
       </div>
       <div class="col-sm-3 col-6">
-        <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>        
+        <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-12">
+        <Stats />
       </div>
     </div>
   </div>
@@ -13,10 +18,12 @@
 
 <script>
 import Limites from "@/components/Limites.vue";
+import Stats from "@/components/Stats.vue";
 
 export default {
   components: {
     Limites,
+    Stats,
   },
 };
 </script>
@@ -26,5 +33,6 @@ export default {
   background-color: #d4d4d4;
   width: 100%;
   height: 100%;
+  padding-right: 25px;
 }
 </style>
