@@ -1,7 +1,7 @@
 <template>
   <div id="normas">
     <h1>Normas</h1>
-    <div class="">
+    <div class="mt-5">
       <div class="main">
         <div class="row mt-3 ">
           <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Sección 1</button>
