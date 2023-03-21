@@ -2,10 +2,11 @@
   <p class="title">STATS POKÉMON</p>
 
   <div class="row">
-    <div class="imgDiv col-lg-4">
-      <img class="imgClass" src="@/assets/gyarados.png" />
-
-      <div class="row" style="margin-top: 10px;">
+    <div class="col-xl-4">
+      <div class="imgDiv">
+        <img class="imgClass" src="@/assets/gyarados.png" />
+      </div>
+      <div class="row" style="margin-top: 10px">
         <div class="imgTipos col-sm-6 col-6">
           <img class="pkmTypeImg" src="@/assets/pkmTypes/water.png" />
         </div>
@@ -24,7 +25,7 @@
       </div>
     </div>
 
-    <div class="namePkmDiv col-lg-8 col-12">
+    <div class="namePkmDiv col-xl-8">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -84,7 +85,6 @@ export default {};
   
 <style scoped>
 .imgDiv {
-  height: 300px;
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: white;
@@ -144,10 +144,10 @@ export default {};
 .labelVelocidad,
 .labelAtEsp,
 .labelDefEsp {
-  margin-top: 33px;  
+  margin-top: 33px;
   padding-left: 20px;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .statPS,
@@ -199,17 +199,23 @@ export default {};
   }
 
   .labelPS,
-.labelAtaque,
-.labelDefensa,
-.labelVelocidad,
-.labelAtEsp,
-.labelDefEsp {
-  
-  font-size: 0.9em;
+  .labelAtaque,
+  .labelDefensa,
+  .labelVelocidad,
+  .labelAtEsp,
+  .labelDefEsp {
+    font-size: 0.9em;
+    padding-left: 0px;
+  }
+
+  .divStatsBase {
+    margin-bottom: 15px;
+  }
 }
 
-
-
-
+@media screen and (max-width: 991px) {
+  .divStatsBase {
+    margin-bottom: 15px;
+  }
 }
 </style>
