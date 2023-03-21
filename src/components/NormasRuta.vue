@@ -35,4 +35,12 @@ export default {
   height: 100%;
   padding-right: 25px;
 }
+
+@media screen and (max-width: 600px) {
+  .backgroundNormasRuta {  
+  padding-left: 25px;
+}
+
+
+}
 </style>

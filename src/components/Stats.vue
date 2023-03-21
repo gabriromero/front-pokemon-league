@@ -4,9 +4,27 @@
   <div class="row">
     <div class="imgDiv col-lg-4">
       <img class="imgClass" src="@/assets/gyarados.png" />
+
+      <div class="row" style="margin-top: 10px;">
+        <div class="imgTipos col-sm-6 col-6">
+          <img class="pkmTypeImg" src="@/assets/pkmTypes/water.png" />
+        </div>
+        <div class="imgTipos col-sm-6 col-6">
+          <img class="pkmTypeImg" src="@/assets/pkmTypes/flying.png" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-12">STATS BASE:</div>
+        <div class="divStatsBase">
+          <div class="divStatsBaseInside">
+            <p class="valorStatBase">540</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="namePkmDiv col-sm-8">
+    <div class="namePkmDiv col-lg-8 col-12">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -26,49 +44,35 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="labelPS col-sm-8 col-6">PS</div>
-        <div class="statPS col-sm-4 col-6">95</div>
-      </div>
-      <div class="row">
-        <div class="labelAtaque col-sm-8 col-6">ATAQUE</div>
-        <div class="statAtaque col-sm-4 col-6">125</div>
-      </div>
-      <div class="row">
-        <div class="labelDefensa col-sm-8 col-6">DEFENSA</div>
-        <div class="statDefensa col-sm-4 col-6">79</div>
-      </div>
-      <div class="row">
-        <div class="labelVelocidad col-sm-8 col-6">VELOCIDAD</div>
-        <div class="statVelocidad col-sm-4 col-6">81</div>
-      </div>
-      <div class="row">
-        <div class="labelAtEsp col-sm-8 col-6">AT ESP.</div>
-        <div class="statAtEsp col-sm-4 col-6">60</div>
-      </div>
-      <div class="row">
-        <div class="labelDefEsp col-sm-8 col-6">DEF ESP.</div>
-        <div class="statDefEsp col-sm-4 col-6">100</div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="imgTipos col-sm-2 col-6">
-      <img class="pkmTypeImg" src="@/assets/pkmTypes/water.png" />
-    </div>
-    <div class="imgTipos col-sm-2 col-6">
-      <img class="pkmTypeImg" src="@/assets/pkmTypes/flying.png" />
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-4">STATS BASE:</div>
-  </div>
+      <div class="row">
+        <div class="labelPS col-sm-9 col-6">PS</div>
+        <div class="statPS col-sm-3 col-6">95</div>
+      </div>
 
-  <div class="row">
-    <div class="divStatsBase col-sm-4">
-      <div class="divStatsBaseInside">
-        <p class="valorStatBase">540</p>
+      <div class="row">
+        <div class="labelAtaque col-sm-9 col-6">ATAQUE</div>
+        <div class="statAtaque col-sm-3 col-6">125</div>
+      </div>
+
+      <div class="row">
+        <div class="labelDefensa col-sm-9 col-6">DEFENSA</div>
+        <div class="statDefensa col-sm-3 col-6">79</div>
+      </div>
+
+      <div class="row">
+        <div class="labelVelocidad col-sm-9 col-6">VELOCIDAD</div>
+        <div class="statVelocidad col-sm-3 col-6">81</div>
+      </div>
+
+      <div class="row">
+        <div class="labelAtEsp col-sm-9 col-6">AT ESP.</div>
+        <div class="statAtEsp col-sm-3 col-6">60</div>
+      </div>
+
+      <div class="row">
+        <div class="labelDefEsp col-sm-9 col-6">DEF ESP.</div>
+        <div class="statDefEsp col-sm-3 col-6">100</div>
       </div>
     </div>
   </div>
@@ -140,9 +144,10 @@ export default {};
 .labelVelocidad,
 .labelAtEsp,
 .labelDefEsp {
-  margin-top: 14.7px;
-  /* padding-left: 20px; */
+  margin-top: 33px;  
   padding-left: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 .statPS,
@@ -151,14 +156,12 @@ export default {};
 .statVelocidad,
 .statAtEsp,
 .statDefEsp {
-  margin-top: 14.7px;
+  margin-top: 33px;
   text-align: center;
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: white;
-  /* width: 100px; */
-  /* margin-left: 155px; */
-  
+  font-size: 1.2em;
 }
 
 .divStatsBase {
@@ -195,6 +198,18 @@ export default {};
     margin-top: 15px;
   }
 
+  .labelPS,
+.labelAtaque,
+.labelDefensa,
+.labelVelocidad,
+.labelAtEsp,
+.labelDefEsp {
   
+  font-size: 0.9em;
+}
+
+
+
+
 }
 </style>
