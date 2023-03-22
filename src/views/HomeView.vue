@@ -10,7 +10,7 @@
         </div>
         <div class="col-lg-8 border">
           <p class="jornadaTitle text-center" >JORNADA 1</p>
-          <Combates />
+          <Enfrentamientos />
         </div>
       </div>
 
@@ -28,14 +28,14 @@
 
 <script>
 import Classification from '@/components/Classification.vue'
-import Combates from '@/components/Combates.vue'
+import Enfrentamientos from '@/components/Enfrentamientos.vue'
 import NormasRuta from '@/components/NormasRuta.vue'
 
 export default {
   name: 'HomeView',
   components: {
     Classification, 
-    Combates, 
+    Enfrentamientos, 
     NormasRuta
   }
 }

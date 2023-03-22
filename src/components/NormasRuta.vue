@@ -8,10 +8,19 @@
         <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>
       </div>
     </div>
+    
     <div class="row">
       <div class="col-sm-6 col-12">
         <Stats />
       </div>
+     </div>
+     
+     <div class="row">
+       <div style="padding-right: 0;" class="col-sm-6 col-12">
+         <NivelesEquipo />
+       </div>
+     </div>
+      
     </div>
   </div>
 </template>
@@ -19,11 +28,13 @@
 <script>
 import Limites from "@/components/Limites.vue";
 import Stats from "@/components/Stats.vue";
+import NivelesEquipo from "@/components/NivelesEquipo.vue";
 
 export default {
   components: {
     Limites,
     Stats,
+    NivelesEquipo
   },
 };
 </script>
