@@ -4,7 +4,7 @@
       <div class="medalla_2">
         <img
           v-if="ladoMedalla == 'L'"
-          src="@/assets/Medallas/Medalla_C3Ffiro.png"
+          src="@/assets/Medallas/Medalla_Céfiro.png"
         />
         <img v-else src="@/assets/Medallas/Medalla_Tormenta.png" />
       </div>
@@ -33,7 +33,7 @@
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medalla_Niebla.png"
       />
-      <img v-else src="@/assets/Medallas/Medalla_Drag3Fn.png" />
+      <img v-else src="@/assets/Medallas/Medalla_Dragón.png" />
     </div>
 </div>
   </div>
@@ -55,14 +55,14 @@ export default {
   height: 100%;
   margin-left: 5%;
   margin-right: 5%;
-  border: 2px solid;
-  border-color: black;
+  border: 1px solid;
+  border-color: grey;
 
 }
 .medalla {
   background-color: #888686;
   border: 1px solid;
-  border-color: black;
+  border-color: grey;
   border-radius: 15px;  
   width: 100%;
   max-width:100px;
@@ -75,7 +75,7 @@ export default {
 .medalla_2 {
   background-color: #AAAAAA;
   border: 1px solid;
-  border-color: black;
+  border-color: grey;
   width: 75%;
   border-radius: 15px;  
   height: 75%;
