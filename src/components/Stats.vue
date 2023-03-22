@@ -168,6 +168,7 @@ export default {};
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: #c2bdbd;
+  margin-left: 10px;
 }
 
 .divStatsBaseInside {

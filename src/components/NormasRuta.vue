@@ -8,19 +8,17 @@
         <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-sm-6 col-12">
         <Stats />
       </div>
-     </div>
-     
-     <div class="row">
-       <div style="padding-right: 0;" class="col-sm-6 col-12">
-         <NivelesEquipo />
-       </div>
-     </div>
-      
+    </div>
+
+    <div class="row">
+      <div style="padding-right: 0" class="col-sm-6 col-12">
+        <NivelesEquipo />
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +32,7 @@ export default {
   components: {
     Limites,
     Stats,
-    NivelesEquipo
+    NivelesEquipo,
   },
 };
 </script>
@@ -48,10 +46,8 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-  .backgroundNormasRuta {  
-  padding-left: 25px;
-}
-
-
+  .backgroundNormasRuta {
+    padding-left: 25px;
+  }
 }
 </style>
