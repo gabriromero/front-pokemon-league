@@ -76,12 +76,12 @@ export default {
   background-color: #AAAAAA;
   border: 1px solid;
   border-color: grey;
-  width: 75%;
+  width: 95%;
   border-radius: 15px;  
-  height: 75%;
+  height: 95%;
   position: absolute;
-  top: 12.5%;
-  left: 12.5%;
+  top: 1.5%;
+  left: 1.5%;
   display: flex;
   justify-content: center;
   align-items: center;

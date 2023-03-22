@@ -35,6 +35,7 @@ export default {
   margin: auto;
   width: 50%;
   padding: 10px;
+  width: fit-content;
 }
 .medallas img {
   max-width: 100%;
