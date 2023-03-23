@@ -25,22 +25,21 @@
       </div>
     </div>
 
-    <div class="namePkmDiv col-xl-8">
+    <div class="namePkmDiv col-xl-8 col-12">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
-            <div class="buscadorPkm col-sm-12 col-6">
-              <input
-                class="inputPkm"
-                type="pokemonName"
-                placeholder="Buscar Pokémon..."
-                list="pokemons"
+            <div class="buscadorPkm">
+              <Select2
+                class="mi-select2"
+                v-model="myValue"
+                :options="myOptions"
+                :settings="{}"
+                :maxOptions="4"
+                @change="myChangeEvent($event)"
+                @select="mySelectEvent($event)"
               />
-              <datalist id="pokemons">
-                <option value="Gyarados">Gyarados</option>
-                <option value="Torterra">Torterra</option>
-                <option value="Pikachu">Pikachu</option>
-              </datalist>
+              <!--<h4>{{ myValue }}</h4>-->
             </div>
           </div>
         </div>
@@ -80,7 +79,48 @@
 </template>
   
 <script>
-export default {};
+import $ from "jquery";
+import Select2 from "vue3-select2-component";
+export default {
+  // declare Select2Component
+  components: { Select2 },
+  data() {
+    return {
+      myValue: "",
+      myOptions: [
+        "op1",
+        "op2",
+        "op3",
+        "op1",
+        "op2",
+        "op3",
+        "op1",
+        "op2",
+        "op3",
+        "op1",
+        "op2",
+        "op3",
+      ],
+    };
+  },
+  methods: {
+    myChangeEvent(val) {
+      console.log(val);
+    },
+    mySelectEvent({ id, text }) {
+      console.log({ id, text });
+    },
+  
+  },
+
+  mounted() {
+    //añadir borde al Select (desde CSS no deja D: ))
+    const bordeSelect = document.querySelector(".select2-selection--single");
+    bordeSelect.style.border = "2px solid #2c3e50";
+    bordeSelect.style.borderRadius = "15px 15px 15px 15px";
+
+  },
+};
 </script>
   
 <style scoped>
@@ -106,8 +146,7 @@ export default {};
 }
 
 .buscadorPkm {
-  width: 80%;
-  margin-left: 3%;
+  width: 100%;
 }
 
 .buscadorPkmBackgroundDiv {
@@ -119,9 +158,6 @@ export default {};
 }
 
 .buscadorPkmInsideDiv {
-  border: 2px solid;
-  border-radius: 15px 15px 15px 15px;
-  background-color: white;
   margin: 5px 5px 5px 0px;
   width: 100%;
 }
