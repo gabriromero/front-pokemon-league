@@ -32,6 +32,7 @@
             <div class="buscadorPkm">
               <Select2
                 class="mi-select2"
+                @click="changeFont"
                 v-model="myValue"
                 :options="myOptions"
                 :settings="{}"
@@ -105,11 +106,18 @@ export default {
   },
   methods: {
     myChangeEvent(val) {
-      console.log(val);
     },
     mySelectEvent({ id, text }) {
-      console.log({ id, text });
     },
+    changeFont(){
+      let options = document.getElementsByClassName('select2-results__option')
+      for (let item of options) {
+          item.style.fontFamily = 'Pokemon Gb';
+          if(item.classList.value.includes('highlighted')){
+            item.style.backgroundColor = '#c2bdbd';
+          }
+      }
+    }
   
   },
 
