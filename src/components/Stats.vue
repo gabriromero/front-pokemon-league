@@ -31,7 +31,7 @@
           <div class="buscadorPkmInsideDiv">
             <div class="buscadorPkm">
               <Select2
-                class="mi-select2"
+                class="mi-select2 text-center"
                 @click="changeFont"
                 v-model="myValue"
                 :options="myOptions"
