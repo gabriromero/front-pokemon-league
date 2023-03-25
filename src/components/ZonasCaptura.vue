@@ -42,4 +42,18 @@ export default {
     margin-top: 15px;
 }
 
+@media screen and (min-width: 601px){
+   .title{
+    font-size: 15px;
+    margin-top: 15px;
+   } 
+}
+
+@media screen and (max-width: 600px){
+   .title{
+    font-size: 12px;
+    margin-top: 15px;
+   }
+}
+
 </style>
