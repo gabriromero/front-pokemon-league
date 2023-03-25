@@ -35,10 +35,6 @@ export default {
     async fillPlayers() {
       let players = await getFakePlayers()
       this.players = players.data
-    },
-
-    incrementIndex(key){
-      return key+1;
     }
   },
   mounted() {

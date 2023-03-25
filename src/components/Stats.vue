@@ -113,9 +113,9 @@ export default {
       let options = document.getElementsByClassName('select2-results__option')
       for (let item of options) {
           item.style.fontFamily = 'Pokemon Gb';
-          if(item.classList.value.includes('highlighted')){
-            item.style.backgroundColor = '#c2bdbd';
-          }
+          //if(item.classList.value.includes('highlighted')){
+          //  item.style.backgroundColor = '#c2bdbd';
+          //}
       }
     }
   
