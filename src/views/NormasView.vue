@@ -54,7 +54,7 @@
           <div v-if="numSeccion == 6">
             <h4><u>Sección 6</u></h4>
             <div class="mt-3">
-              Mamauevo
+              {{players}}
             </div>
           </div>
         </div>
@@ -66,11 +66,22 @@
 </template>
 
 <script>
+import {getFakePlayers} from '@/api/home'
 export default {
   data() {
     return{
-      numSeccion: 1
+      numSeccion: 1,
+      players: ''
     }
+  },
+  methods: {
+    async fillPlayers() {
+      let players = await getFakePlayers()
+      this.players = players.data
+    }
+  },
+  mounted() {
+    this.fillPlayers()
   }
 }
 </script>
