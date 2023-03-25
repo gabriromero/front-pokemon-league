@@ -3,92 +3,18 @@
     <div class="table-responsive tablaClassification">
       <table class="table">
         <tbody>
-          <tr class="grayBackColor borderClassification">
+          <tr v-for="(player, index) in playersOrdenados" :key="player.username" class="grayBackColor borderClassification">
             <th>
               <img class="trainerImage" src="@/assets/trainerPixel.png" />
             </th>
-            <td class="trainerName">Erdeiby</td>
+            <td class="trainerName">{{ player.username }}</td>
             <th>
-              <img class="trainerMedal" src="@/assets/goldMedal.png" />
+              <img v-if="index == 0" class="trainerMedal" src="@/assets/goldMedal.png" />
+              <img v-else-if="index == 1" class="trainerMedal" src="@/assets/silverMedal.png" />
+              <img v-else-if="index == 2" class="trainerMedal" src="@/assets/bronzeMedal.png" />             
             </th>
-            <td class="trainerScore">3</td>
-          </tr>
-          <tr class="whiteBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Guzzom</td>
-            <th>
-              <img class="trainerMedal" src="@/assets/silverMedal.png" />
-            </th>
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="grayBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Avdalian</td>
-            <th>
-              <img class="trainerMedal" src="@/assets/bronzeMedal.png" />
-            </th>
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="whiteBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Kmilon</td>
-            <th></th>            
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="grayBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Syo</td>  
-            <th></th>          
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="whiteBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Suli</td>
-            <th></th>            
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="grayBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Filgui</td> 
-            <th></th>           
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="whiteBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Guiri</td> 
-            <th></th>           
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="grayBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Guiri2</td> 
-            <th></th>           
-            <td class="trainerScore">1</td>
-          </tr>
-          <tr class="whiteBackColor borderClassification">
-            <th>
-              <img class="trainerImage" src="@/assets/trainerPixel.png" />
-            </th>
-            <td class="trainerName">Guiri3</td> 
-            <th></th>           
-            <td class="trainerScore">1</td>
-          </tr>
+            <td class="trainerScore">{{ player.matches_won }}</td>
+          </tr>          
         </tbody>
       </table>
     </div>
@@ -96,7 +22,32 @@
 </template>
 
 <script>
-export default {};
+import {getFakePlayers} from '@/api/home'
+import { computed } from 'vue'
+export default {
+
+  data() {
+    return{      
+      players: ''
+    }
+  },
+  methods: {
+    async fillPlayers() {
+      let players = await getFakePlayers()
+      this.players = players.data
+    }
+  },
+  mounted() {
+    this.fillPlayers()
+  },
+
+  computed:{
+    playersOrdenados: function(){
+      return _.orderBy(this.players, ['matches_won'], ['desc'])
+    }
+  }
+}
+
 </script>
 
 <style scoped>
