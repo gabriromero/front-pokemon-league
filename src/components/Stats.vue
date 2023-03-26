@@ -4,14 +4,27 @@
   <div class="row">
     <div class="col-xl-4">
       <div class="imgDiv">
-        <img class="imgClass" src="@/assets/gyarados.png" />
+        <img class="imgClass" id="imgId" :src="imageUrl" />
       </div>
-      <div class="row" style="margin-top: 10px">
+      <div
+        v-if="pokemonTypes.length === 1"
+        class="row"
+        style="margin-top: 10px"
+      >
+        <div class="imgTiposSolo1 col-sm-12 col-12">
+          <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
+        </div>
+      </div>
+      <div
+        v-else-if="pokemonTypes.length === 2"
+        class="row"
+        style="margin-top: 10px"
+      >
         <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" src="@/assets/pkmTypes/water.png" />
+          <img class="pkmTypeImg" :src="rutaImgType1" />
         </div>
         <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" src="@/assets/pkmTypes/flying.png" />
+          <img class="pkmTypeImg" :src="rutaImgType2" />
         </div>
       </div>
 
@@ -19,7 +32,7 @@
         <div class="col-lg-12 col-12">STATS BASE:</div>
         <div class="divStatsBase">
           <div class="divStatsBaseInside">
-            <p class="valorStatBase">540</p>
+            <p class="valorStatBase">{{ sumaBaseStats }}</p>
           </div>
         </div>
       </div>
@@ -30,17 +43,12 @@
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
             <div class="buscadorPkm">
-              <Select2
-                class="mi-select2 text-center"
-                @click="changeFont"
-                v-model="myValue"
-                :options="myOptions"
-                :settings="{}"
-                :maxOptions="4"
-                @change="myChangeEvent($event)"
-                @select="mySelectEvent($event)"
+              <select2
+                style="text-align: center"
+                v-model="selectedPokemon"
+                :options="pokemonList"
+                id="pokemon-select"
               />
-              <!--<h4>{{ myValue }}</h4>-->
             </div>
           </div>
         </div>
@@ -48,87 +56,138 @@
 
       <div class="row">
         <div class="labelPS col-sm-9 col-6">PS</div>
-        <div class="statPS col-sm-3 col-6">95</div>
+        <div class="statPS col-sm-3 col-6">{{ baseStatsPs }}</div>
       </div>
 
       <div class="row">
         <div class="labelAtaque col-sm-9 col-6">ATAQUE</div>
-        <div class="statAtaque col-sm-3 col-6">125</div>
+        <div class="statAtaque col-sm-3 col-6">{{ baseStatsAt }}</div>
       </div>
 
       <div class="row">
         <div class="labelDefensa col-sm-9 col-6">DEFENSA</div>
-        <div class="statDefensa col-sm-3 col-6">79</div>
+        <div class="statDefensa col-sm-3 col-6">{{ baseStatsDf }}</div>
       </div>
 
       <div class="row">
         <div class="labelVelocidad col-sm-9 col-6">VELOCIDAD</div>
-        <div class="statVelocidad col-sm-3 col-6">81</div>
+        <div class="statVelocidad col-sm-3 col-6">{{ baseStatsVel }}</div>
       </div>
 
       <div class="row">
         <div class="labelAtEsp col-sm-9 col-6">AT ESP.</div>
-        <div class="statAtEsp col-sm-3 col-6">60</div>
+        <div class="statAtEsp col-sm-3 col-6">{{ baseStatsAtEsp }}</div>
       </div>
 
       <div class="row">
         <div class="labelDefEsp col-sm-9 col-6">DEF ESP.</div>
-        <div class="statDefEsp col-sm-3 col-6">100</div>
+        <div class="statDefEsp col-sm-3 col-6">{{ baseStatsDfEsp }}</div>
       </div>
     </div>
   </div>
 </template>
   
 <script>
-import $ from "jquery";
+import axios from "axios";
+import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
-export default {
-  // declare Select2Component
+import { API_PKM } from "@/helpers/generalHelper";
+
+export default defineComponent({
   components: { Select2 },
-  data() {
-    return {
-      myValue: "",
-      myOptions: [
-        "op1",
-        "op2",
-        "op3",
-        "op1",
-        "op2",
-        "op3",
-        "op1",
-        "op2",
-        "op3",
-        "op1",
-        "op2",
-        "op3",
-      ],
-    };
-  },
-  methods: {
-    myChangeEvent(val) {
-    },
-    mySelectEvent({ id, text }) {
-    },
-    changeFont(){
-      let options = document.getElementsByClassName('select2-results__option')
-      for (let item of options) {
-          item.style.fontFamily = 'Pokemon Gb';
-          if(item.classList.value.includes('highlighted')){
-            item.style.backgroundColor = '#c2bdbd';
-          }
+  setup() {
+    //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
+    const pokemonList = ref([]);
+    const selectedPokemon = ref("");
+    const imageUrl = ref("");
+    const baseStatsPs = ref("");
+    const baseStatsAt = ref("");
+    const baseStatsDf = ref("");
+    const baseStatsVel = ref("");
+    const baseStatsAtEsp = ref("");
+    const baseStatsDfEsp = ref("");
+    const sumaBaseStats = ref("");
+    const pokemonTypes = ref([""]);
+    const rutaImgType1 = ref("");
+    const rutaImgType2 = ref("");
+
+    const getPokemonList = async () => {
+      try {
+        const response = await axios.get(`${API_PKM}?limit=649`); //solo queremos mostrar hasta 5a gen
+        const options = response.data.results.map((pokemon) => ({
+          //todos los datos los metemos en un map para añadirlo después a la constante que usaremos para nutrir el select2
+          id: pokemon.name,
+          text: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
+        }));
+        pokemonList.value = options; //seteamos la constante con la lista de nombres de los pokes
+        selectedPokemon.value = options[0].id; // Establece el primer Pokemon como el seleccionado por defecto
+        updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
+      } catch (error) {
+        console.error(error);
       }
-    }
-  
+    };
+
+    const updateCaracterisiticas = async () => {
+      try {
+        const response = await axios.get(`${API_PKM}/${selectedPokemon.value}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
+        imageUrl.value =
+          response.data.sprites.versions["generation-v"][
+            "black-white"
+          ].animated.front_default; //aqui obtenemos los sprites animados gracias a la API :)
+        baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
+        baseStatsAt.value = response.data.stats["1"].base_stat;
+        baseStatsDf.value = response.data.stats["2"].base_stat;
+        baseStatsVel.value = response.data.stats["5"].base_stat;
+        baseStatsAtEsp.value = response.data.stats["3"].base_stat;
+        baseStatsDfEsp.value = response.data.stats["4"].base_stat;
+        sumaBaseStats.value =
+          baseStatsPs.value +
+          baseStatsAt.value +
+          baseStatsDf.value +
+          baseStatsVel.value +
+          baseStatsAtEsp.value +
+          baseStatsDfEsp.value;
+        pokemonTypes.value = response.data.types.map((type) => type.type.name);
+        rutaImgType1.value = require("@/assets/pkmTypes/" +
+          pokemonTypes.value[0] +
+          ".png");
+        rutaImgType2.value = require("@/assets/pkmTypes/" +
+          pokemonTypes.value[1] +
+          ".png");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    return {
+      pokemonList,
+      selectedPokemon,
+      imageUrl,
+      baseStatsPs,
+      baseStatsAt,
+      baseStatsDf,
+      baseStatsVel,
+      baseStatsAtEsp,
+      baseStatsDfEsp,
+      sumaBaseStats,
+      pokemonTypes,
+      rutaImgType1,
+      rutaImgType2,
+      getPokemonList,
+      updateCaracterisiticas,
+    };
   },
 
   mounted() {
-    //añadir borde al Select (desde CSS no deja D: ))
-    const bordeSelect = document.querySelector(".select2-selection--single");
-    bordeSelect.style.border = "2px solid #2c3e50";
-    bordeSelect.style.borderRadius = "15px 15px 15px 15px";
-
+    this.getPokemonList();
   },
-};
+  watch: {
+    //método que observa cambios en el componente. En este caso, cuando hay un cambio en la variable 'selectedPôkemon' ejecuta updateImage() para cambiar la imagen del div
+    selectedPokemon: function () {
+      this.updateCaracterisiticas();
+    },
+  },
+});
 </script>
   
 <style scoped>
@@ -137,6 +196,32 @@ export default {
   border-radius: 15px 15px 15px 15px;
   background-color: white;
   margin-bottom: 10px;
+  /*min-height: 300px;
+  max-height: 300px;*/
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.imgClass {
+  /*width: 100%;*/
+  /*height: 100%;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 5% 2% 5% 2%;
+  vertical-align: middle;
 }
 
 .namePkmDiv {
@@ -149,8 +234,19 @@ export default {
   filter: grayscale(60%);
 }
 
+.pkmTypeImgSolo1 {
+  width: 50%;
+  height: 90%;
+  filter: grayscale(60%);
+}
+
 .imgTipos {
   margin-bottom: 10px;
+}
+
+.imgTiposSolo1 {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .buscadorPkm {
@@ -176,12 +272,6 @@ export default {
   outline: none !important;
 }
 
-.imgClass {
-  width: 100%;
-  height: 100%;
-  padding: 5% 2% 5% 2%;
-}
-
 .labelPS,
 .labelAtaque,
 .labelDefensa,
@@ -191,7 +281,10 @@ export default {
   margin-top: 33px;
   padding-left: 20px;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  display: flex;
+  align-content: center;
+  align-items: center;
 }
 
 .statPS,
@@ -212,7 +305,6 @@ export default {
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: #c2bdbd;
-  margin-left: 10px;
 }
 
 .divStatsBaseInside {
@@ -251,6 +343,9 @@ export default {
   .labelDefEsp {
     font-size: 0.9em;
     padding-left: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
   }
 
   .divStatsBase {
