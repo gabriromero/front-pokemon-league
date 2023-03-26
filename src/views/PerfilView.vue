@@ -7,12 +7,9 @@
   </div>
   <div class="row">
     <div class="border border-5 col-sm-2">
-      <!--A BORRAR-->
-      <div class="medallas"></div>
-      <!--A BORRAR-->
     </div>
     <div class="border border-5 col-sm-8">
-      <div class="row">
+      <div class="row selector">
         <div class="container-perfil">
           <Selector />
         </div>
@@ -29,14 +26,19 @@ export default {
   components: { Selector },
 };
 </script>
-<!--A BORRAR MEDALLAS-->
 <style scoped>
 .container-perfil {
   height: 100%;
-  width: 80%;
+  width: 50%;
 }
-.medallas {
-  height: 500px;
+@media (orientation:Portrait) {
+  .container-perfil { width: 90%; }
+}
+.selector{
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
 }
 .container {
   width: 100%;

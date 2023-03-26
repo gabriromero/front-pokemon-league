@@ -1,22 +1,25 @@
 <template>
   <div class="perfil">
-    <div class="row">
-      <div class="carrusel">
-        <div class="container-image">
-          <img class="img-carrusel" src="@/assets/skins/azul.png" />
-        </div>
-        <div class="container-image carrusel-selected">
-          <img class="img-carrusel" src="@/assets/skins/azul.png" />
-        </div>
-        <div class="container-image">
-          <img class="img-carrusel" src="@/assets/skins/azul.png" />
-        </div>
+    <div class="carrusel">
+      <div class="arrow">
+        <img class="img-arrow" src="@/assets/arrow.png" />
+      </div>
+      <div class="container-image">
+        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+      </div>
+      <div class="container-image carrusel-selected">
+        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+      </div>
+      <div class="container-image last">
+        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+      </div>
+      <div class="arrow">
+        <img class="img-arrow" src="@/assets/arrow.png" />
       </div>
     </div>
-      <div class="container-selected">
-        a
-        <img class="img-selected" src="@/assets/skins/verde.png" />
-      </div>
+    <div class="container-selected">
+      <img class="img-selected" src="@/assets/skins/verde.png" />
+    </div>
   </div>
 </template>
 
@@ -27,11 +30,35 @@ export default {};
 .perfil {
   border: 1px, solid, black;
 }
+row {
+  height: 10%;
+}
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+.img-arrow {
+  width: 50%;
+  cursor: pointer;
+}
+@media (min-width:900px) {
+.img-arrow{
+  width: 70%;
+}
+
+}
+.arrow:last-child {
+  transform: rotate(180deg);
+}
 .carrusel {
   border: 1px, solid, black;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 10%;
+  height: 100%;
 }
 .carrusel-selected {
   border: 3px solid;
@@ -39,8 +66,8 @@ export default {};
   border-color: #454545;
 }
 .container-image {
-  width: fit-content;
-  height: 100%;
+  height: 80%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,20 +75,31 @@ export default {};
   margin-right: 5%;
   border-radius: 15px;
 }
-.container-image:last-child {
+.last {
   margin-right: 0%;
 }
 .img-carrusel {
   margin: 0 10px;
   height: 70%;
-  width: 70%;
+  padding: 10%;
+  width: 100%;
+  min-width: 30px;
 }
 .container-selected {
-  
   height: fit-content;
-  border: 200px, solid, black;
+  border: 20px solid #d4d4d4;
+  border-radius: 20px;
+  text-align: center;
+  margin: 20%;
+  margin-top: 15%;
+  background-color: #d4d4d4;
+  outline: 15px solid #888686;
+  -webkit-box-shadow: 0 0 0 8px #888686;
 }
 .img-selected {
-  height: 10%;
+  height: 30%;
+  width: 100%;
+  padding: 10%;
+  overflow: hidden;
 }
 </style>
