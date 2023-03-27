@@ -3,158 +3,16 @@
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
-                {{ matches }}
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
+                <div class="singleMatchPadding" v-for="(match) in matches" :key="match.result">
+                    <div class="d-flex align-items-baseline singleMatch fontAdaptative">
+                        <div class="w-50" :class="match.result !== '' ? (match.player_1_username === match.result ? 'winnerColor' : 'loserColor') : ''">
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> {{ match.player_1_username }}
                         </div>
-                        <div>
+                        <div class="w-auto">
                             VS
                         </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="singleMatchPadding">
-                    <div class="d-flex justify-content-between align-items-baseline singleMatch fontAdaptative">
-                        <div>
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> Avdalian
-                        </div>
-                        <div>
-                            VS
-                        </div>
-                        <div class="pe-1">
-                            Avdalian <img class="trainerImage" src="@/assets/trainerPixel.png" />
+                        <div class="pe-1 w-50 text-end" :class="match.result !== '' ? (match.player_2_username === match.result ? 'winnerColor' : 'loserColor') : ''">
+                            {{ match.player_2_username}} <img class="trainerImage" src="@/assets/trainerPixel.png" />
                         </div>
                     </div>
                 </div>
@@ -235,6 +93,14 @@ export default {
 
 .totalBorder::-webkit-scrollbar {
     display: none;
+}
+
+.winnerColor{
+    color: #698b5b
+}
+
+.loserColor{
+    color: #af6666
 }
 
 @media screen and (max-width: 600px) {
