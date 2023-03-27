@@ -8,4 +8,4 @@ import _ from 'lodash'
 
 createApp(App).use(router).mount('#app')
 
-App.component('Select2', Select2)
+
