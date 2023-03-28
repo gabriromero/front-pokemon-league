@@ -8,6 +8,7 @@ const fakeEndpointApi = axios.create({
 
 const loginEndpointApi = axios.create({
     baseURL: API_URL
+})
     
 const matchesEndpointApi = axios.create({
     baseURL: API_URL + '/fake/matches'
