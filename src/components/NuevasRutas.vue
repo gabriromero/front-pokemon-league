@@ -4,15 +4,29 @@
 
     <div class="divBackground">
       <div class="insideDiv">
-        <div class="row divRutas">          
-            <p class="col-sm-6 nombreRuta">- Pueblo Primavera</p>
-            <p class="col-sm-6 nombreRuta">- Cueva Oscura</p>
-            <p class="col-sm-6 nombreRuta">- Ruta 29</p>
-            <p class="col-sm-6 nombreRuta">- Ruta 31</p>
-            <p class="col-sm-6 nombreRuta">- Ciudad Cerezo</p>
-            <p class="col-sm-6 nombreRuta">- Ciudad Malva</p>
-            <p class="col-sm-6 nombreRuta">- Ruta 30</p>    
-            <p class="col-sm-6 nombreRuta">- Ruta 46</p>          
+        <div class="divRutas">
+          <table style="width: 100%; ">
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td class="nombreRuta">Pueblo Primavera</td>
+              <td class="nombreRuta">Ruta 29</td>
+            </tr>
+            <tr>
+              <td class="nombreRuta">Ciudad Cerezo</td>
+              <td class="nombreRuta">Ruta 30</td>
+            </tr>
+            <tr>
+              <td class="nombreRuta">Ruta 46</td>            
+              <td class="nombreRuta">Cueva Oscura</td>
+            </tr>
+            <tr>
+              <td class="nombreRuta">Ruta 31</td>
+              <td class="nombreRuta">Ciudad Malva</td>              
+            </tr>
+          </table>
         </div>
       </div>
     </div>
@@ -45,14 +59,13 @@ export default {};
   margin-top: 15px;
 }
 
-.divRutas{
-    padding: 2%;
-    
+.divRutas {
+  padding: 2%;
 }
 
-.nombreRuta{    
-    margin-bottom: 0;
-    font-size: 13px;
+.nombreRuta {
+  margin-bottom: 0;
+  font-size: 13px;
 }
 
 @media screen and (min-width: 601px) {
@@ -66,6 +79,50 @@ export default {};
   .title {
     font-size: 12px;
     margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .divRutas table, 
+  .divRutas thead, 
+  .divRutas tbody, 
+  .divRutas th, 
+  .divRutas td, 
+  .divRutas tr {
+    display: block;    
+  }
+  .divRutas tbody td {
+    text-align: left;    
+  }
+  
+
+  .divRutas tbody td:before {
+    /*content: attr(data-th);*/
+    font-weight: bold;
+    display: inline-block;
+    width: 80px;
+    margin-right: 5px;
+  }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1200px) {
+  .divRutas table, 
+  .divRutas thead, 
+  .divRutas tbody, 
+  .divRutas th, 
+  .divRutas td, 
+  .divRutas tr {
+    display: block;    
+  }
+  .divRutas tbody td {
+    text-align: left;    
+  }
+  .divRutas tbody td:before {
+    /*content: attr(data-th);*/
+    font-weight: bold;
+    display: inline-block;
+    width: 80px;
+    margin-right: 5px;
   }
 }
 </style>
