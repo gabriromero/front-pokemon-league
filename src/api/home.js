@@ -8,6 +8,9 @@ const fakeEndpointApi = axios.create({
 
 const loginEndpointApi = axios.create({
     baseURL: API_URL
+    
+const matchesEndpointApi = axios.create({
+    baseURL: API_URL + '/fake/matches'
 })
 
 // Methods
@@ -30,4 +33,9 @@ export const getLoginResponse = async(credentials) =>{
     }
 
     return false
+}
+
+export const getMatches = async() =>{
+    const matches = matchesEndpointApi.get()
+    return matches
 }
