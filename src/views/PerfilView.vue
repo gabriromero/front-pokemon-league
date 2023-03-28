@@ -5,9 +5,8 @@
     </p>
     <p class="nombreFicha pl-title text-center border border-dark">Guzzom</p>
   </div>
-  <div class="row">
-    <div class="border border-5 col-sm-2">
-    </div>
+  <div class="row mainContainer">
+    <div class="border border-5 col-sm-2"></div>
     <div class="border border-5 col-sm-8">
       <div class="row selector">
         <div class="container-perfil">
@@ -31,28 +30,21 @@ export default {
   height: 100%;
   width: 50%;
 }
-@media (orientation:Portrait) {
-  .container-perfil { width: 90%; }
+.mainContainer {
+  margin: auto;
 }
-.selector{
+@media (orientation: Portrait) {
+  .container-perfil {
+    width: 90%;
+  }
+}
+.selector {
   text-align: center;
   display: flex;
   align-content: center;
   justify-content: space-around;
 }
-.container {
-  width: 100%;
-  height: 100%;
-}
-.perfil {
-  border: 1px solid;
-  border-color: grey;
-  border-radius: 15px;
-  background-color: #d9d9d9;
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 100%;
-}
+
 .tituloFicha {
   border-radius: 20px;
   width: 75%;
@@ -72,7 +64,5 @@ export default {
   width: fit-content;
   padding: 15px;
   margin-top: 10px;
-}
-.row {
 }
 </style>
