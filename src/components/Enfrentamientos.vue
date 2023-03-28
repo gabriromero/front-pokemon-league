@@ -34,7 +34,7 @@ export default {
     methods: {
         async fillMatches() {
             let matches = await getMatches()
-            let filteredMatches = matches.data.filter(match => match.jornada === 1)
+            let filteredMatches = matches.data.filter(match => match.jornada === 1) //Será cambiado por getJornada()
             this.matches = filteredMatches
         }
 
