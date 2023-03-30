@@ -7,14 +7,14 @@
         <div class="conjunto-combates">
 
           <div class="mt-4"></div>
-          <div class="border-single-match">
+          <div v-for="myMatch in myMatches" :key="myMatch.jornada" class="border-single-match">
             <div class="single-match container-fluid">
               <div class="row d-flex align-items-center" v-if="!confirmResult && !confirmedResult">
                 <div class="col-lg-5 trainer-select" v-on:click="confirmResult = !confirmResult">
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" /> Avdalian
+                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" /> {{myMatches.player_1_username}}
                 </div>
                 <div class="col-lg-5 trainer-select " v-on:click="confirmResult = !confirmResult">
-                  Guzzom <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
+                  {{myMatches.player_2_username}} <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">
@@ -60,27 +60,7 @@
               </div>
 
             </div>
-          </div>
-
-          <div class="mt-4"></div>
-          <div class="border-single-match">
-            <div class="single-match container-fluid">
-              <div class="row d-flex align-items-center">
-                <div class="col-lg-5 trainer-select">
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" /> Avdalian
-                </div>
-                <div class="col-lg-5 trainer-select ">
-                  Avdalian <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
-                </div>
-                <div class="col-lg-2 handicap">
-                  <div class="handicap-div">
-                    Sin handicap
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          </div> 
           <div class="mb-4"></div>
         </div>
       </div>
@@ -143,13 +123,26 @@
 </template>
 
 <script>
+import {getMyMatches} from '@/api/combate'
 export default {
   data() {
     return {
       confirmResult: false,
-      confirmedResult: false
+      confirmedResult: false,
+      myMatches: ''
     }
-  }
+  },
+  methods: {
+    async fillMyMatches() {
+      const accessToken = localStorage.getItem('access_token');
+      let myMatches = await getMyMatches(accessToken)
+      this.myMatches = myMatches.data
+      console.log(myMatches.data)
+    }
+  },
+  mounted() {
+    this.fillMyMatches()
+  },
 }
 </script>
 
