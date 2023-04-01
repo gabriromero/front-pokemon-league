@@ -1,4 +1,7 @@
 import axios from 'axios'
+
+
+
 import { API_URL, API_URL_LOCAL } from '@/helpers/generalHelper'
 
 // Endpoints
@@ -9,7 +12,9 @@ const myMatchesEndpointApi = axios.create({
 // Methods
 export const getMyMatches = async (access_token) => {    
     const myMatches = await axios.get(API_URL_LOCAL+'/myself/matches', {
-        data:{
+
+        params:{
+
             jornada: 2
         },
         headers: {
@@ -19,3 +24,4 @@ export const getMyMatches = async (access_token) => {
     });
     return myMatches; 
 }
+

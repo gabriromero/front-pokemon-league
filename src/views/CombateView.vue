@@ -7,51 +7,55 @@
         <div class="conjunto-combates">
 
           <div class="mt-4"></div>
-          <div v-for="myMatch in myMatches" :key="myMatch.jornada" class="border-single-match">
+
+
+          <div v-for="(myMatch, index) in myMatches" :key="index" class="border-single-match">
             <div class="single-match container-fluid">
-              <div class="row d-flex align-items-center" v-if="!confirmResult && !confirmedResult">
-                <div class="col-lg-5 trainer-select" v-on:click="confirmResult = !confirmResult">
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" /> {{myMatches.player_1_username}}
+              <div class="row d-flex align-items-center" v-if="!confirmResults[index] && !confirmedResults[index]">
+                <div :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName1(index)">
+                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" /> {{myMatch.player_1_username}}
                 </div>
-                <div class="col-lg-5 trainer-select " v-on:click="confirmResult = !confirmResult">
-                  {{myMatches.player_2_username}} <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
+                <div :id="'player-2-' + index" class="col-lg-5 trainer-select " v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName2(index)">
+                  {{myMatch.player_2_username}} <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
+
+
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">
-                    Sin handicap
+                    {{myMatch.diferencia}}
                   </div>
                 </div>
               </div>
 
               <div class="row d-flex justify-content-center align-items-center"
-                v-else-if="confirmResult && !confirmedResult">
-                <div v-on:click="confirmResult = !confirmResult"
+                v-else-if="confirmResults[index] && !confirmedResults[index]">
+                <div v-on:click="confirmResults[index] = !confirmResults[index]"
                   class="col-lg-2 trainer-select confirming-result confirm-no d-flex justify-content-center align-items-center">
                   No
                 </div>
                 <div id="confirm-message"
                   class="col-lg-8 trainer-select confirming-result d-flex justify-content-center align-items-center">
-                  ¿ Avdalian ha ganado ?
+                  ¿ {{nombrePlayerGanador[index]}} ha ganado ?
                 </div>
                 <div
                   class="col-lg-2 trainer-select confirming-result confirm-yes d-flex justify-content-center align-items-center"
-                  v-on:click="confirmedResult = !confirmedResult">
+                  v-on:click="confirmedResults[index] = !confirmedResults[index]">
                   Si
                 </div>
               </div>
 
               <div class="row d-flex justify-content-center align-items-center border border-dark" v-else>
-                <div
-                  class="col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center winner-text">
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />&nbsp;Avdalian
+                <div 
+                  :class="' '+myMatch.player_1_username === nombrePlayerGanador[index] ? 'col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center winner-text' : 'col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center loser-text'">
+                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />&nbsp;{{myMatch.player_1_username}}
                 </div>
                 <div
                   class="col-lg-1 waiting-confirmation confirming-result d-flex justify-content-center align-items-center">
                   VS
-                </div>
+                </div>                
                 <div
-                  class="col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center loser-text">
-                  Avdalian&nbsp;<img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
+                :class="myMatch.player_2_username+' ' === nombrePlayerGanador[index] ? 'col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center winner-text' : 'col-lg-4 waiting-confirmation confirming-result d-flex justify-content-center align-items-center loser-text'">
+                  {{myMatch.player_2_username}}&nbsp;<img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false" />
                 </div>
                 <div
                   class="col-lg-3 waiting-confirmation confirming-result d-flex justify-content-center align-items-center">
@@ -127,22 +131,46 @@ import {getMyMatches} from '@/api/combate'
 export default {
   data() {
     return {
-      confirmResult: false,
-      confirmedResult: false,
-      myMatches: ''
+
+
+      confirmResults: [],
+      confirmedResults: [],
+      myMatches: '',      
+      nombrePlayerGanador: []
+
     }
   },
   methods: {
     async fillMyMatches() {
       const accessToken = localStorage.getItem('access_token');
       let myMatches = await getMyMatches(accessToken)
-      this.myMatches = myMatches.data
-      console.log(myMatches.data)
+
+      this.myMatches = myMatches.data      
+    },
+
+    obtainPlayerName1(index){
+      const player_1_username = document.getElementById("player-1-" + index).textContent;            
+      this.nombrePlayerGanador[index] = player_1_username;  
+      
+      console.log(this.nombrePlayerGanador[index]);
+      this.confirmResults[index] = true;
+      this.confirmedResults[index] = false;
+     
+    },
+    obtainPlayerName2(index){
+      const player_2_username = document.getElementById("player-2-" + index).textContent;             
+      this.nombrePlayerGanador[index] = player_2_username;      
+      console.log(this.nombrePlayerGanador[index]);  
+      this.confirmResults[index] = true;
+      this.confirmedResults[index] = false;   
+    
+
     }
   },
   mounted() {
     this.fillMyMatches()
   },
+
 }
 </script>
 

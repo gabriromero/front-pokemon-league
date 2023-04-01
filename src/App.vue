@@ -200,8 +200,7 @@ nav a.router-link-exact-active {
   transform: rotate(0deg);
 }
 .popup-overlay {
-  position: fixed;
-  top: -20%;
+  position: fixed;  
   left: 0;
   width: 100%;
   height: 100%;
@@ -209,12 +208,14 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .popup {
   background-color: white;
   padding: 20px;
-  z-index: 9999;
+  position: absolute;
+  top: 20%;
 }
 
 .popup-content {
