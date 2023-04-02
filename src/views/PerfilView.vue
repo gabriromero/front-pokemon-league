@@ -5,25 +5,116 @@
     </p>
     <p class="nombreFicha pl-title text-center border border-dark">Guzzom</p>
   </div>
-  <div class="row">
-    <div class="border border-5 col-sm-2">
-      <Medallas :ladoMedalla="'L'" />
-    </div>
-    <div class="border border-5 col-sm-8"></div>
-    <div class="border border-5 col-sm-2">
-      <Medallas :ladoMedalla="'R'"/>
+  <div class="container">
+    <div class="row row-principal">
+      <div class="medallas-perfil border border-5 col-sm-2">
+        <Medallas :ladoMedalla="'L'" />
+      </div>
+      <div class="selector_div border border-5 col-sm-8">
+        <div class="row selector">
+          <div class="container-perfil">
+            <Selector />
+          </div>
+        </div>
+      </div>
+      <div class="medallas-perfil border border-5 col-sm-2">
+        <Medallas :ladoMedalla="'R'" />
+      </div>
+      <div class="medallas-movil">
+        <div class="row medallas2 border border-5">
+          <Medallas :ladoMedalla="'R'" />
+          <Medallas class="medallas3" :ladoMedalla="'L'" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Selector from "@/components/Selector.vue";
 import Medallas from "@/components/Medallas.vue";
 export default {
-  components: { Medallas },
+  components: { Selector, Medallas },
 };
 </script>
-
-<style>
+<style scoped>
+.container-perfil {
+  height: 100%;
+  width: 80%;
+}
+.medallas2 {
+  transform: rotate(270deg);
+  align-items: center;
+  width: 53.16%;
+}
+.medallas-movil {
+  display: none;
+}
+.medallas2:last-child {
+  transform: rotate(-90deg);
+}
+.medallas3 .medalla {
+  transform: rotate(90deg);
+}
+.medallas2 .medalla {
+  transform: rotate(90deg);
+}
+.row-principal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+.medallas-perfil {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.selector_div {
+  width: fit-content;
+}
+.selector_div {
+  width: 60%;
+}
+@media (orientation: Portrait) {
+  .container-perfil {
+    width: 90%;
+  }
+  .medallas-perfil {
+    display: none;
+  }
+  .selector_div {
+    width: 100%;
+  }
+  .medallas2 {
+    width: 60%;
+  }
+  .medallas-movil {
+    display: inline-flex;
+    align-content: start;
+    align-items: flex-start !important; 
+    justify-content: center;
+  }
+}
+.selector {
+  text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+.container {
+}
+.perfil {
+  border: 1px solid;
+  border-color: grey;
+  border-radius: 15px;
+  background-color: #d9d9d9;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100%;
+}
 .tituloFicha {
   border-radius: 20px;
   width: 75%;
@@ -37,20 +128,12 @@ export default {
   padding: 10px;
   width: fit-content;
 }
-.medallas img {
-  max-width: 100%;
-  height: 60%;
-  min-height: 50%;
-  max-height: 100%;
-  filter: grayscale(1);
-}
+
 .nombreFicha {
   border-radius: 20px;
   margin: 0 auto;
   width: fit-content;
   padding: 15px;
   margin-top: 10px;
-}
-.row {
 }
 </style>

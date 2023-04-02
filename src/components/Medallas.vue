@@ -1,6 +1,6 @@
 <template>
   <div class="medallas panel-body col">
-    <div class="medalla">
+    <div class="medalla ratio ratio-1x1">
       <img
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medalla_Céfiro.png"
@@ -8,14 +8,14 @@
       <img v-else src="@/assets/Medallas/Medalla_Tormenta.png" />
     </div>
 
-    <div class="medalla">
+    <div class="medalla ratio ratio-1x1">
       <img
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medalla_Colmena.png"
       />
       <img v-else src="@/assets/Medallas/Medalla_Mineral.png" />
     </div>
-    <div class="medalla">
+    <div class="medalla ratio ratio-1x1">
       <img
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medalla_Planicie.png"
@@ -23,7 +23,7 @@
       <img v-else src="@/assets/Medallas/Medalla_Glaciar.png" />
     </div>
 
-    <div class="medalla">
+    <div class="medalla ratio ratio-1x1">
       <img
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medalla_Niebla.png"
@@ -61,15 +61,19 @@ export default {
   border: 5px solid;
   border-color: #888686;
   border-radius: 15px;
-  width: 100%;
-  max-width: 100px;
-  height: 100px;
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10%;
-  margin-top: 10%;
+  margin-bottom: 20%;
+  margin-top: 20%;
+  width: 80%;
 }
+img {
+  display: block; 
+  margin: 0 auto; 
+  max-width: 100%; 
+  padding: 20%;
+  filter: grayscale(100%);
+}
+
 
 </style>
