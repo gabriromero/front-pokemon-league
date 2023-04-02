@@ -5,6 +5,7 @@
     </p>
     <p class="nombreFicha pl-title text-center border border-dark">Guzzom</p>
   </div>
+<<<<<<< HEAD
   <div class="container">
     <div class="row row-principal">
       <div class="medallas-perfil border border-5 col-sm-2">
@@ -24,6 +25,14 @@
         <div class="row medallas2 border border-5">
           <Medallas :ladoMedalla="'R'" />
           <Medallas class="medallas3" :ladoMedalla="'L'" />
+=======
+  <div class="row mainContainer">
+    <div class="border border-5 col-sm-2"></div>
+    <div class="border border-5 col-sm-8">
+      <div class="row selector">
+        <div class="container-perfil">
+          <Selector />
+>>>>>>> main
         </div>
       </div>
     </div>
@@ -42,6 +51,7 @@ export default {
   height: 100%;
   width: 80%;
 }
+<<<<<<< HEAD
 .medallas2 {
   transform: rotate(270deg);
   align-items: center;
@@ -78,10 +88,16 @@ export default {
 .selector_div {
   width: 60%;
 }
+=======
+.mainContainer {
+  margin: auto;
+}
+>>>>>>> main
 @media (orientation: Portrait) {
   .container-perfil {
     width: 90%;
   }
+<<<<<<< HEAD
   .medallas-perfil {
     display: none;
   }
@@ -97,6 +113,8 @@ export default {
     align-items: flex-start !important; 
     justify-content: center;
   }
+=======
+>>>>>>> main
 }
 .selector {
   text-align: center;
@@ -104,6 +122,7 @@ export default {
   align-content: center;
   justify-content: space-around;
 }
+<<<<<<< HEAD
 .container {
 }
 .perfil {
@@ -115,6 +134,9 @@ export default {
   margin-right: 5%;
   height: 100%;
 }
+=======
+
+>>>>>>> main
 .tituloFicha {
   border-radius: 20px;
   width: 75%;

@@ -26,12 +26,23 @@
 <script>
 export default {};
 </script>
+
 <style scoped>
 .perfil {
+<<<<<<< HEAD
   border: 1px, solid, black;
   width: 100%;
   margin-left: 0px !important;
   margin-right: 0px !important; 
+=======
+  border: 1px solid;
+  border-color: grey;
+  border-radius: 15px;
+  background-color: #d9d9d9;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100%;
+>>>>>>> main
 }
 row {
   height: 10%;

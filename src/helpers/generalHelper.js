@@ -14,7 +14,7 @@ export function getJornada() {
     const fechaActual = new Date();
     const posicionJornada = horarios_jornada.findIndex(([startDay, finalDay]) => fechaActual >= startDay && fechaActual <= finalDay);
 
-    return posicionJornada === -1 ? -1 : posicionJornada;
+    return posicionJornada === -1 ? -1 : posicionJornada + 1;
 }
 
 export const API_URL = 'https://pokemon-league-api.herokuapp.com'
