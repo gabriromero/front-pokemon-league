@@ -1,5 +1,5 @@
 <template>
-    <div class="firstBorder">
+    <div v-if="!isMondayMorning" class="firstBorder">
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
@@ -20,13 +20,22 @@
             </div>
         </div>
     </div>
+    <div v-else class="text-center">
+        <Contador />
+    </div>
 </template>
 
 <script>
 import {getMatches} from '@/api/home'
+
+
 export default {
+    components: {
+        Contador: () => import('@/components/Contador.vue')
+    },
     data() {
         return {
+            isMondayMorning: true,
             numSeccion: 1,
             matches: [
                 {
