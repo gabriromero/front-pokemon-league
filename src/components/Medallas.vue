@@ -68,12 +68,25 @@ export default {
   width: 80%;
 }
 img {
-  display: block; 
-  margin: 0 auto; 
-  max-width: 100%; 
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
   padding: 20%;
   filter: grayscale(100%);
 }
 
-
+@media (orientation: Portrait) {
+  .medalla {
+    margin-top: 7px;
+    margin-bottom: 0px;
+  }
+  .medallas {
+    height: 110%;
+    margin-left: 2px;
+    margin-right: 0px;
+  }
+  img{
+    transform:rotate(90deg);
+  }
+}
 </style>
