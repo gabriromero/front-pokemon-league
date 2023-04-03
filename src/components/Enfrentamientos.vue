@@ -21,21 +21,36 @@
         </div>
     </div>
     <div v-else class="text-center">
-        <Contador />
+        <Contador :tiempoSiguientesCombates="msUntilMonday" />
     </div>
 </template>
 
 <script>
 import {getMatches} from '@/api/home'
+import Contador from '@/components/Contador.vue';
+
 
 
 export default {
     components: {
-        Contador: () => import('@/components/Contador.vue')
+        Contador
+    },
+    computed: {
+        isMondayMorning() {
+            return this.today.getDay() === 1 && this.today.getHours() < 18
+        },
+        msUntilMonday() {
+            if(this.isMondayMorning){
+                const now = new Date();
+                const msInDay = 86400000;
+                const msUntilMonday = (8 - now.getDay()) % 7 * msInDay + (18 - now.getHours()) * 3600000 - now.getMinutes() * 60000 - now.getSeconds() * 1000 - now.getMilliseconds();
+                return msUntilMonday;
+            }
+        }
     },
     data() {
         return {
-            isMondayMorning: true,
+            today: new Date(),
             numSeccion: 1,
             matches: [
                 {

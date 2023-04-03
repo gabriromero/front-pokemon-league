@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" v-if="!isMondayMorning">
     <img class="img-background" src="@/assets/pokeball_fondo.svg" draggable="false">
     <div id="combate" class="pt-2 container">
       <div>
@@ -140,12 +140,33 @@
       <br /><br />
     </div>
   </div>
+  <div v-else class="text-center">
+    <Contador :tiempoSiguientesCombates="msUntilMonday" />
+  </div>
 </template>
 
 <script>
+import Contador from '@/components/Contador.vue';
 export default {
+  components: {
+    Contador
+  },
+  computed: {
+      isMondayMorning() {
+          return this.today.getDay() === 1 && this.today.getHours() < 18
+      },
+      msUntilMonday() {
+          if(this.isMondayMorning){
+              const now = new Date();
+              const msInDay = 86400000;
+              const msUntilMonday = (8 - now.getDay()) % 7 * msInDay + (18 - now.getHours()) * 3600000 - now.getMinutes() * 60000 - now.getSeconds() * 1000 - now.getMilliseconds();
+              return msUntilMonday;
+          }
+      }
+  },
   data() {
     return {
+      today: new Date(),
       confirmResult: false,
       confirmedResult: false
     }
