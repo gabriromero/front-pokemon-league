@@ -14,7 +14,7 @@
     </div>
     <div class="text-center">
       <router-link class="pl-pages" v-if="isSmallScreen" to="/combate" v-on:click="checkAuth('/combate')">
-        <img class="pl-nav-icon" src="@/assets/combate.png" alt="" />
+        <img class="pl-nav-icon" :class="{ 'navbar-disabled': !isAuthenticated }" src="@/assets/combate.png" alt="" />
       </router-link>
       <router-link class="pl-pages" :class="{ 'navbar-disabled': !isAuthenticated }" v-else to="/combate" v-on:click="checkAuth('/combate')">Combate</router-link>
 
@@ -24,7 +24,7 @@
       <router-link class="pl-pages" v-else to="/normas">Normas</router-link>
 
       <router-link class="pl-pages" v-if="isSmallScreen" to="/perfil" v-on:click="checkAuth('/perfil')">
-        <img class="pl-nav-icon" src="@/assets/trainerPixel.png" alt="" />
+        <img class="pl-nav-icon" :class="{ 'navbar-disabled': !isAuthenticated }" src="@/assets/trainerPixel.png" alt="" />
       </router-link>
       <router-link class="pl-pages" :class="{ 'navbar-disabled': !isAuthenticated }" v-else to="/perfil" v-on:click="checkAuth('/perfil')">Perfil</router-link>
     </div>
@@ -225,7 +225,7 @@ nav a.router-link-exact-active {
 }
 
 .navbar-disabled {
-  color: rgb(186, 183, 183)
+  filter: opacity(0.2);
 }
 
 .incorrect-credentials{

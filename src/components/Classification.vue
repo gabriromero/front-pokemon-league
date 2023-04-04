@@ -28,7 +28,40 @@ export default {
 
   data() {
     return{      
-      players: ''
+      players: [
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        },
+        {
+          "matches_won": 0,
+          "username": "---"
+        }
+      ]
     }
   },
   methods: {
