@@ -10,21 +10,12 @@
               <th></th>
               <th></th>
             </tr>
-            <tr>
-              <td class="nombreRuta">Pueblo Primavera</td>
-              <td class="nombreRuta">Ruta 29</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ciudad Cerezo</td>
-              <td class="nombreRuta">Ruta 30</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ruta 46</td>            
-              <td class="nombreRuta">Cueva Oscura</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ruta 31</td>
-              <td class="nombreRuta">Ciudad Malva</td>              
+            <tr v-for="(ruta, index) in rutas" :key="index">
+              <template v-if="index % 2 == 0">
+                <td class="nombreRuta">{{ ruta }}</td>
+                <td v-if="index < rutas.length - 1" class="nombreRuta">{{ rutas[index + 1] }}</td>
+                <td v-else></td>
+              </template>
             </tr>
           </table>
         </div>
@@ -33,8 +24,17 @@
   </div>
 </template>
   
- <script>
-export default {};
+<script>
+
+import {normasRuta} from "@/helpers/generalHelper.js";
+
+export default {
+  data() {
+    return {
+      rutas: normasRuta["nuevasRutas"]
+    }
+  },
+};
 </script>
   
 <style scoped>

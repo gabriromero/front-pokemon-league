@@ -4,10 +4,10 @@
       <div class="col-lg-6">
         <div class="row">
           <div class="col-sm-6">
-            <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>
+            <Limites :titulo="'STATS MÁXIMOS'" :rango="`0 - ${statsMaximos}`"></Limites>
           </div>
           <div class="col-sm-6">
-            <Limites :titulo="'EV`s MÁXIMOS'" :rango="'0 - 75'"></Limites>
+            <Limites :titulo="'EVs MÁXIMOS'" :rango="`0 - ${evsMaximos}`"></Limites>
           </div>
         </div>
         <div>
@@ -32,7 +32,15 @@ import NivelesEquipo from "@/components/NivelesEquipo.vue";
 import ZonasCaptura from "@/components/ZonasCaptura.vue";
 import NuevasRutas from "@/components/NuevasRutas.vue";
 
+import {normasRuta} from "@/helpers/generalHelper.js";
+
 export default {
+  data() {
+    return {
+      statsMaximos : normasRuta["statsMaximos"],
+      evsMaximos : normasRuta["evsMaximos"]
+    };
+  },
   components: {
     Limites,
     Stats,

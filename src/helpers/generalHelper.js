@@ -20,19 +20,9 @@ const statsMaximos = {
     5:500, 6:600, 7:700, 8:"MAX"
 }
 
-const numeroPokemon = {
-    1:2, 2:3, 3:3, 4:3, 
-    5:4, 6:5, 7:5, 8:6
-}
-
 const nivelesPokemon = {
-    1: [12,13,14], 2: [15,16,17], 3: [18,19,20], 4: [21,22,23], 
+    1: [12], 2: [15,16,17], 3: [18,19,20], 4: [21,22,23,32,22,1], 
     5: [24,25,26], 6: [27,28,29], 7: [30,31,32], 8: [33,34,35]
-}
-
-const mapas = {
-    1: "mapa1", 2: "mapa2", 3: "mapa3", 4: "mapa4", 
-    5: "mapa5", 6: "mapa6", 7: "mapa7", 8: "mapa8"
 }
 
 const nuevasRutas = {
@@ -50,9 +40,8 @@ const handicaps = {
 export const normasRuta = {
     "evsMaximos": evsMaximos[getJornada()],
     "statsMaximos": statsMaximos[getJornada()],
-    "numeroPokemon": numeroPokemon[getJornada()],
     "nivelesPokemon": nivelesPokemon[getJornada()],
-    "mapa": mapas[getJornada()],
+    "numeroPokemon": nivelesPokemon[getJornada()].length,
     "nuevasRutas": nuevasRutas[getJornada()]
 }
 

@@ -4,7 +4,7 @@
     
     <div class="divBackground">
         <div class="insideDiv">
-            <img id="map" class="img-fluid p-3 w-100" src="@/assets/mapa.png" alt="">
+            <img id="map" class="img-fluid p-3 w-100" :src="require(`@/assets/mapas/mapa_j${jornada}.png`)" alt="">
         </div>
     </div>
 
@@ -13,8 +13,13 @@
 </template>
 
 <script>
+import {getJornada} from "@/helpers/generalHelper.js";
 export default {
-
+  data() {
+    return {
+      jornada: getJornada(),
+    };
+  }
 }
 </script>
 
