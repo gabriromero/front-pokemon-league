@@ -14,11 +14,11 @@
           <div v-for="(myMatch, index) in myMatches" :key="index" v-show="!(myMatch.player_1_finished == 1 && myMatch.player_2_finished == 1)" class="border-single-match">
             <div class="single-match container-fluid">
               <div class="row d-flex align-items-center" v-if="!hasMarkedResult(myMatch) && (!confirmResults[index] && !confirmedResults[index])">
-                <div :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName1(index, myMatch.player_1_username);">
+                <div :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_1_username);">
                   <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false"/>
                   {{ myMatch.player_1_username }}
                 </div>
-                <div :id="'player-2-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName2(index, myMatch.player_2_username);">
+                <div :id="'player-2-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_2_username);">
                   {{ myMatch.player_2_username }}
                   <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false"/>
                 </div>
@@ -162,15 +162,8 @@ export default {
       });
     },
 
-    obtainPlayerName1(index, player_1_username) {            
-      this.nombrePlayerGanador = player_1_username;
-      console.log(this.nombrePlayerGanador);
-      this.confirmResults[index] = true;
-      this.confirmedResults[index] = false;
-    },
-    obtainPlayerName2(index, player_2_username) {      
-      this.nombrePlayerGanador = player_2_username;
-      console.log(this.nombrePlayerGanador);
+    obtainPlayerName(index, player_username) {
+      this.nombrePlayerGanador = player_username;      
       this.confirmResults[index] = true;
       this.confirmedResults[index] = false;
     },
@@ -178,10 +171,10 @@ export default {
     hasMarkedResult(myMatch){      
             
       //estos 2 ifs es por si alguien ya ha asignado ganador
-      if(this.myUser.username == myMatch.player_1_username && (myMatch.player_1_finished == 1 && myMatch.player_2_finished == 0)){
+      if(this.myUser.username == myMatch.player_1_username && (myMatch.player_1_finished == 1)){
         return true;        
       }
-      else if(this.myUser.username == myMatch.player_2_username && (myMatch.player_2_finished == 1 && myMatch.player_1_finished == 0)){
+      else if(this.myUser.username == myMatch.player_2_username && (myMatch.player_2_finished == 1)){
         return true;
       }      
       
