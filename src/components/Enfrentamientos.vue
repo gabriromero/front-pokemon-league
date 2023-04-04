@@ -28,7 +28,120 @@ export default {
     data() {
         return {
             numSeccion: 1,
-            matches: ''
+            matches: [
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                },
+                {
+                    "jornada": 1,
+                    "player_1_finished": false,
+                    "player_1_username": "---",
+                    "player_2_finished": false,
+                    "player_2_username": "---",
+                    "result": "---"
+                }
+            ]
         }
     },
     methods: {

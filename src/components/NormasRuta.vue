@@ -11,14 +11,15 @@
           </div>
         </div>
         <div>
-          <Stats/>
-          <NivelesEquipo/>
+          <Stats />
+          <NivelesEquipo />
         </div>
       </div>
       <div class="col-lg-6 d-flex justify-content-center">
         <div class="lateral-padding">
-          <ZonasCaptura/>
-        </div>  
+          <ZonasCaptura />
+          <NuevasRutas />
+        </div>
       </div>
     </div>
   </div>
@@ -29,6 +30,7 @@ import Limites from "@/components/Limites.vue";
 import Stats from "@/components/Stats.vue";
 import NivelesEquipo from "@/components/NivelesEquipo.vue";
 import ZonasCaptura from "@/components/ZonasCaptura.vue";
+import NuevasRutas from "@/components/NuevasRutas.vue";
 
 export default {
   components: {
@@ -36,6 +38,7 @@ export default {
     Stats,
     NivelesEquipo,
     ZonasCaptura,
+    NuevasRutas,
   },
 };
 </script>
@@ -49,11 +52,10 @@ export default {
   .backgroundNormasRuta {
     padding-left: 25px;
   }
-
 }
 
 @media screen and (min-width: 600px) {
-  .lateral-padding{
+  .lateral-padding {
     padding-left: 5vh;
     padding-right: 5vh;
   }
