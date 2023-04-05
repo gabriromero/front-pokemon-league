@@ -6,11 +6,11 @@
       <div class="row">
         <div v-for="(item, index) in nivelesPokemon" :key="index" class="imgDiv col-4 col-sm-2">
           <img class="pokemon-visible" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">{{item}}</p>
+          <p class="label-nivel-1 mb-2">{{item}}</p>
         </div>
         <div v-for="n in difference" :key="n" class="imgDiv col-4 col-sm-2">
           <img class="pokemon-blur" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">-</p>
+          <p class="label-nivel-1 mb-2">-</p>
         </div>
       </div>
     </div>
