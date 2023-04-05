@@ -147,7 +147,7 @@ export default {
 }
 
 .general-padding{
-  padding: 0 3%;;
+  padding: 0 3%;
 }
 
 /* Navbar stuff */

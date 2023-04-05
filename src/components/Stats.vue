@@ -5,34 +5,32 @@
     <div class="col-xl-4">
       <div class="imgDiv">
         <img class="imgClass" id="imgId" :src="imageUrl" />
-      </div>
-      <div
-        v-if="pokemonTypes.length === 1"
-        class="row"
-        style="margin-top: 10px"
-      >
-        <div class="imgTiposSolo1 col-sm-12 col-12">
-          <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
+        <div
+          v-if="pokemonTypes.length === 1"
+          class="col-6 center-vertical"
+          style="position:absolute; top: 95%"
+        >
+          <div class="imgTiposSolo1 col-sm-12 col-12">
+            <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
+          </div>
+        </div>
+        <div
+          v-else-if="pokemonTypes.length === 2"
+          class="col-6 center-vertical"
+          style="position:absolute; top: 95%"
+        >
+          <div class="imgTipos col-sm-6 col-6">
+            <img class="pkmTypeImg" :src="rutaImgType1" />
+          </div>
+          <div class="imgTipos col-sm-6 col-6">
+            <img class="pkmTypeImg" :src="rutaImgType2" />
+          </div>
         </div>
       </div>
-      <div
-        v-else-if="pokemonTypes.length === 2"
-        class="row"
-        style="margin-top: 10px"
-      >
-        <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" :src="rutaImgType1" />
-        </div>
-        <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" :src="rutaImgType2" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 col-12 text-center">STATS</div>
-        <div class="divStatsBase">
-          <div class="divStatsBaseInside">
-            <p class="valorStatBase">{{ sumaBaseStats }}</p>
+      <div class="center-vertical mt-4" style="display: block;">
+        <div class="divBackground">
+          <div class="insideDiv">
+            <p class="maxStats">{{ sumaBaseStats }}</p>
           </div>
         </div>
       </div>
@@ -48,7 +46,6 @@
                 v-model="selectedPokemon"
                 :options="pokemonList"
                 id="pokemon-select"
-                v-force-update="selectedPokemon"
                 :key = "key"
               />
             </div>
@@ -93,10 +90,11 @@
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
+import Limites from "@/components/Limites.vue";
 import { API_PKM } from "@/helpers/generalHelper";
 
 export default defineComponent({
-  components: { Select2 },
+  components: { Select2, Limites },
   data() {
     return {
       key: 1,
@@ -336,6 +334,13 @@ export default defineComponent({
   vertical-align: middle;
 }
 
+.center-vertical{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 601px) {
   .title {
     font-size: 15px;
@@ -371,5 +376,27 @@ export default defineComponent({
   .divStatsBase {
     margin-bottom: 15px;
   }
+}
+
+.divBackground {
+  background-color: #C2BDBD;
+  border: 2px solid;
+  border-radius: 15px 15px 15px 15px;  
+  margin-bottom: 5%;
+}
+
+.insideDiv {
+  background-color: white;
+  border: 2px solid;
+  border-radius: 15px 15px 15px 15px;
+  height: auto;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+.maxStats {
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 0;
 }
 </style>
