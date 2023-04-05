@@ -6,7 +6,7 @@
         <div class="row mt-3 ">
           <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Mercado negro</button>
           <button class="col-sm-4 secciones" v-on:click="numSeccion = 2">Límite Stats/EVs</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Cambios permitidos</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Cambios y crianza</button>
         </div>
 
         <div class="row">
@@ -15,11 +15,21 @@
           <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Objetos y capturas</button>
         </div>
 
-        <div class="border-example framed mt-4">
+        <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: #9eacad;">
           <div v-if="numSeccion == 1">
-            <h4><u>Sección 1</u></h4>
+            <h4><b><u>Mercado negro</u></b></h4>
             <div class="mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p class="mb-4">El uso del Mercado Negro solo será permitido cuando se 
+              utilice para ahorrar tiempo y dinero.</p>
+              <h6><b><u>Pokémon</u></b></h6>
+              <p>Queda totalmente prohibido la compra de absolutamente cualquier Pokémon.</p>
+              <h6><b><u>Objetos</u></b></h6>
+              <p><i>Está prohibida la compra de cualquier objeto a excepción de:</i></p>
+              <p>1. Todos los objetos que estén a la venta en Tienda Pokémon o Centro Comercial disponibles en las rutas determinadas en el mapa.</p>
+              <p>2. Carameloraros</p>
+              <p>3. Vitaminas</p>
+              <p>4. Bayas reductoras de EVs</p>
+              <p>5. Campana alivio</p>
             </div>
           </div>
 
@@ -37,10 +47,12 @@
             </div>
           </div>
 
-          <div v-if="numSeccion == 4">
-            <h4><u>Sección 4</u></h4>
+          <div v-if="numSeccion == 4" >
+            <h4><b> <u>Capturas de pantalla</u></b></h4>
             <div class="mt-3">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+              <p style="">Al contrario que en otras ediciones, en esta no es obligatorio hacer captura de pantalla para validar tu equipo antes de un combate.</p><br>
+              <p>Sin embargo, ambos jugadores pueden pedir una captura de pantalla para comprobar que el equipo es válido al acabar el combate.</p><br>
+              <p>Cabe destacar que el hecho de pedir una captura de pantalla no implica desconfianza si no favorecer a que el combate sea limpio y evitar irregularidades no intencionadas.</p>
             </div>
           </div>
 
@@ -98,6 +110,11 @@ export default {
 
 .main {
   margin: 0 5%;
+}
+
+.padding-sides{
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 
