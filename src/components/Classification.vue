@@ -9,8 +9,8 @@
               <th>
                 <img class="trainerImage" src="@/assets/trainerPixel.png" />
               </th>
-              <td class="trainerName">{{ player.username }}</td>
-              <th>
+              <td class="trainerName fontAdaptative">{{ player.username }}</td>
+              <th class="medalAlign">
                 <img v-if="index == 0" class="trainerMedal" src="@/assets/goldMedal.png" />
                 <img v-else-if="index == 1" class="trainerMedal" src="@/assets/silverMedal.png" />
                 <img v-else-if="index == 2" class="trainerMedal" src="@/assets/bronzeMedal.png" />
@@ -98,6 +98,10 @@ export default {
   text-align: center;
 }
 
+.medalAlign{
+  text-align: right;
+}
+
 .grayBackColor {
   background-color: #d4d4d4;
 }
@@ -177,5 +181,11 @@ th {
     background-color: #FFFFFF;
     max-height: 400px;
     overflow-y: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .fontAdaptative {
+        font-size: 12px;
+    }
 }
 </style>

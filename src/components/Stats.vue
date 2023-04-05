@@ -29,7 +29,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-12 col-12">STATS BASE:</div>
+        <div class="col-lg-12 col-12 text-center">STATS</div>
         <div class="divStatsBase">
           <div class="divStatsBaseInside">
             <p class="valorStatBase">{{ sumaBaseStats }}</p>
@@ -48,6 +48,8 @@
                 v-model="selectedPokemon"
                 :options="pokemonList"
                 id="pokemon-select"
+                v-force-update="selectedPokemon"
+                :key = "key"
               />
             </div>
           </div>
@@ -95,6 +97,11 @@ import { API_PKM } from "@/helpers/generalHelper";
 
 export default defineComponent({
   components: { Select2 },
+  data() {
+    return {
+      key: 1,
+    };
+  },
   setup() {
     //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
     const pokemonList = ref([]);
@@ -180,11 +187,18 @@ export default defineComponent({
 
   mounted() {
     this.getPokemonList();
+    window.addEventListener('resize', this.handleResize);
   },
   watch: {
     //método que observa cambios en el componente. En este caso, cuando hay un cambio en la variable 'selectedPôkemon' ejecuta updateImage() para cambiar la imagen del div
     selectedPokemon: function () {
       this.updateCaracterisiticas();
+    },
+  },
+  methods: {
+    handleResize() {
+      // Actualizar la clave del componente para forzar el re-renderizado
+      this.key += 1;
     },
   },
 });
@@ -278,7 +292,7 @@ export default defineComponent({
 .labelVelocidad,
 .labelAtEsp,
 .labelDefEsp {
-  margin-top: 33px;
+  margin-top: 2%;
   padding-left: 20px;
   font-weight: bold;
   font-size: 1.2em;
@@ -293,7 +307,7 @@ export default defineComponent({
 .statVelocidad,
 .statAtEsp,
 .statDefEsp {
-  margin-top: 33px;
+  margin-top: 2%;
   text-align: center;
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;

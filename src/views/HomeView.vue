@@ -4,11 +4,11 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-xl-4 col-lg-5">
           <p class="mt-3 text-center">CLASIFICACIÓN</p>
           <Classification />
         </div>
-        <div class="col-lg-8">
+        <div class="col-xl-8 col-lg-7">
           <p class="mt-3 text-center" >JORNADA 1</p>
           <Enfrentamientos />
         </div>
