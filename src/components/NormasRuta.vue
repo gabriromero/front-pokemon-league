@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="row">
-          <div class="col-sm-6">
-            <Limites :titulo="'STATS MÁXIMOS'" :rango="`0 - ${statsMaximos}`"></Limites>
+          <div class="col-6">
+            <Limites :titulo="'STATS MÁXIMOS'" :rango="`${statsMaximos}`"></Limites>
           </div>
-          <div class="col-sm-6">
-            <Limites :titulo="'EVs MÁXIMOS'" :rango="`0 - ${evsMaximos}`"></Limites>
+          <div class="col-6">
+            <Limites :titulo="'EVs MÁXIMOS'" :rango="`${evsMaximos}`"></Limites>
           </div>
         </div>
         <div>
