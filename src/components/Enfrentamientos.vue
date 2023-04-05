@@ -24,6 +24,7 @@
 
 <script>
 import {getMatches} from '@/api/home'
+import { getJornada } from '@/helpers/generalHelper'
 export default {
     data() {
         return {
@@ -147,7 +148,7 @@ export default {
     methods: {
         async fillMatches() {
             let matches = await getMatches()
-            let filteredMatches = matches.data.filter(match => match.jornada === 1) //Será cambiado por getJornada()
+            let filteredMatches = matches.data.filter(match => match.jornada === getJornada())
             this.matches = filteredMatches
         }
 
