@@ -4,15 +4,15 @@
     <div class="mt-5">
       <div class="main">
         <div class="row mt-3 ">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Sección 1</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 2">Sección 2</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Sección 3</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Mercado negro</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 2">Límite Stats/EVs</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Cambios permitidos</button>
         </div>
 
         <div class="row">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 4">Sección 4</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 5">Sección 5</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Sección 6</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 4">Capturas de pantalla</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 5">Handicaps</button>
+          <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Objetos y capturas</button>
         </div>
 
         <div class="border-example framed mt-4">
