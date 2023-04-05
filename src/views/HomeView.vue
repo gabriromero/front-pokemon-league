@@ -4,19 +4,19 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-lg-4 border">
-          <p class="pl-title text-center">CLASIFICACIÓN</p>
+        <div class="col-lg-4">
+          <p class="mt-3 text-center">CLASIFICACIÓN</p>
           <Classification />
         </div>
-        <div class="col-lg-8 border">
-          <p class="jornadaTitle text-center" >JORNADA 1</p>
+        <div class="col-lg-8">
+          <p class="mt-3 text-center" >JORNADA 1</p>
           <Enfrentamientos />
         </div>
       </div>
 
-      <div class="row border">
+      <div class="row">
         <div>
-          <p class="pl-title text-center">RUTA JORNADA 1</p>
+          <p class="mt-4 text-center">RUTA JORNADA 1</p>
           <NormasRuta />
         </div>
       </div>
@@ -42,14 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.pl-title {
-  font-size: 1.3em;
-  padding-top: 5%;
-}
-
-.jornadaTitle{
-  font-size: 1.3em;
-  padding-top: 2.2%;
-}
 
 </style>
