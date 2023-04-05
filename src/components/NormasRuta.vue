@@ -4,10 +4,10 @@
       <div class="col-lg-6">
         <div class="row">
           <div class="col-6">
-            <Limites :titulo="'STATS MÁXIMOS'" :rango="`${statsMaximos}`"></Limites>
+            <Limites :titulo="'STATS MÁX'" :rango="`${statsMaximos}`"></Limites>
           </div>
           <div class="col-6">
-            <Limites :titulo="'EVs MÁXIMOS'" :rango="`${evsMaximos}`"></Limites>
+            <Limites :titulo="'EVs MÁX'" :rango="`${evsMaximos}`"></Limites>
           </div>
         </div>
         <div>
