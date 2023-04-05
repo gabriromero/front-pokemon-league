@@ -41,9 +41,14 @@
           </div>
 
           <div v-if="numSeccion == 3">
-            <h4><u>Sección 3</u></h4>
+            <h4><b><u>Cambios y crianza</u></b></h4>
             <div class="mt-3">
-              But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+              <h6 class="mt-3"><b><u>Cambios</u></b></h6>
+              <p>Solo se permitirá hacer un cambio de Pokémon en el equipo respecto al equipo utilizado en la jornada anterior.</p>
+              <p>Se podrá capturar Pokémon salvaje de la misma especie que su Pokémon inicial para evitar tener un inicial neutro.</p>
+              <h6 class="mt-5"><b><u>Crianza</u></b></h6>
+              <p>La crianza estará disponible a partir de la <b>Jornada 6</b>.</p>
+              <p>Los Pokémon conseguidos a través de crianza solo podrán tener como máximo 2 stats con los IVs al 31.</p>
             </div>
           </div>
 
@@ -64,9 +69,10 @@
           </div>
 
           <div v-if="numSeccion == 6">
-            <h4><u>Sección 6</u></h4>
+            <h4><b><u>Objetos y capturas</u></b></h4>
             <div class="mt-3">
-              {{players}}
+              <p><b>Equipar</b> objetos para el combate estará permitido a partir de la <b>Jornada 4</b>.</p>
+              <p>Tanto la obtención de objetos como la captura de Pokémon, se realizará exclusivamente en las rutas determinadas en el mapa de cada jornada.</p>
             </div>
           </div>
         </div>
@@ -82,19 +88,9 @@ import {getFakePlayers} from '@/api/home'
 export default {
   data() {
     return{
-      numSeccion: 1,
-      players: ''
+      numSeccion: 3,
     }
   },
-  methods: {
-    async fillPlayers() {
-      let players = await getFakePlayers()
-      this.players = players.data
-    }
-  },
-  mounted() {
-    this.fillPlayers()
-  }
 }
 </script>
 
