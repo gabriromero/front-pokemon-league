@@ -2,13 +2,14 @@
   <p class="title">STATS POKÉMON</p>
 
   <div class="row">
-    <div class="col-xl-4">
+    <div class="col-4">
       <div class="imgDiv">
         <img class="imgClass" id="imgId" :src="imageUrl" />
+      </div>
+      <div class="row">
         <div
           v-if="pokemonTypes.length === 1"
-          class="col-6 center-vertical"
-          style="position:absolute; top: 95%"
+          class="col-12 center-vertical"
         >
           <div class="imgTiposSolo1 col-sm-12 col-12">
             <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
@@ -16,18 +17,17 @@
         </div>
         <div
           v-else-if="pokemonTypes.length === 2"
-          class="col-6 center-vertical"
-          style="position:absolute; top: 95%"
+          class="center-vertical"
         >
-          <div class="imgTipos col-sm-6 col-6">
+          <div class="imgTipos col-6">
             <img class="pkmTypeImg" :src="rutaImgType1" />
           </div>
-          <div class="imgTipos col-sm-6 col-6">
+          <div class="imgTipos col-6">
             <img class="pkmTypeImg" :src="rutaImgType2" />
           </div>
         </div>
       </div>
-      <div class="center-vertical mt-4" style="display: block;">
+      <div class="center-vertical mt-2" style="display: block;">
         <div class="divBackground">
           <div class="insideDiv">
             <p class="maxStats">{{ sumaBaseStats }}</p>
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="namePkmDiv col-xl-8 col-12">
+    <div class="namePkmDiv col-8">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -365,6 +365,10 @@ export default defineComponent({
     display: flex;
     align-content: center;
     align-items: center;
+  }
+
+  .namePkmDiv{
+    font-size: 0.6em;
   }
 
   .divStatsBase {
