@@ -1,8 +1,8 @@
 <template>
-  <p class="title">STATS POKÉMON</p>
+  <p class="title text-center">STATS POKÉMON</p>
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 ">
       <div class="imgDiv">
         <img class="imgClass" id="imgId" :src="imageUrl" />
       </div>
@@ -266,11 +266,10 @@ export default defineComponent({
 }
 
 .buscadorPkmBackgroundDiv {
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: #c2bdbd;
   width: 97.5%;
-  margin-left: 10px;
 }
 
 .buscadorPkmInsideDiv {
@@ -290,10 +289,9 @@ export default defineComponent({
 .labelVelocidad,
 .labelAtEsp,
 .labelDefEsp {
-  margin-top: 2%;
+  margin-top: 4%;
   padding-left: 20px;
   font-weight: bold;
-  font-size: 1.2em;
   display: flex;
   align-content: center;
   align-items: center;
@@ -305,12 +303,12 @@ export default defineComponent({
 .statVelocidad,
 .statAtEsp,
 .statDefEsp {
-  margin-top: 2%;
+  margin-top: 4%;
   text-align: center;
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: white;
-  font-size: 1.2em;
+  margin-left: -10px;
 }
 
 .divStatsBase {
@@ -361,7 +359,6 @@ export default defineComponent({
   .labelAtEsp,
   .labelDefEsp {
     font-size: 0.9em;
-    padding-left: 0px;
     display: flex;
     align-content: center;
     align-items: center;

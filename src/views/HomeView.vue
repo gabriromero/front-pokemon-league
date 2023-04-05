@@ -16,7 +16,7 @@
 
       <div class="row">
         <div>
-          <p class="mt-4 text-center">RUTA JORNADA 1</p>
+          <p class="mt-5 text-center">RUTA JORNADA 1</p>
           <NormasRuta />
         </div>
       </div>

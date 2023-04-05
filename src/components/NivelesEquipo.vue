@@ -1,14 +1,14 @@
 <template>
-  <p class="title">NIVELES EQUIPO POKÉMON</p>
+  <p class="title text-center mt-4">NIVELES EQUIPO POKÉMON</p>
 
   <div class="divBackground">
     <div class="insideDiv">
       <div class="row">
-        <div v-for="(item, index) in nivelesPokemon" :key="index" class="imgDiv col-xl-2 col-4">
+        <div v-for="(item, index) in nivelesPokemon" :key="index" class="imgDiv col-4 col-sm-2">
           <img class="pokemon-visible" src="@/assets/pokeballSprite.png" />
           <p class="label-nivel-1">{{item}}</p>
         </div>
-        <div v-for="n in difference" :key="n" class="imgDiv col-xl-2 col-4">
+        <div v-for="n in difference" :key="n" class="imgDiv col-4 col-sm-2">
           <img class="pokemon-blur" src="@/assets/pokeballSprite.png" />
           <p class="label-nivel-1">-</p>
         </div>
@@ -54,12 +54,12 @@ export default {
 
 .pokemon-visible {
   width: 70%;
-  height: 70%;
+  height: auto;
 }
 
 .pokemon-blur {
   width: 70%;
-  height: 70%;
+  height: auto;
   filter: blur(3px) grayscale(100%);
 }
 
@@ -70,6 +70,13 @@ export default {
 
 .imgDiv {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 12px;
+    margin-top: 15px;
+  }
 }
 
 </style>

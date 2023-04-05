@@ -1,5 +1,5 @@
 <template>
-  <div class="backgroundNormasRuta container-fluid general-padding">
+  <div class="backgroundNormasRuta container-fluid ">
     <div class="row">
       <div class="col-lg-6">
         <div class="row">
@@ -54,10 +54,6 @@ export default {
 <style scoped>
 .backgroundNormasRuta {
   background-color: #d4d4d4;
-}
-
-.general-padding{
-  padding: 0 3%;
 }
 
 @media screen and (max-width: 600px) {
