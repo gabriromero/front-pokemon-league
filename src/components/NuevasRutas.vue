@@ -3,21 +3,14 @@
     <p class="title text-center">NUEVAS RUTAS</p>
 
     <div class="divBackground">
-      <div class="insideDiv">
-        <div class="divRutas">
-          <table style="width: 100%; ">
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-            <tr v-for="(ruta, index) in rutas" :key="index">
-              <template v-if="index % 2 == 0">
-                <td class="nombreRuta">{{ ruta }}</td>
-                <td v-if="index < rutas.length - 1" class="nombreRuta">{{ rutas[index + 1] }}</td>
-                <td v-else></td>
-              </template>
-            </tr>
-          </table>
+      <div class="insideDiv p-3">
+        <div class="container">
+          <div class="row nombreRuta">
+            <div v-for="(grupo, index) in grupos" :key="index" class="col-md-6 col-12">
+              <div v-if="grupo[0]" class="ruta">{{ grupo[0] }}</div>
+              <div v-if="grupo[1]" class="ruta">{{ grupo[1] }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -34,6 +27,19 @@ export default {
       rutas: normasRuta["nuevasRutas"]
     }
   },
+  computed: {
+    grupos() {
+      let grupos = [];
+      for (let i = 0; i < this.rutas.length; i += 2) {
+        if (i === this.rutas.length - 1) {
+          grupos.push([this.rutas[i]]);
+        } else {
+          grupos.push([this.rutas[i], this.rutas[i + 1]]);
+        }
+      }
+      return grupos;
+    }
+  }
 };
 </script>
   
@@ -65,64 +71,19 @@ export default {
 
 .nombreRuta {
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 11px;
+  text-align: center;
 }
 
-@media screen and (min-width: 601px) {
-  .title {
-    font-size: 15px;
-    margin-top: 15px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .title {
-    font-size: 12px;
-    margin-top: 15px;
+@media (min-width: 768px) {
+  .ruta {
+    text-align: left;
   }
 }
 
-@media only screen and (max-width: 480px){
-  .divRutas table, 
-  .divRutas thead, 
-  .divRutas tbody, 
-  .divRutas th, 
-  .divRutas td, 
-  .divRutas tr {
-    display: block;    
-  }
-  .divRutas tbody td {
-    text-align: left;    
-  }
-  
-
-  .divRutas tbody td:before {
-    /*content: attr(data-th);*/
-    font-weight: bold;
-    display: inline-block;
-    width: 80px;
-    margin-right: 5px;
-  }
-}
-
-@media only screen and (min-width: 990px) and (max-width: 1200px) {
-  .divRutas table, 
-  .divRutas thead, 
-  .divRutas tbody, 
-  .divRutas th, 
-  .divRutas td, 
-  .divRutas tr {
-    display: block;    
-  }
-  .divRutas tbody td {
-    text-align: left;    
-  }
-  .divRutas tbody td:before {
-    /*content: attr(data-th);*/
-    font-weight: bold;
-    display: inline-block;
-    width: 80px;
-    margin-right: 5px;
+@media (max-width: 768px) {
+  .ruta {
+    text-align: center;
   }
 }
 </style>
