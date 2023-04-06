@@ -9,14 +9,14 @@
           <Classification />
         </div>
         <div class="col-lg-8 border">
-          <p class="jornadaTitle text-center" >JORNADA 1</p>
+          <p class="jornadaTitle text-center" >JORNADA {{ jornadaActual }}</p>
           <Enfrentamientos />
         </div>
       </div>
 
       <div class="row border">
         <div>
-          <p class="pl-title text-center">RUTA JORNADA 1</p>
+          <p class="pl-title text-center">RUTA JORNADA {{ jornadaActual }}</p>
           <NormasRuta />
         </div>
       </div>
@@ -31,13 +31,20 @@ import Classification from '@/components/Classification.vue'
 import Enfrentamientos from '@/components/Enfrentamientos.vue'
 import NormasRuta from '@/components/NormasRuta.vue'
 
+import { getJornada } from '@/helpers/generalHelper'
+
 export default {
   name: 'HomeView',
   components: {
     Classification, 
     Enfrentamientos, 
     NormasRuta
-  }
+  },
+  data () {
+    return {
+      jornadaActual: getJornada()
+    }
+  },
 }
 </script>
 
