@@ -61,4 +61,8 @@ export default {
    }
 }
 
+.img-fluid {
+  width: 100%;
+}
+
 </style>
