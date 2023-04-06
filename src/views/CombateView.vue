@@ -5,7 +5,7 @@
       src="@/assets/pokeball_fondo.svg"
       draggable="false"
     />
-    <div id="combate" class="pt-2 container">
+    <div v-if="combatesCargados" id="combate" class="pt-2 container">
       <div>
         <h3>COMBATES PENDIENTES</h3>
         <div class="conjunto-combates">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">
-                    {{ myMatch.diferencia }}
+                    {{ getHandicap(myMatch.diferencia) }}
                   </div>
                 </div>
               </div>
@@ -108,6 +108,8 @@
 import { getMyMatches } from "@/api/combate";
 import { postMarkResultMyMatches } from "@/api/combate";
 import { getMyselfProfile } from "@/api/shared";
+import { getHandicap } from "@/helpers/generalHelper.js";
+
 export default {
   data() {
     return {
@@ -116,20 +118,24 @@ export default {
       myMatches: "",
       myMatchesUpdated: "",           
       nombrePlayerGanador: '',
-      myUser: '',      
+      myUser: '',
+      combatesCargados: false,    
     };
   },
   methods: {
+    getHandicap,
     async fillMyMatches() {
       const accessToken = localStorage.getItem("access_token");
       let myMatches = await getMyMatches(accessToken);
-      this.myMatches = myMatches.data;      
+      this.myMatches = myMatches.data;     
+      this.combatesCargados = true; 
     },
 
     async fillMyMatchesUpdated() {
       const accessToken = localStorage.getItem("access_token");
       let myMatches = await getMyMatches(accessToken);      
-      this.myMatchesUpdated = myMatches.data;      
+      this.myMatchesUpdated = myMatches.data;
+      this.combatesCargados = true;  
     },
 
     async fillMyUser(){
