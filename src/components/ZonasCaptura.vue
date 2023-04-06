@@ -4,7 +4,7 @@
     
     <div class="divBackground">
         <div class="insideDiv">
-            <img id="map" class="img-fluid p-3 w-100" :src="require(`@/assets/mapas/mapa_j${jornada}.png`)" alt="">
+            <img id="map" class="img-fluid p-1" style="border-radius: 15px;" :src="require(`@/assets/mapas/mapa_j${jornada}.png`)" alt="">
         </div>
     </div>
 
@@ -59,6 +59,10 @@ export default {
     font-size: 12px;
     margin-top: 15px;
    }
+}
+
+.img-fluid {
+  width: 100%;
 }
 
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div class="backgroundNormasRuta container-fluid">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 lateral-padding">
         <div class="row">
-          <div class="col-sm-6">
-            <Limites :titulo="'STATS MÁXIMOS'" :rango="`0 - ${statsMaximos}`"></Limites>
+          <div class="col-6">
+            <Limites :titulo="'STATS MÁX'" :rango="`${statsMaximos}`"></Limites>
           </div>
-          <div class="col-sm-6">
-            <Limites :titulo="'EVs MÁXIMOS'" :rango="`0 - ${evsMaximos}`"></Limites>
+          <div class="col-6">
+            <Limites :titulo="'EVs MÁX'" :rango="`${evsMaximos}`"></Limites>
           </div>
         </div>
         <div>
@@ -15,8 +15,8 @@
           <NivelesEquipo />
         </div>
       </div>
-      <div class="col-lg-6 d-flex justify-content-center">
-        <div class="lateral-padding">
+      <div class="col-lg-6 lateral-padding">
+        <div>
           <ZonasCaptura />
           <NuevasRutas />
         </div>
@@ -56,16 +56,8 @@ export default {
   background-color: #d4d4d4;
 }
 
-@media screen and (max-width: 600px) {
-  .backgroundNormasRuta {
-    padding-left: 25px;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .lateral-padding {
-    padding-left: 5vh;
-    padding-right: 5vh;
-  }
+.lateral-padding {
+  padding-left: 5vh;
+  padding-right: 5vh;
 }
 </style>

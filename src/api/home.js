@@ -3,7 +3,7 @@ import {API_URL} from '@/helpers/generalHelper'
 
 // Endpoints
 const fakeEndpointApi = axios.create({
-    baseURL: API_URL + '/fake/classification'
+    baseURL: API_URL + '/classification'
 })
 
 const loginEndpointApi = axios.create({
@@ -11,7 +11,7 @@ const loginEndpointApi = axios.create({
 })
     
 const matchesEndpointApi = axios.create({
-    baseURL: API_URL + '/fake/matches'
+    baseURL: API_URL + '/matches'
 })
 
 // Methods

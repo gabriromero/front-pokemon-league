@@ -45,7 +45,7 @@
     </div>
   
 
-  <router-view class="mt-5" />
+  <router-view class="mt-5 general-padding"/>
 </template>
 
 <script>
@@ -144,6 +144,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.general-padding{
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 /* Navbar stuff */
