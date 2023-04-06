@@ -53,33 +53,33 @@
       </div>
 
       <div class="row">
-        <div class="labelPS col-sm-9 col-6">PS</div>
-        <div class="statPS col-sm-3 col-6">{{ baseStatsPs }}</div>
+        <div class="labelPS col-9">PS</div>
+        <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
       <div class="row">
-        <div class="labelAtaque col-sm-9 col-6">ATAQUE</div>
-        <div class="statAtaque col-sm-3 col-6">{{ baseStatsAt }}</div>
+        <div class="labelAtaque col-9">ATAQUE</div>
+        <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
       <div class="row">
-        <div class="labelDefensa col-sm-9 col-6">DEFENSA</div>
-        <div class="statDefensa col-sm-3 col-6">{{ baseStatsDf }}</div>
+        <div class="labelDefensa col-9">DEFENSA</div>
+        <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
       <div class="row">
-        <div class="labelVelocidad col-sm-9 col-6">VELOCIDAD</div>
-        <div class="statVelocidad col-sm-3 col-6">{{ baseStatsVel }}</div>
+        <div class="labelVelocidad col-9">VELOCIDAD</div>
+        <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
 
       <div class="row">
-        <div class="labelAtEsp col-sm-9 col-6">AT ESP.</div>
-        <div class="statAtEsp col-sm-3 col-6">{{ baseStatsAtEsp }}</div>
+        <div class="labelAtEsp col-9">AT ESP.</div>
+        <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
       <div class="row">
-        <div class="labelDefEsp col-sm-9 col-6">DEF ESP.</div>
-        <div class="statDefEsp col-sm-3 col-6">{{ baseStatsDfEsp }}</div>
+        <div class="labelDefEsp col-9">DEF ESP.</div>
+        <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
     </div>
   </div>
