@@ -6,8 +6,8 @@
           <tbody>
             <tr v-for="(player, index) in playersOrdenados" :key="player.username"
               class="grayBackColor borderClassification">
-              <th>
-                <img class="trainerImage" src="@/assets/trainerPixel.png" />
+              <th v-if="player.username != '---' ">
+                <img class="trainerImage" :src="require(`@/assets/${player.profile_pic}.png`)" />
               </th>
               <td class="trainerName fontAdaptative">{{ player.username }}</td>
               <th class="medalAlign">
