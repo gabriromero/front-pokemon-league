@@ -1,22 +1,25 @@
 <template>
-  <div class="backgroundClassification">
-    <div class="table-responsive tablaClassification">
-      <table class="table">
-        <tbody>
-          <tr v-for="(player, index) in playersOrdenados" :key="player.username" class="grayBackColor borderClassification">
-            <th v-if="player.username != '---' ">
-              <img class="trainerImage" :src="require(`@/assets/${player.profile_pic}.png`)" />
-            </th>
-            <td class="trainerName">{{ player.username }}</td>
-            <th>
-              <img v-if="index == 0" class="trainerMedal" src="@/assets/goldMedal.png" />
-              <img v-else-if="index == 1" class="trainerMedal" src="@/assets/silverMedal.png" />
-              <img v-else-if="index == 2" class="trainerMedal" src="@/assets/bronzeMedal.png" />             
-            </th>
-            <td class="trainerScore">{{ player.matches_won }}</td>
-          </tr>          
-        </tbody>
-      </table>
+  <div class="firstBorder">
+    <div class="classificationBorder ">
+      <div class="totalBorder">
+        <table class="table">
+          <tbody>
+            <tr v-for="(player, index) in playersOrdenados" :key="player.username"
+              class="grayBackColor borderClassification">
+              <th v-if="player.username != '---' ">
+                <img class="trainerImage" :src="require(`@/assets/${player.profile_pic}.png`)" />
+              </th>
+              <td class="trainerName fontAdaptative">{{ player.username }}</td>
+              <th class="medalAlign">
+                <img v-if="index == 0" class="trainerMedal" src="@/assets/goldMedal.png" />
+                <img v-else-if="index == 1" class="trainerMedal" src="@/assets/silverMedal.png" />
+                <img v-else-if="index == 2" class="trainerMedal" src="@/assets/bronzeMedal.png" />
+              </th>
+              <td class="trainerScore">{{ player.matches_won }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -95,6 +98,10 @@ export default {
   text-align: center;
 }
 
+.medalAlign{
+  text-align: right;
+}
+
 .grayBackColor {
   background-color: #d4d4d4;
 }
@@ -136,16 +143,49 @@ th {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 25px;
   height: auto;
 }
 
 .trainerMedal {
-  width: 80%;
+  width: 30px;
   height: auto;
 }
 
 .table {
   margin-bottom: 0px;
+}
+
+.firstBorder {
+    border: solid;
+    border-width: 3px;
+    border-radius: 20px;
+    border-color: black;
+}
+
+.classificationBorder {
+    border: solid;
+    border-radius: 15px;
+    border-width: 15px;
+    border-color: #AAAAAA;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background-color: #AAAAAA;
+
+}
+
+.totalBorder {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: #FFFFFF;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .fontAdaptative {
+        font-size: 12px;
+    }
 }
 </style>

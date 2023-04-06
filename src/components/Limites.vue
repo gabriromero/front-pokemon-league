@@ -1,5 +1,5 @@
 <template>
-  <p class="title">{{ titulo }}</p>
+  <p class="title text-center">{{ titulo }}</p>
 
   <div class="divBackground">
     <div class="insideDiv">
@@ -25,7 +25,6 @@ export default {
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;  
   margin-bottom: 5%;
-  
 }
 
 .insideDiv {
