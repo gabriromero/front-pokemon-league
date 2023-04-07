@@ -24,7 +24,15 @@
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">
-                    {{ getHandicap(myMatch.diferencia) }}
+                    <span v-if="myMatch.diferencia < minHandicap"> Sin handicap </span>
+                    <span v-else> Handicap de +{{ myMatch.diferencia }} </span>
+                    
+                    <v-tooltip
+                      v-if="myMatch.diferencia >= minHandicap" 
+                      activator="parent"
+                      location="bottom"
+                    ><span v-html="getHandicap(myMatch.diferencia)"></span> 
+                    </v-tooltip>
                   </div>
                 </div>
               </div>
@@ -108,9 +116,14 @@
 import { getMyMatches } from "@/api/combate";
 import { postMarkResultMyMatches } from "@/api/combate";
 import { getMyselfProfile } from "@/api/shared";
-import { getHandicap } from "@/helpers/generalHelper.js";
+import { getHandicap, minHandicap } from "@/helpers/generalHelper.js";
+import { VTooltip } from 'vuetify/lib/components/VTooltip/VTooltip'
+
 
 export default {
+  components: {
+    VTooltip,
+  },
   data() {
     return {
       confirmResults: [],
@@ -119,7 +132,8 @@ export default {
       myMatchesUpdated: "",           
       nombrePlayerGanador: '',
       myUser: '',
-      combatesCargados: false,    
+      combatesCargados: false,   
+      minHandicap : minHandicap, 
     };
   },
   methods: {
