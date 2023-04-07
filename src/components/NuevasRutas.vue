@@ -6,9 +6,8 @@
       <div class="insideDiv p-3">
         <div class="container">
           <div class="row nombreRuta">
-            <div v-for="(grupo, index) in grupos" :key="index" class="col-md-6 col-12">
-              <div v-if="grupo[0]" class="ruta">{{ grupo[0] }}</div>
-              <div v-if="grupo[1]" class="ruta">{{ grupo[1] }}</div>
+            <div v-for="ruta in rutas" :key="ruta" class="col-md-6 col-12 p-2">
+              <a :href="ruta[1]" target="_blank">{{ ruta[0] }}</a>
             </div>
           </div>
         </div>
@@ -27,19 +26,6 @@ export default {
       rutas: normasRuta["nuevasRutas"]
     }
   },
-  computed: {
-    grupos() {
-      let grupos = [];
-      for (let i = 0; i < this.rutas.length; i += 2) {
-        if (i === this.rutas.length - 1) {
-          grupos.push([this.rutas[i]]);
-        } else {
-          grupos.push([this.rutas[i], this.rutas[i + 1]]);
-        }
-      }
-      return grupos;
-    }
-  }
 };
 </script>
   
@@ -85,5 +71,10 @@ export default {
   .ruta {
     text-align: center;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

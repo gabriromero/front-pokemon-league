@@ -32,8 +32,22 @@ export const potenciaMt = {
 }
 
 const nuevasRutas = {
-    1: ["ruta1","ruta2","ruta3"], 2: ["ruta4","ruta5","ruta6"], 3: ["ruta7","ruta8","ruta9"], 4: ["ruta10","ruta11","ruta12"], 
-    5: ["ruta13","ruta14","ruta15"], 6: ["ruta16","ruta17","ruta18"], 7: ["ruta19","ruta20","ruta21"], 8: ["ruta22","ruta23","ruta24"]
+    1: [["Pueblo Primavera","https://www.wikidex.net/wiki/Pueblo_Primavera"],["Ruta 29","https://www.wikidex.net/wiki/Ruta_29"],["Ruta 46","https://www.wikidex.net/wiki/Ruta_46"],
+        ["Ciudad Cerezo","https://www.wikidex.net/wiki/Ciudad_Cerezo"],["Ruta 30","https://www.wikidex.net/wiki/Ruta_30"],["Ruta 31","https://www.wikidex.net/wiki/Ruta_31"],
+        ["Cueva Oscura","https://www.wikidex.net/wiki/Cueva_Oscura"],["Ciudad Malva","https://www.wikidex.net/wiki/Ciudad_Malva"],["Torre Bellsprout","https://www.wikidex.net/wiki/Torre_Bellsprout"]], 
+    2: [["Ruta 32","https://www.wikidex.net/wiki/Ruta_32"],["Ruta 33","https://www.wikidex.net/wiki/Ruta_33"],["Pozo Slowpoke","https://www.wikidex.net/wiki/Pozo_Slowpoke"],["Pueblo Azalea","https://www.wikidex.net/wiki/Pueblo_Azalea"]],
+    3: [["Encinar","https://www.wikidex.net/wiki/Encinar"],["Ruta 34","https://www.wikidex.net/wiki/Ruta_34"],["Ciudad Trigal","https://www.wikidex.net/wiki/Ciudad_Trigal"]], 
+    4: [["Ruta 35","https://www.wikidex.net/wiki/Ruta_35"],["Parque Nacional","https://www.wikidex.net/wiki/Parque_Nacional"],["Ruta 36","https://www.wikidex.net/wiki/Ruta_36"],["Ruinas Alfa","https://www.wikidex.net/wiki/Ruinas_Alfa"],
+        ["Ruta 37","https://www.wikidex.net/wiki/Ruta_37"],["Torre Quemada","https://www.wikidex.net/wiki/Torre_Quemada"],["Ciudad Iris","https://www.wikidex.net/wiki/Ciudad_Iris"]], 
+    5: [["Ruta 38","https://www.wikidex.net/wiki/Ruta_38"],["Ruta 39","https://www.wikidex.net/wiki/Ruta_39"],["Ciudad Olivo","https://www.wikidex.net/wiki/Ciudad_Olivo"],
+        ["Ruta 40","https://www.wikidex.net/wiki/Ruta_40"],["Ruta 41","https://www.wikidex.net/wiki/Ruta_41"],["Islas remolino","https://www.wikidex.net/wiki/Islas_Remolino"],["Ciudad Orquídea","https://www.wikidex.net/wiki/Ciudad_Orqu%C3%ADdea"]],
+    6: ["No hay rutas nuevas","https://www.wikidex.net/"],
+    7: [["Paso Acantilado","https://www.wikidex.net/wiki/Paso_Acantilado"],["Ruta 47","https://www.wikidex.net/wiki/Ruta_47"],["Ruta 48","https://www.wikidex.net/wiki/Ruta_48"],
+        ["Zona Safari","https://www.wikidex.net/wiki/Zona_Safari"],["Ruta 42","https://www.wikidex.net/wiki/Ruta_42"],["Monte Mortero","https://www.wikidex.net/wiki/Monte_Mortero"],["Pueblo Caoba","https://www.wikidex.net/wiki/Pueblo_Caoba"],
+        ["Ruta 43","https://www.wikidex.net/wiki/Ruta_43"],["Lago de la Furia","https://www.wikidex.net/wiki/Lago_de_la_Furia"]], 
+    8: [["Ruta 44","https://www.wikidex.net/wiki/Ruta_44"],["Ruta Helada","https://www.wikidex.net/wiki/Ruta_Helada"],["Ciudad Endrino","https://www.wikidex.net/wiki/Ciudad_Endrino"]],
+    9: [["Guarida Dragón","https://www.wikidex.net/wiki/Guarida_Drag%C3%B3n"],["Ruta 27","https://www.wikidex.net/wiki/ruta_27"],["Ruta 26","https://www.wikidex.net/wiki/Ruta_26"],["Cataratas Tohjo","https://www.wikidex.net/wiki/Cataratas_Tohjo"],
+        ["Calle Victoria","https://www.wikidex.net/wiki/Calle_Victoria_(Kanto)"],["Monte Plateado","https://www.wikidex.net/wiki/Monte_Plateado"]],
 }
 
 const handicaps = {
