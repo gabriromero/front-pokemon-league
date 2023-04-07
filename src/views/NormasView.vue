@@ -15,7 +15,7 @@
           <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Objetos y capturas</button>
         </div>
 
-        <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: #9eacad;">
+        <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: rgb(207 207 207);">
           <div class="small" v-if="numSeccion == 1">
             <h4><b><u>Mercado negro</u></b></h4>
             <div class="mt-3">

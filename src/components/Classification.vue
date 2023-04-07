@@ -183,6 +183,15 @@ th {
     overflow-y: auto;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4d4d4;
+}
+
 @media screen and (max-width: 600px) {
     .fontAdaptative {
         font-size: 12px;
