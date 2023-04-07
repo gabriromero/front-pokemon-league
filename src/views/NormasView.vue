@@ -42,92 +42,19 @@
             <div class="mt-3 small">
               <p>Por cada Jornada, se establecerá una cantidad y niveles del equipo Pokémon.</p>
               <div class="row text-center">
-                  <div class="col-3">
+                  <div class="col-3 col-md-6">
                     <div><b><u>Jornada</u></b></div>
                   </div>
-                  <div class="col-9">
+                  <div class="col-9 col-md-6 text-center">
                     <div><b><u>Niveles</u></b></div>
                   </div>
                 </div>
-
-                <div class="row mt-3 text-center">
-                  <div class="col-3">
-                    <div>1</div>
+                <div v-for="i in Object.keys(nivelesPokemon).length" :key="i" class="row mt-3 text-center">
+                  <div class="col-3 col-md-6">
+                    <div>{{ i }}</div>
                   </div>
-                  <div class="col-9">
-                    <div>11|12|13</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>2</div>
-                  </div>
-                  <div class="col-9">
-                    <div>15|16|17</div>
-                  </div>
-                </div>
-                
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>3</div>
-                  </div>
-                  <div class="col-9">
-                    <div>17|18|19</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>4</div>
-                  </div>
-                  <div class="col-9">
-                    <div>22|23|24|25</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>5</div>
-                  </div>
-                  <div class="col-9">
-                    <div>28|29|30|31</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>6</div>
-                  </div>
-                  <div class="col-9">
-                    <div>31|31|32|32|33</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>7</div>
-                  </div>
-                  <div class="col-9">
-                    <div>33|33|34|34|35</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>8</div>
-                  </div>
-                  <div class="col-9">
-                    <div>38|39|40|40|41|41</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <div>9</div>
-                  </div>
-                  <div class="col-9">
-                    <div>50|50|50|50|50|50</div>
+                  <div class="col-9 col-md-6">
+                    <div>{{ nivelesPokemon[i].join('|') }}</div>
                   </div>
                 </div>
             </div>
@@ -146,114 +73,17 @@
                   </div>
                 </div>
 
-                <div class="row mt-3">
+                <div v-for="i in Object.keys(statsMaximos).length" :key="i" class="row mt-3">
                   <div class="col-4">
-                    <div>1</div>
+                    <div>{{ i }}</div>
                   </div>
                   <div class="col-4">
-                    <div>389</div>
+                    <div>{{statsMaximos[i]}}</div>
                   </div>
                   <div class="col-4">
-                    <div>30</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>2</div>
-                  </div>
-                  <div class="col-4">
-                    <div>419</div>
-                  </div>
-                  <div class="col-4">
-                    <div>60</div>
+                    <div>{{evsMaximos[i]}}</div>
                   </div>
                 </div>
-                
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>3</div>
-                  </div>
-                  <div class="col-4">
-                    <div>449</div>
-                  </div>
-                  <div class="col-4">
-                    <div>90</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>4</div>
-                  </div>
-                  <div class="col-4">
-                    <div>449</div>
-                  </div>
-                  <div class="col-4">
-                    <div>160</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>5</div>
-                  </div>
-                  <div class="col-4">
-                    <div>499</div>
-                  </div>
-                  <div class="col-4">
-                    <div>230</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>6</div>
-                  </div>
-                  <div class="col-4">
-                    <div>499</div>
-                  </div>
-                  <div class="col-4">
-                    <div>300</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>7</div>
-                  </div>
-                  <div class="col-4">
-                    <div>549</div>
-                  </div>
-                  <div class="col-4">
-                    <div>370</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>8</div>
-                  </div>
-                  <div class="col-4">
-                    <div>549</div>
-                  </div>
-                  <div class="col-4">
-                    <div>440</div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col-4">
-                    <div>9</div>
-                  </div>
-                  <div class="col-4">
-                    <div>-</div>
-                  </div>
-                  <div class="col-4">
-                    <div>510</div>
-                  </div>
-                </div>
-            
             </div>
 
             
@@ -269,32 +99,12 @@
               </div>
             </div>
 
-            <div class="row mt-3">
+            <div v-for="(valor, clave) in potenciaMt" :key="clave" class="row mt-3">
               <div class="col-6">
-                <div>1-5</div>
+                <div>{{clave}}</div>
               </div>
               <div class="col-6">
-                <div>70</div>
-              </div>
-            </div>
-
-            <div class="row mt-3">
-              <div class="col-6">
-                <div>6-7</div>
-              </div>
-              <div class="col-6">
-                <div>90</div>
-              </div>
-            </div>
-
-            
-
-            <div class="row mt-3">
-              <div class="col-6">
-                <div>8-9</div>
-              </div>
-              <div class="col-6">
-                <div>-</div>
+                <div>{{valor}}</div>
               </div>
             </div>
 
@@ -436,10 +246,16 @@
 </template>
 
 <script>
+import { nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/generalHelper.js";
+
 export default {
   data() {
     return{
       numSeccion: 2,
+      nivelesPokemon : nivelesPokemon,
+      statsMaximos : statsMaximos,
+      evsMaximos : evsMaximos,
+      potenciaMt : potenciaMt,
     }
   },
 }
