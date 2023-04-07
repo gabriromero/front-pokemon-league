@@ -171,7 +171,6 @@ th {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     background-color: #AAAAAA;
-
 }
 
 .totalBorder {
@@ -181,6 +180,15 @@ th {
     background-color: #FFFFFF;
     max-height: 400px;
     overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4d4d4;
 }
 
 @media screen and (max-width: 600px) {
