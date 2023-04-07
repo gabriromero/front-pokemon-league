@@ -171,7 +171,6 @@ th {
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     background-color: #AAAAAA;
-
 }
 
 .totalBorder {
