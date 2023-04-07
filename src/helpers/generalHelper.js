@@ -45,7 +45,7 @@ const nuevasRutas = {
     7: [["Paso Acantilado","https://www.wikidex.net/wiki/Paso_Acantilado"],["Ruta 47","https://www.wikidex.net/wiki/Ruta_47"],["Ruta 48","https://www.wikidex.net/wiki/Ruta_48"],
         ["Zona Safari","https://www.wikidex.net/wiki/Zona_Safari"],["Ruta 42","https://www.wikidex.net/wiki/Ruta_42"],["Monte Mortero","https://www.wikidex.net/wiki/Monte_Mortero"],["Pueblo Caoba","https://www.wikidex.net/wiki/Pueblo_Caoba"],
         ["Ruta 43","https://www.wikidex.net/wiki/Ruta_43"],["Lago de la Furia","https://www.wikidex.net/wiki/Lago_de_la_Furia"]], 
-    8: [["Ruta 44","https://www.wikidex.net/wiki/Ruta_44"],["Ruta Helada","https://www.wikidex.net/wiki/Ruta_Helada"],["Ciudad Endrino","https://www.wikidex.net/wiki/Ciudad_Endrino"]],
+    8: [["Ruta 44","https://www.wikidex.net/wiki/Ruta_44"],["Ruta Helada","https://www.wikidex.net/wiki/Ruta_Helada"],["Ciudad Endrino","https://www.wikidex.net/wiki/Ciudad_Endrino"],["Ruta 45","https://www.wikidex.net/wiki/Ruta_45"]],
     9: [["Guarida Dragón","https://www.wikidex.net/wiki/Guarida_Drag%C3%B3n"],["Ruta 27","https://www.wikidex.net/wiki/ruta_27"],["Ruta 26","https://www.wikidex.net/wiki/Ruta_26"],["Cataratas Tohjo","https://www.wikidex.net/wiki/Cataratas_Tohjo"],
         ["Calle Victoria","https://www.wikidex.net/wiki/Calle_Victoria_(Kanto)"],["Monte Plateado","https://www.wikidex.net/wiki/Monte_Plateado"]],
 }
