@@ -298,14 +298,6 @@ export default {
   }
 
   .img-background {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.05;
     display: none;
   }
 }
@@ -315,11 +307,14 @@ export default {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+    width: 90%;
     height: 100%;
     object-fit: cover;
     z-index: -1;
     opacity: 0.05;
+    vertical-align: middle;
   }
 }
 
