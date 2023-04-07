@@ -68,11 +68,6 @@
       </div>
 
       <div class="row">
-        <div class="labelVelocidad col-9">VELOCIDAD</div>
-        <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
-      </div>
-
-      <div class="row">
         <div class="labelAtEsp col-9">AT ESP.</div>
         <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
@@ -80,6 +75,11 @@
       <div class="row">
         <div class="labelDefEsp col-9">DEF ESP.</div>
         <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
+      </div>
+
+      <div class="row">
+        <div class="labelVelocidad col-9">VELOCIDAD</div>
+        <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
     </div>
   </div>
