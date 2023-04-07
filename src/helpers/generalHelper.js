@@ -31,10 +31,14 @@ const nuevasRutas = {
 }
 
 const handicaps = {
-	"0-2": "Sin handicap",
-	"3-6": "Pkm menos",
-	"7-9": "handicap3",
-	"10-100": "handicap3",
+	"3": "1 Pkm menos",
+	"4": "Mostrar equipo",
+	"5": "No objetos",
+	"6": "Intercambio pkm",
+	"7": "Elegir inicial",
+	"8": "1 Pkm menos",
+	"9": "No cambios",
+	"10": "Rival x3",
 };
 
 export const normasRuta = {
@@ -52,14 +56,20 @@ export function getJornada() {
     return posicionJornada === -1 ? -1 : posicionJornada + 1;
 }
 
+export const minHandicap = Object.keys(handicaps).reduce((a, b) => Math.min(a, b));
+
 export function getHandicap(entero) {
-	for (const rango in handicaps) {
-		const [inicio, fin] = rango.split("-").map(Number);
-		if (entero >= inicio && entero <= fin) {
-			return handicaps[rango];
-		}
-	}
-	return "Sin handicap";
+    if(entero < minHandicap) return "Sin handicap";
+
+    const highestHandicap = Object.keys(handicaps).reduce((a, b) => Math.max(a, b));
+    if(entero > highestHandicap) entero = highestHandicap;
+
+    let allHandicaps = "";
+    for(let i = minHandicap; i <= entero; i++) {
+        allHandicaps += `<p>${handicaps[i]}</p>`;
+    }
+
+    return allHandicaps;
 }
 
 export const API_URL = 'https://pokemon-league-api.herokuapp.com'
