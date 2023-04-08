@@ -13,7 +13,7 @@ const horarios_jornada = [
 ];
 
 export const evsMaximos = {
-    1:30, 2:60, 3:90, 4:160, 
+    1:40, 2:70, 3:100, 4:160, 
     5:230, 6:300, 7:370, 8:440, 9:"MAX"
 }
 
