@@ -1,5 +1,5 @@
 <template>
-  <div v-if="jornadaActual" id="home">
+  <div v-if="jornadaActual && jornadaActual != 10" id="home">
 
     <div class="container-fluid">
 

@@ -50,6 +50,7 @@
 
 <script>
 import { getLoginResponse } from '@/api/home'
+import { getMyselfProfile } from '@/api/shared'
 
 export default {
   data() {
@@ -85,16 +86,20 @@ export default {
           this.incorrectCredentials = false
         }
         else{
+          console.log('here');
           this.incorrectCredentials = true
         }
       } catch (err) {
         console.log(err);
+        this.incorrectCredentials = true
       }
     },
-    checkSession(){
+    async checkSession(){
       const accessToken = localStorage.getItem('access_token');
 
-      if (accessToken) {
+      const logged = await getMyselfProfile(accessToken);
+
+      if (logged) {
         this.isAuthenticated = true
       } else {
         this.isAuthenticated = false
