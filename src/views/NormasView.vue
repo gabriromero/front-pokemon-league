@@ -22,7 +22,8 @@
               <p class="mb-4">El uso del Mercado Negro solo será permitido cuando se 
               utilice para ahorrar tiempo y dinero.</p>
               <h6><b><u>Pokémon</u></b></h6>
-              <p>Queda totalmente prohibido la compra de absolutamente cualquier Pokémon.</p>
+              <p><i>Queda prohibida la compra de cualquier Pokémon a excepción de:</i></p>
+              <p>1. Pokémon orientados a farmear y que jamás se podrán usar en combate</p>
               <h6><b><u>Objetos</u></b></h6>
               <p><i>Está prohibida la compra de cualquier objeto a excepción de:</i></p>
               <p>1. Carameloraros</p>
