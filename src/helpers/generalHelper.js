@@ -68,7 +68,7 @@ const nuevasRutas = {
         ["Isla Inta","https://www.wikidex.net/wiki/Isla_inta"],["Prado Isla Inta","https://www.wikidex.net/wiki/Prado_isla_inta"],["Pilar Recuerdo","https://www.wikidex.net/wiki/Pilar_recuerdo"],["Aquarinto","https://www.wikidex.net/wiki/aquarinto"],
         ["Lugar de recreo","https://www.wikidex.net/wiki/Lugar_de_recreo"],["Cueva perdida","https://www.wikidex.net/wiki/Cueva_perdida"],["Isla Exta","https://www.wikidex.net/wiki/Isla_Exta"],["Isla Aislada","https://www.wikidex.net/wiki/Isla_Aislada"],
         ["Cueva cambiante","https://www.wikidex.net/wiki/Cueva_cambiante"],["Via Verde","https://www.wikidex.net/wiki/Via_verde"],["Bosquejo","https://www.wikidex.net/wiki/Bosquejo"],["Isla Sétima","https://www.wikidex.net/wiki/Isla_Sétima"],["Torre desafío","https://www.wikidex.net/wiki/Torre_Desafio"],
-        ["Entrada al cañón","https://www.wikidex.net/wiki/Entrada_al_cañon"],["Cañón Sétano","https://www.wikidex.net/wiki/Cañon_setano"],["Ruinas Sete","https://www.wikidex.net/wiki/Ruinas_sete"]],
+        ["Entrada al cañón","https://www.wikidex.net/wiki/Entrada_al_cañon"],["Cañón Sétano","https://www.wikidex.net/wiki/Cañon_setano"],["Ruinas Sete","https://www.wikidex.net/wiki/Ruinas_sete"],["Valle ruinas","https://www.wikidex.net/wiki/Valle_ruinas"],["Cueva Punteada","https://www.wikidex.net/wiki/Cueva_punteada"]],
 }
 
 /*
