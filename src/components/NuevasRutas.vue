@@ -7,7 +7,7 @@
         <div class="container">
           <div class="row nombreRuta">
             <div v-for="ruta in rutas" :key="ruta" class="col-md-6 col-12 p-2">
-              <a :href="ruta[1]" target="_blank">{{ ruta[0] }}</a>
+              <button><a :href="ruta[1]" target="_blank">{{ ruta[0] }}</a></button>
             </div>
           </div>
         </div>
@@ -18,13 +18,17 @@
   
 <script>
 
-import {normasRuta} from "@/helpers/generalHelper.js";
+import {getNormasRuta} from "@/helpers/normasHelper.js";
 
 export default {
   data() {
     return {
-      rutas: normasRuta["nuevasRutas"]
+      rutas: ''
     }
+  },
+  async mounted() {
+    const normasRuta = await getNormasRuta();
+    this.rutas = normasRuta["nuevasRutas"];
   },
 };
 </script>

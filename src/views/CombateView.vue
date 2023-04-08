@@ -116,7 +116,7 @@
 import { getMyMatches } from "@/api/combate";
 import { postMarkResultMyMatches } from "@/api/combate";
 import { getMyselfProfile } from "@/api/shared";
-import { getHandicap, minHandicap } from "@/helpers/generalHelper.js";
+import { getHandicap, minHandicap } from "@/helpers/normasHelper.js";
 import { VTooltip } from 'vuetify/lib/components/VTooltip/VTooltip'
 
 

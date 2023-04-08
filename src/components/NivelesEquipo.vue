@@ -19,14 +19,19 @@
 
 
 <script>
-import {normasRuta} from "@/helpers/generalHelper.js";
+import {getNormasRuta} from "@/helpers/normasHelper.js";
 
 export default {
   data() {
     return {
-      nivelesPokemon : normasRuta["nivelesPokemon"],
-      difference : 6 - normasRuta["nivelesPokemon"].length,
+      nivelesPokemon : '',
+      difference : '',
     };
+  },
+  async mounted() {
+    const normasRuta = await getNormasRuta();
+    this.nivelesPokemon = normasRuta["nivelesPokemon"];
+    this.difference = 6 - normasRuta["nivelesPokemon"].length;
   },
 };
 </script>

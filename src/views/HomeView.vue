@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div v-if="jornadaActual" id="home">
 
     <div class="container-fluid">
 
@@ -31,7 +31,7 @@ import Classification from '@/components/Classification.vue'
 import Enfrentamientos from '@/components/Enfrentamientos.vue'
 import NormasRuta from '@/components/NormasRuta.vue'
 
-import { getJornada } from '@/helpers/generalHelper'
+import { getJornada } from '@/helpers/normasHelper'
 
 export default {
   name: 'HomeView',
@@ -42,8 +42,12 @@ export default {
   },
   data () {
     return {
-      jornadaActual: getJornada()
+      jornadaActual: ''
     }
+  },
+  async mounted() {
+    const jornada = await getJornada();
+    this.jornadaActual = jornada;
   },
 }
 </script>

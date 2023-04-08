@@ -32,14 +32,19 @@ import NivelesEquipo from "@/components/NivelesEquipo.vue";
 import ZonasCaptura from "@/components/ZonasCaptura.vue";
 import NuevasRutas from "@/components/NuevasRutas.vue";
 
-import {normasRuta} from "@/helpers/generalHelper.js";
+import {getNormasRuta} from "@/helpers/normasHelper.js";
 
 export default {
   data() {
     return {
-      statsMaximos : normasRuta["statsMaximos"],
-      evsMaximos : normasRuta["evsMaximos"]
+      statsMaximos : '',
+      evsMaximos : ''
     };
+  },
+  async mounted() {
+    const normasRuta = await getNormasRuta();
+    this.statsMaximos = normasRuta["statsMaximos"];
+    this.evsMaximos = normasRuta["evsMaximos"];
   },
   components: {
     Limites,

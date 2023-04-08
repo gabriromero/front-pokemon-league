@@ -246,7 +246,7 @@
 </template>
 
 <script>
-import { nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/generalHelper.js";
+import { nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/normasHelper.js";
 
 export default {
   data() {
