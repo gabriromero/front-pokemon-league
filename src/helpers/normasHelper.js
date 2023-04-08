@@ -31,8 +31,8 @@ export const statsMaximos = {
 */
 
 export const nivelesPokemon = {
-    1: [12,13,14], 2: [19,20,21], 3: [22,23,24], 4: [26,27,28,29], 
-    5: [40,41,42,43], 6: [42,43,43,44,45], 7: [45,46,46,47,47], 8: [48,48,49,49,50,50], 9: [50,50,50,50,50,50]
+    1: [10,11,12], 2: [18,19,20], 3: [25,26,27], 4: [30,31,32,33], 
+    5: [40,41,42,43], 6: [43,43,44,44,45], 7: [45,45,46,46,47], 8: [50,50,50,50,50,50], 9: [50,50,50,50,50,50]
 }
 
 /*
@@ -50,27 +50,48 @@ export const potenciaMt = {
 }
 
 const nuevasRutas = {
-    1: [["Pueblo Paleta","https://www.wikidex.net/wiki/Pueblo_Paleta"],["Ruta 1","https://www.wikidex.net/wiki/Ruta_1_(Kanto)"],["Ciudad Verde","https://www.wikidex.net/wiki/Ciudad_Verde"],
-        ["Ruta 22","https://www.wikidex.net/wiki/Ruta_22_(Kanto)"],["Ruta 2","https://www.wikidex.net/wiki/Ruta_2_(Kanto)"],["Bosque Verde","https://www.wikidex.net/wiki/Bosque_verde"],
-        ["Ciudad Plateada","https://www.wikidex.net/wiki/Ciudad_plateada"]], 
-    2: [["Ruta 3","https://www.wikidex.net/wiki/Ruta_3_(Kanto)"],["Monte Moon","https://www.wikidex.net/wiki/Monte_moon"],["Ruta 4","https://www.wikidex.net/wiki/Ruta_4_(Kanto)"],["Ciudad celeste","https://www.wikidex.net/wiki/Ciudad_celeste"],
-        ["Ruta 24","https://www.wikidex.net/wiki/Ruta_24_(Kanto)"],["Ruta 25","https://www.wikidex.net/wiki/Ruta_25_(Kanto)"]],
-    3: [["Ruta 5","https://www.wikidex.net/wiki/Ruta_5_(Kanto)"],["Ruta 6","https://www.wikidex.net/wiki/Ruta_6_(Kanto)"],["Ciudad Carmín","https://www.wikidex.net/wiki/Ciudad_Carmín"],["Ruta 11","https://www.wikidex.net/wiki/Ruta_11_(Kanto)"],["Cueva Diglett","https://www.wikidex.net/wiki/Cueva_diglett"]], 
-    4: [["Ruta 9","https://www.wikidex.net/wiki/Ruta_9_(Kanto)"],["Ruta 10","https://www.wikidex.net/wiki/Ruta_10_(Kanto)"],["Túnel roca","https://www.wikidex.net/wiki/tunel_roca"],["Pueblo Lavanda","https://www.wikidex.net/wiki/Pueblo_lavanda"],
-        ["Ruta 8","https://www.wikidex.net/wiki/Ruta_8_(Kanto)"],["Ruta 7","https://www.wikidex.net/wiki/Ruta_7_(Kanto)"],["Ciudad Azulona","https://www.wikidex.net/wiki/Ciudad_Azulona"]], 
-    5: [["Torre Pokémon","https://www.wikidex.net/wiki/torre_pokemon"],["Ruta 12","https://www.wikidex.net/wiki/Ruta_12_(Kanto)"],["Ruta 13","https://www.wikidex.net/wiki/Ruta_13_(Kanto)"],["Ruta 14","https://www.wikidex.net/wiki/Ruta_14_(Kanto)"],
-        ["Ruta 15","https://www.wikidex.net/wiki/Ruta_15_(Kanto)"],["Ruta 18","https://www.wikidex.net/wiki/Ruta_18_(Kanto)"],["Ruta 17","https://www.wikidex.net/wiki/Ruta_17_(Kanto)"],["Ruta 16","https://www.wikidex.net/wiki/Ruta_16_(Kanto)"],
-        ["Ciudad Fucsia","https://www.wikidex.net/wiki/Ciudad_Fucsia"],["Zona Safari","https://www.wikidex.net/wiki/Zona_safari_(Kanto)"]],
-    6: [["Ciudad Azafrán","https://www.wikidex.net/wiki/Ciudad_azafran"]],
-    7: [["Ruta 21","https://www.wikidex.net/wiki/Ruta_21_(Kanto)"],["Isla Canela","https://www.wikidex.net/wiki/Isla_canela"],["Mansión Pokémon","https://www.wikidex.net/wiki/Mansion_Pokemon"]],
-    8: [["Isla Prima","https://www.wikidex.net/wiki/Isla_prima"],["Camino Candente","https://www.wikidex.net/wiki/Camino_candente"],["Playa Tesoro","https://www.wikidex.net/wiki/Playa_tesoro"],["Monte Ascuas","https://www.wikidex.net/wiki/Monte_ascuas"],
-        ["Isla Secunda","https://www.wikidex.net/wiki/Isla_secunda"],["Cabo extremo","https://www.wikidex.net/wiki/Cabo_extremo"],["Isla Tera","https://www.wikidex.net/wiki/Isla_tera"],["Puente Unión","https://www.wikidex.net/wiki/Puente_union"],
-        ["Bosque Baya","https://www.wikidex.net/wiki/Bosque_baya"],["Ruta 19","https://www.wikidex.net/wiki/Ruta_19_(Kanto)"],["Ruta 20","https://www.wikidex.net/wiki/Ruta_20_(Kanto)"],["Islas Espuma","https://www.wikidex.net/wiki/Islas_espuma"],["Central Energía","https://www.wikidex.net/wiki/Central_energia"]],
-    9: [["Ruta 23","https://www.wikidex.net/wiki/Ruta_23_(Kanto)"],["Calle Victoria","https://www.wikidex.net/wiki/Calle_Victoria_(Kanto)"],["Cueva Celeste","https://www.wikidex.net/wiki/Cueva_celeste"],["Isla Quarta","https://www.wikidex.net/wiki/Isla_Quarta"],["Cueva Glaciada","https://www.wikidex.net/wiki/Cueva_glaciada"],
-        ["Isla Inta","https://www.wikidex.net/wiki/Isla_inta"],["Prado Isla Inta","https://www.wikidex.net/wiki/Prado_isla_inta"],["Pilar Recuerdo","https://www.wikidex.net/wiki/Pilar_recuerdo"],["Aquarinto","https://www.wikidex.net/wiki/aquarinto"],
-        ["Lugar de recreo","https://www.wikidex.net/wiki/Lugar_de_recreo"],["Cueva perdida","https://www.wikidex.net/wiki/Cueva_perdida"],["Isla Exta","https://www.wikidex.net/wiki/Isla_Exta"],["Isla Aislada","https://www.wikidex.net/wiki/Isla_Aislada"],
-        ["Cueva cambiante","https://www.wikidex.net/wiki/Cueva_cambiante"],["Via Verde","https://www.wikidex.net/wiki/Via_verde"],["Bosquejo","https://www.wikidex.net/wiki/Bosquejo"],["Isla Sétima","https://www.wikidex.net/wiki/Isla_Sétima"],["Torre desafío","https://www.wikidex.net/wiki/Torre_Desafio"],
-        ["Entrada al cañón","https://www.wikidex.net/wiki/Entrada_al_cañon"],["Cañón Sétano","https://www.wikidex.net/wiki/Cañon_setano"],["Ruinas Sete","https://www.wikidex.net/wiki/Ruinas_sete"],["Valle ruinas","https://www.wikidex.net/wiki/Valle_ruinas"],["Cueva Punteada","https://www.wikidex.net/wiki/Cueva_punteada"]],
+    1: [["Pueblo Paleta", "http://en.pokemmo.shoutwiki.com/wiki/Pallet_Town"],
+        ["Ruta 1", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_1"],
+        ["Ciudad Verde", "http://en.pokemmo.shoutwiki.com/wiki/Viridian_City"],
+        ["Ruta 22", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_22"],
+        ["Ruta 2", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_2"],
+        ["Bosque Verde", "http://en.pokemmo.shoutwiki.com/wiki/Viridian_Forest"],
+        ["Ciudad Plateada", "http://en.pokemmo.shoutwiki.com/wiki/Pewter_City"]], 
+    2: [
+        ["Ruta 3", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_3"],
+        ["Monte Moon", "http://en.pokemmo.shoutwiki.com/wiki/Mt._Moon"],
+        ["Ruta 4", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_4"],
+        ["Ciudad celeste", "http://en.pokemmo.shoutwiki.com/wiki/Cerulean_City"],
+        ["Ruta 24", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_24"],
+        ["Ruta 25", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_25"]],
+    3: [
+        ["Ruta 5", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_5"],
+        ["Ruta 6", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_6"],
+        ["Ciudad Carmín", "http://en.pokemmo.shoutwiki.com/wiki/Vermilion_City"],
+        ["Ruta 11", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_11"],
+        ["Cueva Diglett", "http://en.pokemmo.shoutwiki.com/wiki/Diglett%27s_Cave"]], 
+    4: [
+        ["Ruta 9", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_9"],
+        ["Ruta 10", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_10"],
+        ["Túnel roca", "http://en.pokemmo.shoutwiki.com/wiki/Rock_Tunnel"],
+        ["Pueblo Lavanda", "http://en.pokemmo.shoutwiki.com/wiki/Lavender_Town"],
+        ["Ruta 8", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_8"],
+        ["Ruta 7", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_7"],
+        ["Ciudad Azulona", "http://en.pokemmo.shoutwiki.com/wiki/Celadon_City"]], 
+    5: [
+        ["Torre Pokémon","http://en.pokemmo.shoutwiki.com/wiki/Pokémon_Tower"],["Ruta 12","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_12"],["Ruta 13","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_13"],["Ruta 14","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_14"],
+        ["Ruta 15","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_15"],["Ruta 18","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_18"],["Ruta 17","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_17"],["Ruta 16","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_16"],
+        ["Ciudad Fucsia","http://en.pokemmo.shoutwiki.com/wiki/Fuchsia_City"],["Zona Safari","http://en.pokemmo.shoutwiki.com/wiki/Safari_Zone/Kanto"]],
+    6: [["Ciudad Azafrán","http://en.pokemmo.shoutwiki.com/wiki/Saffron_City"]],
+    7: [["Ruta 21","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_21"],["Isla Canela","http://en.pokemmo.shoutwiki.com/wiki/Cinnabar_Island"],["Mansión Pokémon","http://en.pokemmo.shoutwiki.com/wiki/Pokémon_Mansion"]],
+    8: [["Isla Prima","http://en.pokemmo.shoutwiki.com/wiki/One_Island"],["Camino Candente","http://en.pokemmo.shoutwiki.com/wiki/Treasure_Beach"],["Playa Tesoro","http://en.pokemmo.shoutwiki.com/wiki/Treasure_Beach"],["Monte Ascuas","https://www.wikidex.net/wiki/Monte_ascuas"],
+        ["Isla Secunda","http://en.pokemmo.shoutwiki.com/wiki/Two_Island"],["Cabo extremo","http://en.pokemmo.shoutwiki.com/wiki/Cape_Brink"],["Isla Tera","http://en.pokemmo.shoutwiki.com/wiki/Three_Island"],["Puente Unión","http://en.pokemmo.shoutwiki.com/wiki/Bond_Bridge"],
+        ["Bosque Baya","http://en.pokemmo.shoutwiki.com/wiki/Berry_Forest"],["Ruta 19","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_19"],["Ruta 20","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_20"],["Islas Espuma","http://en.pokemmo.shoutwiki.com/wiki/Sevii_Islands#Knot_Island"],["Central Energía","http://en.pokemmo.shoutwiki.com/wiki/Power_Plant"]],
+    9: [["Ruta 23","http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_23"],["Calle Victoria","http://en.pokemmo.shoutwiki.com/wiki/Victory_Road"],["Cueva Celeste","http://en.pokemmo.shoutwiki.com/wiki/Cerulean_Cave"],["Isla Quarta","http://en.pokemmo.shoutwiki.com/wiki/Four_Island"],["Cueva Glaciada","http://en.pokemmo.shoutwiki.com/wiki/Icefall_Cave"],
+        ["Isla Inta","http://en.pokemmo.shoutwiki.com/wiki/One_Island"],["Prado Isla Inta","http://en.pokemmo.shoutwiki.com/wiki/Kindle_Road"],["Pilar Recuerdo","http://en.pokemmo.shoutwiki.com/wiki/Tanoby_Ruins"],["Aquarinto","http://en.pokemmo.shoutwiki.com/wiki/Outcast_Island"],
+        ["Lugar de recreo","http://en.pokemmo.shoutwiki.com/wiki/Resort_Gorgeous"],["Cueva perdida","http://en.pokemmo.shoutwiki.com/wiki/Lost_Cave"],["Isla Exta","http://en.pokemmo.shoutwiki.com/wiki/Expedition_Island"],["Isla Aislada","http://en.pokemmo.shoutwiki.com/wiki/Tanoby_Chamber"],
+        ["Cueva cambiante","http://en.pokemmo.shoutwiki.com/wiki/Altering_Cave"],["Via Verde","http://en.pokemmo.shoutwiki.com/wiki/Sevii_Vault"],["Bosquejo","http://en.pokemmo.shoutwiki.com/wiki/Treasure_Beach"],["Isla Sétima","http://en.pokemmo.shoutwiki.com/wiki/Seven_Island"],["Torre desafío","http://en.pokemmo.shoutwiki.com/wiki/Trainer_Tower"],
+        ["Entrada al cañón","http://en.pokemmo.shoutwiki.com/wiki/Canyon_Entrance"],["Cañón Sétano","http://en.pokemmo.shoutwiki.com/wiki/Sevault_Canyon"],["Ruinas Sete","http://en.pokemmo.shoutwiki.com/wiki/Tanoby_Chamber"],["Valle ruinas","http://en.pokemmo.shoutwiki.com/wiki/Tanoby_Ruins"],["Cueva Punteada","http://en.pokemmo.shoutwiki.com/wiki/Pattern_Bush"]],
 }
 
 /*

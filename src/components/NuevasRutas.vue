@@ -7,7 +7,7 @@
         <div class="container">
           <div class="row nombreRuta">
             <div v-for="ruta in rutas" :key="ruta" class="col-md-6 col-12 p-2">
-              <button><a :href="ruta[1]" target="_blank">{{ ruta[0] }}</a></button>
+              <button><a :href="ruta[1]+'#Pok.C3.A9mon'" target="_blank">{{ ruta[0] }}</a></button>
             </div>
           </div>
         </div>
