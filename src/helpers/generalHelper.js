@@ -57,13 +57,18 @@ const nuevasRutas = {
     4: [["Ruta 9","https://www.wikidex.net/wiki/Ruta_9_(Kanto)"],["Ruta 10","https://www.wikidex.net/wiki/Ruta_10_(Kanto)"],["Túnel roca","https://www.wikidex.net/wiki/tunel_roca"],["Pueblo Lavanda","https://www.wikidex.net/wiki/Pueblo_lavanda"],
         ["Ruta 8","https://www.wikidex.net/wiki/Ruta_8_(Kanto)"],["Ruta 7","https://www.wikidex.net/wiki/Ruta_7_(Kanto)"],["Ciudad Azulona","https://www.wikidex.net/wiki/Ciudad_Azulona"]], 
     5: [["Torre Pokémon","https://www.wikidex.net/wiki/torre_pokemon"],["Ruta 12","https://www.wikidex.net/wiki/Ruta_12_(Kanto)"],["Ruta 13","https://www.wikidex.net/wiki/Ruta_13_(Kanto)"],["Ruta 14","https://www.wikidex.net/wiki/Ruta_14_(Kanto)"],
-        ["Ruta 15","https://www.wikidex.net/wiki/Ruta_15_(Kanto)"],["Ruta 18","https://www.wikidex.net/wiki/Ruta_18_(Kanto)"],["Ruta 17","https://www.wikidex.net/wiki/Ruta_17_(Kanto)"],["Ruta 16","https://www.wikidex.net/wiki/Ruta_16_(Kanto)"]],
+        ["Ruta 15","https://www.wikidex.net/wiki/Ruta_15_(Kanto)"],["Ruta 18","https://www.wikidex.net/wiki/Ruta_18_(Kanto)"],["Ruta 17","https://www.wikidex.net/wiki/Ruta_17_(Kanto)"],["Ruta 16","https://www.wikidex.net/wiki/Ruta_16_(Kanto)"],
+        ["Ciudad Fucsia","https://www.wikidex.net/wiki/Ciudad_Fucsia"],["Zona Safari","https://www.wikidex.net/wiki/Zona_safari_(Kanto)"]],
     6: [["Ciudad Azafrán","https://www.wikidex.net/wiki/Ciudad_azafran"]],
     7: [["Ruta 21","https://www.wikidex.net/wiki/Ruta_21_(Kanto)"],["Isla Canela","https://www.wikidex.net/wiki/Isla_canela"],["Mansión Pokémon","https://www.wikidex.net/wiki/Mansion_Pokemon"]],
     8: [["Isla Prima","https://www.wikidex.net/wiki/Isla_prima"],["Camino Candente","https://www.wikidex.net/wiki/Camino_candente"],["Playa Tesoro","https://www.wikidex.net/wiki/Playa_tesoro"],["Monte Ascuas","https://www.wikidex.net/wiki/Monte_ascuas"],
         ["Isla Secunda","https://www.wikidex.net/wiki/Isla_secunda"],["Cabo extremo","https://www.wikidex.net/wiki/Cabo_extremo"],["Isla Tera","https://www.wikidex.net/wiki/Isla_tera"],["Puente Unión","https://www.wikidex.net/wiki/Puente_union"],
         ["Bosque Baya","https://www.wikidex.net/wiki/Bosque_baya"],["Ruta 19","https://www.wikidex.net/wiki/Ruta_19_(Kanto)"],["Ruta 20","https://www.wikidex.net/wiki/Ruta_20_(Kanto)"],["Islas Espuma","https://www.wikidex.net/wiki/Islas_espuma"],["Central Energía","https://www.wikidex.net/wiki/Central_energia"]],
-    9: [["Ruta 23","https://www.wikidex.net/wiki/Ruta_23_(Kanto)"],["Calle Victoria","https://www.wikidex.net/wiki/Calle_Victoria_(Kanto)"]],
+    9: [["Ruta 23","https://www.wikidex.net/wiki/Ruta_23_(Kanto)"],["Calle Victoria","https://www.wikidex.net/wiki/Calle_Victoria_(Kanto)"],["Cueva Celeste","https://www.wikidex.net/wiki/Cueva_celeste"],["Isla Quarta","https://www.wikidex.net/wiki/Isla_Quarta"],["Cueva Glaciada","https://www.wikidex.net/wiki/Cueva_glaciada"],
+        ["Isla Inta","https://www.wikidex.net/wiki/Isla_inta"],["Prado Isla Inta","https://www.wikidex.net/wiki/Prado_isla_inta"],["Pilar Recuerdo","https://www.wikidex.net/wiki/Pilar_recuerdo"],["Aquarinto","https://www.wikidex.net/wiki/aquarinto"],
+        ["Lugar de recreo","https://www.wikidex.net/wiki/Lugar_de_recreo"],["Cueva perdida","https://www.wikidex.net/wiki/Cueva_perdida"],["Isla Exta","https://www.wikidex.net/wiki/Isla_Exta"],["Isla Aislada","https://www.wikidex.net/wiki/Isla_Aislada"],
+        ["Cueva cambiante","https://www.wikidex.net/wiki/Cueva_cambiante"],["Via Verde","https://www.wikidex.net/wiki/Via_verde"],["Bosquejo","https://www.wikidex.net/wiki/Bosquejo"],["Isla Sétima","https://www.wikidex.net/wiki/Isla_Sétima"],["Torre desafío","https://www.wikidex.net/wiki/Torre_Desafio"],
+        ["Entrada al cañón","https://www.wikidex.net/wiki/Entrada_al_cañon"],["Cañón Sétano","https://www.wikidex.net/wiki/Cañon_setano"],["Ruinas Sete","https://www.wikidex.net/wiki/Ruinas_sete"]],
 }
 
 /*
