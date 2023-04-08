@@ -1,10 +1,5 @@
 <template>
   <div class="root">
-    <img
-      class="img-background"
-      src="@/assets/pokeball_fondo.svg"
-      draggable="false"
-    />
     <div class="mainCenter">
       <p class="tituloFicha pl-title text-center border border-dark">
         FICHA ENTRENADOR
@@ -13,7 +8,7 @@
     </div>
     <div class="container">
       <div class="row row-principal">
-        <div class="medallas-perfil col-sm-2">
+        <div class="medallas-perfil izquierda col-sm-2">
           <Medallas :ladoMedalla="'L'" />
         </div>
         <div class="selector_div col-sm-8">
@@ -23,19 +18,15 @@
             </div>
           </div>
         </div>
-        <div class="medallas-perfil col-sm-2">
+        <div class="medallas-perfil derecha col-sm-2">
           <Medallas :ladoMedalla="'R'" />
         </div>
         <div class="medallas-movil">
           <div class="row medallas2">
-            <Medallas :ladoMedalla="'R'" />
-            <Medallas :ladoMedalla="'L'" />
+            <Medallas_Portrait/>
           </div>
         </div>
       </div>
-    </div>
-    <div class="loggout">
-      <p1 >CERRAR SESIÓN</p1>
     </div>
   </div>
 </template>
@@ -43,8 +34,9 @@
 <script>
 import Selector from "@/components/Selector.vue";
 import Medallas from "@/components/Medallas.vue";
+import Medallas_Portrait from "@/components/Medallas_Portrait.vue";
 export default {
-  components: { Selector, Medallas },
+  components: { Selector, Medallas,Medallas_Portrait }
 };
 </script>
 <style scoped>
@@ -54,18 +46,6 @@ export default {
 }
 .root {
   text-align: center;
-}
-.loggout {
-  margin-bottom: 10%;
-  font-weight: bold;
-  color: red;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.medallas2 {
-  transform: rotate(-90deg);
-  align-items: center;
-  width: 100%;
 }
 .medallas-movil {
   display: none;
@@ -77,26 +57,20 @@ export default {
   margin-right: 0px;
   margin-left: 0px;
 }
-.medallas2 {
-  width: 60%;
-  height: 110%;
-  margin-top: -10%;
-  align-content: center;
-}
+.izquierda {
+    position: relative;
+    left: 60px;
+  }
+  .derecha {
+    position: relative;
+    right: 60px;
+  }
 .selector_div {
-  width: fit-content;
-}
-.selector_div {
-  width: 60%;
+  width: 66%;
 }
 @media (orientation: Portrait) {
   .container-perfil {
     width: 90%;
-  }
-  
-  .loggout {
-    margin-bottom: 10%;
-    font-size: 1rem;
   }
   .nombreFicha {
     font-size: 2.5vw !important;
@@ -110,16 +84,14 @@ export default {
   .selector_div {
     width: 100%;
   }
-
   .medallas-movil {
     display: inline-flex;
     justify-content: center;
+    height: 50%;
+  
   }
-  @media (max-width: 770px) {
-    .medallas2 {
-      margin-top: -5%;
-    }
-  }
+  
+  
 }
 .selector {
   text-align: center;
@@ -164,16 +136,5 @@ export default {
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-}
-.img-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.05;
-  display: flex;
 }
 </style>
