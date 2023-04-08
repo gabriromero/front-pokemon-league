@@ -25,7 +25,7 @@ export const getMyMatches = async (access_token) => {
 
 export const postMarkResultMyMatches = async (access_token, player_name_1, player_name_2, player_winner) => {
     const markResultMyMatches = await axios.post(API_URL + '/myself/mark-result', {
-        jornada: getJornada(),
+        jornada: await getJornada(),
         player_1_username: player_name_1,
         player_2_username: player_name_2,
         player_winner_username: player_winner
