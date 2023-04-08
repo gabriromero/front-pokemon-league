@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-4 ">
       <div class="imgDiv">
-        <img class="imgClass" id="imgId" :src="imageUrl" />
+        <a :href="`http://en.pokemmo.shoutwiki.com/wiki/${selectedPokemon}`" target="blank"><img class="imgClass" id="imgId" :src="imageUrl" /></a>
       </div>
       <div class="row">
         <div
@@ -132,7 +132,7 @@ export default defineComponent({
         imageUrl.value =
           response.data.sprites.versions["generation-v"][
             "black-white"
-          ].animated.front_default; //aqui obtenemos los sprites animados gracias a la API :)
+          ].front_default; //aqui obtenemos los sprites animados gracias a la API :)
         baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
         baseStatsAt.value = response.data.stats["1"].base_stat;
         baseStatsDf.value = response.data.stats["2"].base_stat;
