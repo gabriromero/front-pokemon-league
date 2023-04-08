@@ -115,7 +115,6 @@
             <div class="mt-3">
               <h6 class="mt-3"><b><u>Cambios</u></b></h6>
               <p>Solo se permitirá hacer un cambio de Pokémon en el equipo respecto al equipo utilizado en la jornada anterior.</p>
-              <p>Se podrá capturar Pokémon salvaje de la misma especie que su Pokémon inicial para evitar tener un inicial neutro.</p>
               <p>Solo en la Jornada 9, la Jornada final, se podrá capturar únicamente un Pokémon semilegendario (600 Stats).</p>
               <h6 class="mt-5"><b><u>Crianza</u></b></h6>
               <p>La crianza estará disponible a partir de la <b>Jornada 6</b>.</p>
@@ -235,6 +234,8 @@
               <p><b>Equipar</b> objetos para el combate estará permitido a partir de la <b>Jornada 4</b>.</p>
               <p class="mt-5">Tanto la obtención de objetos como la captura de Pokémon, se realizará exclusivamente en las rutas determinadas en el mapa de cada jornada.</p>
               <p class="mt-5">No se puede equipar el mismo objeto en varios Pokémon.</p>
+              <b><u><h5 class="mt-5">Captura de Pokémon Iniciales</h5></u></b>
+              <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
             </div>
           </div>
         </div>
