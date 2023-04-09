@@ -271,10 +271,11 @@
           <div class="small" v-if="numSeccion == 8" >
             <h4><b> <u>Combates</u></b></h4>
             <div class="mt-3">
-              <p>Los combates se realizarán el último fin de semana de la jornada.</p>
+              <p>De forma general, los combates se realizarán el último fin de semana de la jornada.</p>
               <p>Los jugadores tendrán que ponerse de acuerdo con los contricantes para elegir el horario.</p>
+              <p>Si ambos jugadores deciden jugar antes del fin de semana, será permitido.</p>
               <p>El límite para hacer el combate será el último domingo a las 23:59.</p>
-              <p>Si un jugador no marca el jugador ganador, el contrincante recibirá el punto.</p>
+              <p>Si un jugador no marca el resultado, el contrincante recibirá el punto.</p>
             </div>
           </div>
         </div>
