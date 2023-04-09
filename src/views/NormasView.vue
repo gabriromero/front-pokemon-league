@@ -4,21 +4,21 @@
     <div class="mt-5">
       <div class="main">
         <div>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario Jornadas</button>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario Jornadas</span>
         </div>
         <div class="row mt-3 ">
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 2 }" v-on:click="numSeccion = 2">Límites por jornada</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon Válidos</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 8 }" v-on:click="numSeccion = 8">Combates</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre Jornada</button>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 2 }" v-on:click="numSeccion = 2">Límites por jornada</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon Válidos</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 8 }" v-on:click="numSeccion = 8">Combates</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre Jornada</span>
 
         </div>
 
         <div class="row mb-1">
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 7 }" v-on:click="numSeccion = 7">Screenshots</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 1 }" v-on:click="numSeccion = 1">Mercado negro</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 5 }" v-on:click="numSeccion = 5">Handicaps</button>
-          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 6 }" v-on:click="numSeccion = 6">Objetos y crianza</button>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 7 }" v-on:click="numSeccion = 7">Screenshots</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 1 }" v-on:click="numSeccion = 1">Mercado negro</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 5 }" v-on:click="numSeccion = 5">Handicaps</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 6 }" v-on:click="numSeccion = 6">Objetos y crianza</span>
         </div>
 
         <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: rgb(207 207 207);">
@@ -28,7 +28,7 @@
             <div class="mt-3">
               <div class="row">
                 <div v-for="(horario, index) in horariosJornada" :key="index" class="col-sm-12 col-xl-4 mt-4">
-                  <h4>Jornada {{ index+1 }}</h4>
+                  <h6><u>Jornada {{ index+1 }}</u></h6>
                   <p>Del {{ horario[0].getDate() }} de {{ horario[0].toLocaleString('default', { month: 'long' }) }} al {{ horario[1].getDate() }} de {{ horario[1].toLocaleString('default', { month: 'long' }) }}</p>
                 </div>
               </div>
