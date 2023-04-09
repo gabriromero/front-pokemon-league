@@ -1,15 +1,15 @@
 import {getActualJornada} from '@/api/shared'
 
-const horarios_jornada = [
-    [new Date(2023, 2, 13), new Date(2023, 2, 19)],
-    [new Date(2023, 2, 20), new Date(2023, 2, 26)],
-    [new Date(2023, 2, 27), new Date(2023, 3, 2)],
-    [new Date(2023, 3, 3), new Date(2023, 3, 9)],
-    [new Date(2023, 3, 10), new Date(2023, 3, 16)],
-    [new Date(2023, 3, 17), new Date(2023, 3, 23)],
-    [new Date(2023, 3, 24), new Date(2023, 3, 30)],
+export const horarios_jornada = [
     [new Date(2023, 4, 1), new Date(2023, 4, 7)],
     [new Date(2023, 4, 8), new Date(2023, 4, 14)],
+    [new Date(2023, 4, 15), new Date(2023, 4, 21)],
+    [new Date(2023, 4, 22), new Date(2023, 4, 28)],
+    [new Date(2023, 4, 29), new Date(2023, 5, 4)],
+    [new Date(2023, 5, 5), new Date(2023, 5, 18)],
+    [new Date(2023, 5, 19), new Date(2023, 6, 2)],
+    [new Date(2023, 6, 3), new Date(2023, 6, 16)],
+    [new Date(2023, 6, 17), new Date(2023, 6, 23)],
 ];
 
 export const evsMaximos = {

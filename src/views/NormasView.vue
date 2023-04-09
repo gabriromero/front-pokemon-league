@@ -3,28 +3,47 @@
     <h1>Normas</h1>
     <div class="mt-5">
       <div class="main">
+        <div>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario Jornadas</button>
+        </div>
         <div class="row mt-3 ">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Mercado negro</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 2">Límites y niveles</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Cambios y crianza</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 2 }" v-on:click="numSeccion = 2">Límites por jornada</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon Válidos</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 8 }" v-on:click="numSeccion = 8">Combates</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre Jornada</button>
+
         </div>
 
-        <div class="row">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 4">Capturas de pantalla</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 5">Handicaps</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Objetos y capturas</button>
+        <div class="row mb-1">
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 7 }" v-on:click="numSeccion = 7">Screenshots</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 1 }" v-on:click="numSeccion = 1">Mercado negro</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 5 }" v-on:click="numSeccion = 5">Handicaps</button>
+          <button class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 6 }" v-on:click="numSeccion = 6">Objetos y crianza</button>
         </div>
 
         <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: rgb(207 207 207);">
+
+          <div class="small" v-if="numSeccion == 0">
+            <h4><b><u>Calendario por Jornadas</u></b></h4>
+            <div class="mt-3">
+              <div class="row">
+                <div v-for="(horario, index) in horariosJornada" :key="index" class="col-sm-12 col-xl-4 mt-4">
+                  <h4>Jornada {{ index+1 }}</h4>
+                  <p>Del {{ horario[0].getDate() }} de {{ horario[0].toLocaleString('default', { month: 'long' }) }} al {{ horario[1].getDate() }} de {{ horario[1].toLocaleString('default', { month: 'long' }) }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="small" v-if="numSeccion == 1">
             <h4><b><u>Mercado negro</u></b></h4>
             <div class="mt-3">
               <p class="mb-4">El uso del Mercado Negro solo será permitido cuando se 
               utilice para ahorrar tiempo y dinero.</p>
-              <h6><b><u>Pokémon</u></b></h6>
+              <h6 class="mt-5"><b><u>Pokémon</u></b></h6>
               <p><i>Queda prohibida la compra de cualquier Pokémon a excepción de:</i></p>
               <p>1. Pokémon orientados a farmear y que jamás se podrán usar en combate</p>
-              <h6><b><u>Objetos</u></b></h6>
+              <h6 class="mt-5"><b><u>Objetos</u></b></h6>
               <p><i>Está prohibida la compra de cualquier objeto a excepción de:</i></p>
               <p>1. Carameloraros</p>
               <p>2. Vitaminas</p>
@@ -89,7 +108,7 @@
 
             
             <h4 class="mt-5"><u>MTs</u></h4>
-            Se aplicarán restricciones por potencia a las MTs que puedas comprar.
+            Se aplicarán restricciones por potencia a las MTs que <u>puedas comprar</u>.
 
             <div class="row mt-3">
               <div class="col-6">
@@ -112,23 +131,20 @@
           </div>
 
           <div class="small" v-if="numSeccion == 3">
-            <h4><b><u>Cambios y crianza</u></b></h4>
+            <h4><b><u>Cambios entre Jornada</u></b></h4>
             <div class="mt-3">
-              <h6 class="mt-3"><b><u>Cambios</u></b></h6>
               <p>Solo se permitirá hacer un cambio de Pokémon en el equipo respecto al equipo utilizado en la jornada anterior.</p>
-              <p>Solo en la Jornada 9, la Jornada final, se podrá capturar únicamente un Pokémon semilegendario (600 Stats).</p>
-              <h6 class="mt-5"><b><u>Crianza</u></b></h6>
-              <p>La crianza estará disponible a partir de la <b>Jornada 6</b>.</p>
-              <p>Los Pokémon conseguidos a través de crianza solo podrán tener como máximo 2 stats con los IVs al 31.</p>
             </div>
           </div>
 
           <div class="small" v-if="numSeccion == 4" >
-            <h4><b> <u>Capturas de pantalla</u></b></h4>
+            <h4><b><u>Pokémon Válidos</u></b></h4>
             <div class="mt-3">
-              <p style="">Al contrario que en otras ediciones, en esta no es obligatorio hacer captura de pantalla para validar tu equipo antes de un combate.</p><br>
-              <p>Sin embargo, ambos jugadores pueden pedir una captura de pantalla para comprobar que el equipo es válido al acabar el combate.</p><br>
-              <p>Cabe destacar que el hecho de pedir una captura de pantalla no implica desconfianza si no favorecer a que el combate sea limpio y evitar irregularidades no intencionadas.</p>
+              <p>Solo serán válidos los Pokémon capturados por el mismo entrenador y capturados dentro de las zonas de captura disponibles por Jornada.</p>
+              <h6 class="mt-5"><b><u>Pokémon iniciales salvajes</u></b></h6>
+              <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
+              <h6 class="mt-5"><b><u>Semilegendarios</u></b></h6>
+              <p>Solo estarán disponibles en la <span class="jornada">Jornada 9</span> y solo se podrá llevar a uno en el equipo.</p><br>
             </div>
           </div>
 
@@ -225,18 +241,40 @@
 
             </div>
 
-            <div class="mt-5"><i><p>El handicap de 10 de diferencia no se aplicará en la <u>última Jornada</u>.</p>
-                              Los puntos en la última Jornada <u>serán dobles</u>.</i></div>
+            <div class="mt-5"><i><p>El handicap de 10 de diferencia no se aplicará en la <span class="jornada">Jornada 9</span>.</p>
+                              Los puntos en la <span class="jornada">Jornada 9</span> <u>serán dobles</u>.</i></div>
           </div>
 
           <div class="small" v-if="numSeccion == 6">
-            <h4><b><u>Objetos y capturas</u></b></h4>
+            <h6 class="mt-3"><b><u>Objetos</u></b></h6>
             <div class="mt-3">
-              <p><b>Equipar</b> objetos para el combate estará permitido a partir de la <b>Jornada 4</b>.</p>
-              <p class="mt-5">Tanto la obtención de objetos como la captura de Pokémon, se realizará exclusivamente en las rutas determinadas en el mapa de cada jornada.</p>
+              <p>Equipar objetos para el combate estará permitido a partir de la <b class="jornada">Jornada 4</b>.</p>
+              <p class="mt-5">Los únicos objetos válidos son los que se encuentran exclusivamente en las rutas determinadas en el mapa de cada jornada.</p>
               <p class="mt-5">No se puede equipar el mismo objeto en varios Pokémon.</p>
-              <b><u><h5 class="mt-5">Captura de Pokémon Iniciales</h5></u></b>
-              <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
+              <p class="mt-5">Solo para la <span class="jornada">Jornada 9</span>, se podrán comprar objetos en el Mercado negro.</p>
+
+              <h6 class="mt-5"><b><u>Crianza</u></b></h6>
+              <p>La crianza estará disponible a partir de la <span class="jornada">Jornada 6</span>.</p>
+              <p>Los Pokémon conseguidos a través de crianza solo podrán tener como máximo 2 stats con los IVs al 31.</p>
+            </div>
+          </div>
+
+          <div class="small" v-if="numSeccion == 7" >
+            <h4><b> <u>Screenshots</u></b></h4>
+            <div class="mt-3">
+              <p style="">Al contrario que en otras ediciones, en esta no es obligatorio hacer captura de pantalla para validar tu equipo antes de un combate.</p><br>
+              <p>Sin embargo, ambos jugadores pueden pedir una captura de pantalla para comprobar que el equipo es válido al acabar el combate.</p><br>
+              <p>Cabe destacar que el hecho de pedir una captura de pantalla no implica desconfianza si no favorecer a que el combate sea limpio y evitar irregularidades no intencionadas.</p>
+            </div>
+          </div>
+
+          <div class="small" v-if="numSeccion == 8" >
+            <h4><b> <u>Combates</u></b></h4>
+            <div class="mt-3">
+              <p>Los combates se realizarán el último fin de semana de la jornada.</p>
+              <p>Los jugadores tendrán que ponerse de acuerdo con los contricantes para elegir el horario.</p>
+              <p>El límite para hacer el combate será el último domingo a las 23:59.</p>
+              <p>Si un jugador no marca el jugador ganador, el contrincante recibirá el punto.</p>
             </div>
           </div>
         </div>
@@ -248,16 +286,17 @@
 </template>
 
 <script>
-import { nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/normasHelper.js";
+import { horarios_jornada, nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/normasHelper.js";
 
 export default {
   data() {
     return{
-      numSeccion: 2,
+      numSeccion: 0,
       nivelesPokemon : nivelesPokemon,
       statsMaximos : statsMaximos,
       evsMaximos : evsMaximos,
       potenciaMt : potenciaMt,
+      horariosJornada : horarios_jornada,
     }
   },
 }
@@ -273,6 +312,10 @@ export default {
   cursor: pointer;
 }
 
+.secciones:hover{
+  color: red;
+}
+
 .main {
   margin: 0 5%;
 }
@@ -282,7 +325,14 @@ export default {
   padding-right: 10%;
 }
 
+.seccionActiva{
+  color: red;
+}
 
+.jornada{
+  color: blue;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 600px){
   .small{
