@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!isMondayMorning" class="firstBorder">
+    <div v-if="!isMondayMorning && tournamentHasStarted" class="firstBorder">
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
@@ -38,9 +38,12 @@ export default {
         isMondayMorning() {
             return this.today.getDay() === 1 && this.today.getHours() < 18
         },
+        tournamentHasStarted() {
+            return this.today >= horarios_jornada[0][0]
+        },
         msUntilMonday() {
             // Si el torneo aún no ha empezado
-            if(this.today < horarios_jornada[0][0]){
+            if(!this.tournamentHasStarted){
                 this.textoContador = `La liga empezará el ${horarios_jornada[0][0].getDate()} de ${horarios_jornada[0][0].toLocaleString('default', { month: 'long' })}`;
                 return horarios_jornada[0][0].getTime() - this.today.getTime();
             }
