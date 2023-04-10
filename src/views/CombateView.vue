@@ -1,5 +1,5 @@
 <template>
-  <div id="root" v-if="!isMondayMorning">
+  <div id="root" v-if="!isMondayMorning  && tournamentHasStarted">
     <img
       class="img-background"
       src="@/assets/pokeball_fondo.svg"
@@ -225,9 +225,12 @@ export default {
       isMondayMorning() {
           return this.today.getDay() === 1 && this.today.getHours() < 18
       },
+      tournamentHasStarted() {
+          return this.today >= horarios_jornada[0][0]
+      },
       msUntilMonday() {
           // Si el torneo aún no ha empezado
-          if(this.today < horarios_jornada[0][0]){
+          if(!this.tournamentHasStarted){
               this.textoContador = `La liga empezará el ${horarios_jornada[0][0].getDate()} de ${horarios_jornada[0][0].toLocaleString('default', { month: 'long' })}`;
               return horarios_jornada[0][0].getTime() - this.today.getTime();
           }
