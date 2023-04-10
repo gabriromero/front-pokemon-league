@@ -120,7 +120,7 @@ export default defineComponent({
         }));
         pokemonList.value = options; //seteamos la constante con la lista de nombres de los pokes
         let randomPokemon = Math.floor(Math.random() * options.length);
-        selectedPokemon.value = options[randomPokemon].id; // Establece el primer Pokemon como el seleccionado por defecto
+        selectedPokemon.value = options[randomPokemon].id;
         updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
       } catch (error) {
         console.error(error);
@@ -130,10 +130,7 @@ export default defineComponent({
     const updateCaracterisiticas = async () => {
       try {
         const response = await axios.get(`${API_PKM}/${selectedPokemon.value}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
-        imageUrl.value =
-          response.data.sprites.versions["generation-v"][
-            "black-white"
-          ].front_default; //aqui obtenemos los sprites animados gracias a la API :)
+        imageUrl.value = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
         baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
         baseStatsAt.value = response.data.stats["1"].base_stat;
         baseStatsDf.value = response.data.stats["2"].base_stat;
