@@ -226,6 +226,7 @@ nav a.router-link-exact-active {
   padding: 20px;
   position: absolute;
   top: 20%;
+  border: 2px solid #ccc;
 }
 
 .popup-content {
