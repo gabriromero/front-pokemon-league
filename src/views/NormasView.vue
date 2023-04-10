@@ -4,13 +4,13 @@
     <div class="mt-5">
       <div class="main">
         <div>
-          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario Jornadas</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario jornadas</span>
         </div>
         <div class="row mt-3 ">
           <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 2 }" v-on:click="numSeccion = 2">Límites por jornada</span>
-          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon Válidos</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon válidos</span>
           <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 8 }" v-on:click="numSeccion = 8">Combates</span>
-          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre Jornada</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre jornada</span>
 
         </div>
 
@@ -30,6 +30,9 @@
                 <div v-for="(horario, index) in horariosJornada" :key="index" class="col-sm-12 col-xl-4 mt-4">
                   <h6><u>Jornada {{ index+1 }}</u></h6>
                   <p>Del {{ horario[0].getDate() }} de {{ horario[0].toLocaleString('default', { month: 'long' }) }} al {{ horario[1].getDate() }} de {{ horario[1].toLocaleString('default', { month: 'long' }) }}</p>
+                </div>
+                <div class="mt-5">
+                  <i>Es posible que haya un parón entre las últimas jornadas debido al verano.</i>
                 </div>
               </div>
             </div>
@@ -138,7 +141,7 @@
           </div>
 
           <div class="small" v-if="numSeccion == 4" >
-            <h4><b><u>Pokémon Válidos</u></b></h4>
+            <h4><b><u>Pokémon válidos</u></b></h4>
             <div class="mt-3">
               <p>Solo serán válidos los Pokémon capturados por el mismo entrenador y capturados dentro de las zonas de captura disponibles por Jornada.</p>
               <h6 class="mt-5"><b><u>Pokémon iniciales salvajes</u></b></h6>
