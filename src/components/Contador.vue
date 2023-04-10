@@ -5,7 +5,13 @@
             <div>
                 <br/>
                 <p>Tiempo restante:</p>
-                <h2>{{days}}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                <div v-if="days>0">
+                    <h2>{{days}}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                </div>
+                <div v-else>
+                    <h2>{{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                </div>
+                
             </div>
         </vue-countdown>
     </div>
