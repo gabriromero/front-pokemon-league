@@ -34,6 +34,16 @@
                 <div class="mt-5">
                   <i>Es posible que haya un parón entre las últimas jornadas debido al verano.</i>
                 </div>
+                <div class="mt-3">
+                  <div>
+                    <i>Toda la información se avisará con antelación a través del canal de Discord.<br/></i>
+                  </div>
+                  <div class="mt-2">
+                    <a href="https://discord.gg/sdxeyUkBYM">
+                      <img src="@/assets/discord.png" alt="" class="img-fluid" style="height: 60px;">
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
