@@ -3,38 +3,34 @@
     <p class="title text-center">NUEVAS RUTAS</p>
 
     <div class="divBackground">
-      <div class="insideDiv">
-        <div class="divRutas">
-          <table style="width: 100%; ">
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Pueblo Primavera</td>
-              <td class="nombreRuta">Ruta 29</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ciudad Cerezo</td>
-              <td class="nombreRuta">Ruta 30</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ruta 46</td>            
-              <td class="nombreRuta">Cueva Oscura</td>
-            </tr>
-            <tr>
-              <td class="nombreRuta">Ruta 31</td>
-              <td class="nombreRuta">Ciudad Malva</td>              
-            </tr>
-          </table>
+      <div class="insideDiv p-3">
+        <div class="container">
+          <div class="row nombreRuta">
+            <div v-for="ruta in rutas" :key="ruta" class="col-md-6 col-12 p-2">
+              <button><a :href="ruta[1]+'#Pok.C3.A9mon'" target="_blank">{{ ruta[0] }}</a></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
   
- <script>
-export default {};
+<script>
+
+import {getNormasRuta} from "@/helpers/normasHelper.js";
+
+export default {
+  data() {
+    return {
+      rutas: ''
+    }
+  },
+  async mounted() {
+    const normasRuta = await getNormasRuta();
+    this.rutas = normasRuta["nuevasRutas"];
+  },
+};
 </script>
   
 <style scoped>
@@ -65,64 +61,24 @@ export default {};
 
 .nombreRuta {
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 11px;
+  text-align: center;
 }
 
-@media screen and (min-width: 601px) {
-  .title {
-    font-size: 15px;
-    margin-top: 15px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .title {
-    font-size: 12px;
-    margin-top: 15px;
+@media (min-width: 768px) {
+  .ruta {
+    text-align: left;
   }
 }
 
-@media only screen and (max-width: 480px){
-  .divRutas table, 
-  .divRutas thead, 
-  .divRutas tbody, 
-  .divRutas th, 
-  .divRutas td, 
-  .divRutas tr {
-    display: block;    
-  }
-  .divRutas tbody td {
-    text-align: left;    
-  }
-  
-
-  .divRutas tbody td:before {
-    /*content: attr(data-th);*/
-    font-weight: bold;
-    display: inline-block;
-    width: 80px;
-    margin-right: 5px;
+@media (max-width: 768px) {
+  .ruta {
+    text-align: center;
   }
 }
 
-@media only screen and (min-width: 990px) and (max-width: 1200px) {
-  .divRutas table, 
-  .divRutas thead, 
-  .divRutas tbody, 
-  .divRutas th, 
-  .divRutas td, 
-  .divRutas tr {
-    display: block;    
-  }
-  .divRutas tbody td {
-    text-align: left;    
-  }
-  .divRutas tbody td:before {
-    /*content: attr(data-th);*/
-    font-weight: bold;
-    display: inline-block;
-    width: 80px;
-    margin-right: 5px;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>

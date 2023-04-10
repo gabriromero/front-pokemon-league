@@ -1,22 +1,22 @@
 <template>
-  <div id="home">
+  <div v-if="jornadaActual && jornadaActual != 10" id="home">
 
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-lg-4 border">
-          <p class="pl-title text-center">CLASIFICACIÓN</p>
+        <div class="col-xl-4 col-lg-5">
+          <p class="mt-3 text-center">CLASIFICACIÓN</p>
           <Classification />
         </div>
-        <div class="col-lg-8 border">
-          <p class="jornadaTitle text-center" >JORNADA 1</p>
+        <div class="col-xl-8 col-lg-7">
+          <p class="mt-3 text-center" >JORNADA {{ jornadaActual }}</p>
           <Enfrentamientos />
         </div>
       </div>
 
-      <div class="row border">
+      <div class="row">
         <div>
-          <p class="pl-title text-center">RUTA JORNADA 1</p>
+          <p class="mt-5 text-center">RUTA JORNADA {{ jornadaActual }}</p>
           <NormasRuta />
         </div>
       </div>
@@ -31,25 +31,27 @@ import Classification from '@/components/Classification.vue'
 import Enfrentamientos from '@/components/Enfrentamientos.vue'
 import NormasRuta from '@/components/NormasRuta.vue'
 
+import { getJornada } from '@/helpers/normasHelper'
+
 export default {
   name: 'HomeView',
   components: {
     Classification, 
     Enfrentamientos, 
     NormasRuta
-  }
+  },
+  data () {
+    return {
+      jornadaActual: ''
+    }
+  },
+  async mounted() {
+    const jornada = await getJornada();
+    this.jornadaActual = jornada;
+  },
 }
 </script>
 
 <style scoped>
-.pl-title {
-  font-size: 1.3em;
-  padding-top: 5%;
-}
-
-.jornadaTitle{
-  font-size: 1.3em;
-  padding-top: 2.2%;
-}
 
 </style>

@@ -3,58 +3,282 @@
     <h1>Normas</h1>
     <div class="mt-5">
       <div class="main">
+        <div>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 0 }" v-on:click="numSeccion = 0">Calendario jornadas</span>
+        </div>
         <div class="row mt-3 ">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 1">Sección 1</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 2">Sección 2</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 3">Sección 3</button>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 2 }" v-on:click="numSeccion = 2">Límites por jornada</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 4 }" v-on:click="numSeccion = 4">Pokémon válidos</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 8 }" v-on:click="numSeccion = 8">Combates</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 3 }" v-on:click="numSeccion = 3">Cambios entre jornada</span>
+
         </div>
 
-        <div class="row">
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 4">Sección 4</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 5">Sección 5</button>
-          <button class="col-sm-4 secciones" v-on:click="numSeccion = 6">Sección 6</button>
+        <div class="row mb-1">
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 7 }" v-on:click="numSeccion = 7">Screenshots</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 1 }" v-on:click="numSeccion = 1">Mercado negro</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 5 }" v-on:click="numSeccion = 5">Handicaps</span>
+          <span class="mb-3 col-6 col-md-3 secciones" :class="{ seccionActiva: numSeccion == 6 }" v-on:click="numSeccion = 6">Objetos y crianza</span>
         </div>
 
-        <div class="border-example framed mt-4">
-          <div v-if="numSeccion == 1">
-            <h4><u>Sección 1</u></h4>
+        <div class="border-example framed mt-4 mb-5 padding-sides" style="background-color: rgb(207 207 207);">
+
+          <div class="small" v-if="numSeccion == 0">
+            <h4><b><u>Calendario por Jornadas</u></b></h4>
             <div class="mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <div class="row">
+                <div v-for="(horario, index) in horariosJornada" :key="index" class="col-sm-12 col-xl-4 mt-4">
+                  <h6><u>Jornada {{ index+1 }}</u></h6>
+                  <p>Del {{ horario[0].getDate() }} de {{ horario[0].toLocaleString('default', { month: 'long' }) }} al {{ horario[1].getDate() }} de {{ horario[1].toLocaleString('default', { month: 'long' }) }}</p>
+                </div>
+                <div class="mt-5">
+                  <i>Es posible que haya un parón entre las últimas jornadas debido al verano.</i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="small" v-if="numSeccion == 1">
+            <h4><b><u>Mercado negro</u></b></h4>
+            <div class="mt-3">
+              <p class="mb-4">El uso del Mercado Negro solo será permitido cuando se 
+              utilice para ahorrar tiempo y dinero.</p>
+              <h6 class="mt-5"><b><u>Pokémon</u></b></h6>
+              <p><i>Queda prohibida la compra de cualquier Pokémon a excepción de:</i></p>
+              <p>1. Pokémon orientados a farmear y que jamás se podrán usar en combate</p>
+              <h6 class="mt-5"><b><u>Objetos</u></b></h6>
+              <p><i>Está prohibida la compra de cualquier objeto a excepción de:</i></p>
+              <p>1. Carameloraros</p>
+              <p>2. Vitaminas</p>
+              <p>3. Bayas reductoras de EVs</p>
+              <p>4. Campana alivio</p>
+              <p>5. Escamas corazón</p>
+              <p>6. Todos los objetos que estén a la venta en Tienda Pokémon o Centro Comercial disponibles en las rutas determinadas en el mapa.</p>
+              <p>7. <u>En la última jornada</u> se pueden comprar objetos equipables competitivos sin restricción.</p>
             </div>
           </div>
 
           <div v-if="numSeccion == 2">
-            <h4><u>Sección 2</u></h4>
+
+            <h4 ><u>Niveles por Jornada</u></h4>
+
+            <div class="mt-3 small">
+              <p>Por cada Jornada, se establecerá una cantidad y niveles del equipo Pokémon.</p>
+              <div class="row text-center">
+                  <div class="col-3 col-md-6">
+                    <div><b><u>Jornada</u></b></div>
+                  </div>
+                  <div class="col-9 col-md-6 text-center">
+                    <div><b><u>Niveles</u></b></div>
+                  </div>
+                </div>
+                <div v-for="i in Object.keys(nivelesPokemon).length" :key="i" class="row mt-3 text-center">
+                  <div class="col-3 col-md-6">
+                    <div>{{ i }}</div>
+                  </div>
+                  <div class="col-9 col-md-6">
+                    <div>{{ nivelesPokemon[i].join('|') }}</div>
+                  </div>
+                </div>
+            </div>
+            <h4 class="mt-5"><u>Límite Stats/EVs</u></h4>
             <div class="mt-3">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+              <p>Por cada Jornada, se establecerá un límite de Stats y de EVs.</p>
+              <div class="row ">
+                  <div class="col-4">
+                    <div><b><u>Jor.</u></b></div>
+                  </div>
+                  <div class="col-4">
+                    <div><b><u>Stats</u></b></div>
+                  </div>
+                  <div class="col-4">
+                    <div><b><u>EVs</u></b></div>
+                  </div>
+                </div>
+
+                <div v-for="i in Object.keys(statsMaximos).length" :key="i" class="row mt-3">
+                  <div class="col-4">
+                    <div>{{ i }}</div>
+                  </div>
+                  <div class="col-4">
+                    <div>{{statsMaximos[i]}}</div>
+                  </div>
+                  <div class="col-4">
+                    <div>{{evsMaximos[i]}}</div>
+                  </div>
+                </div>
+            </div>
+
+            
+            <h4 class="mt-5"><u>MTs</u></h4>
+            Se aplicarán restricciones por potencia a las MTs que <u>puedas comprar</u>.
+
+            <div class="row mt-3">
+              <div class="col-6">
+                <div><b><u>Jor.</u></b></div>
+              </div>
+              <div class="col-6">
+                <div><b><u>Potencia</u></b></div>
+              </div>
+            </div>
+
+            <div v-for="(valor, clave) in potenciaMt" :key="clave" class="row mt-3">
+              <div class="col-6">
+                <div>{{clave}}</div>
+              </div>
+              <div class="col-6">
+                <div>{{valor}}</div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="small" v-if="numSeccion == 3">
+            <h4><b><u>Cambios entre Jornada</u></b></h4>
+            <div class="mt-3">
+              <p>Solo se permitirá hacer un cambio de Pokémon en el equipo respecto al equipo utilizado en la jornada anterior.</p>
             </div>
           </div>
 
-          <div v-if="numSeccion == 3">
-            <h4><u>Sección 3</u></h4>
+          <div class="small" v-if="numSeccion == 4" >
+            <h4><b><u>Pokémon válidos</u></b></h4>
             <div class="mt-3">
-              But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-            </div>
-          </div>
-
-          <div v-if="numSeccion == 4">
-            <h4><u>Sección 4</u></h4>
-            <div class="mt-3">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+              <p>Solo serán válidos los Pokémon capturados por el mismo entrenador y capturados dentro de las zonas de captura disponibles por Jornada.</p>
+              <h6 class="mt-5"><b><u>Pokémon iniciales salvajes</u></b></h6>
+              <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
+              <h6 class="mt-5"><b><u>Semilegendarios</u></b></h6>
+              <p>Solo estarán disponibles en la <span class="jornada">Jornada 9</span> y solo se podrá llevar a uno en el equipo.</p><br>
             </div>
           </div>
 
           <div v-if="numSeccion == 5">
-            <h4><u>Sección 5</u></h4>
+            <h4><u>Handicaps</u></h4>
+            <div class="mt-3 small">
+              <p>No queremos que los jugadores más experimentados se aburran en el torneo aplastando a los novatos, por eso, se han incluido los handicaps, para que puedan tener un poco de desafío y no pierdan el interés antes de la última jornada.</p>
+              <p>Además, quién sabe, quizás algún novato sorprenda a todos y se convierta en el campeón del torneo.</p>
+
+              <p class="mt-5"><i>Los handicaps son acumulativos</i></p>
+              <div class="small mt-2">
+                <div class="row ">
+                  <div class="col-6">
+                    <div><b><u>Diferencia</u></b></div>
+                  </div>
+                  <div class="col-6">
+                    <div><b><u>Handicap</u></b></div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>3</p>
+                  </div>
+                  <div class="col-6">
+                    <p>1 Pokémon menos</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>4</p>
+                  </div>
+                  <div class="col-6">
+                    <p>Enseñar el equipo al rival</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>5</p>
+                  </div>
+                  <div class="col-6">
+                    <p>No equipar objetos</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>6</p>
+                  </div>
+                  <div class="col-6">
+                    <p>Intercambiar un Pokémon (sin objetos)</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>7</p>
+                  </div>
+                  <div class="col-6">
+                    <p>Te eligen el Pokémon que iniciará el combate</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>8</p>
+                  </div>
+                  <div class="col-6">
+                    <p>1 Pokémon menos</p>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>9</p>
+                  </div>
+                  <div class="col-6">
+                    <p>Cambios no permitidos en combate</p>
+                  </div>
+                </div>
+                
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <p>10</p>
+                  </div>
+                  <div class="col-6">
+                    <p>Rival recibe x3 si gana</p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="mt-5"><i><p>El handicap de 10 de diferencia no se aplicará en la <span class="jornada">Jornada 9</span>.</p>
+                              Los puntos en la <span class="jornada">Jornada 9</span> <u>serán dobles</u>.</i></div>
+          </div>
+
+          <div class="small" v-if="numSeccion == 6">
+            <h6 class="mt-3"><b><u>Objetos</u></b></h6>
             <div class="mt-3">
-              On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.
+              <p>Equipar objetos para el combate estará permitido a partir de la <b class="jornada">Jornada 4</b>.</p>
+              <p class="mt-5">Los únicos objetos válidos son los que se encuentran exclusivamente en las rutas determinadas en el mapa de cada jornada.</p>
+              <p class="mt-5">No se puede equipar el mismo objeto en varios Pokémon.</p>
+              <p class="mt-5">Solo para la <span class="jornada">Jornada 9</span>, se podrán comprar objetos en el Mercado negro.</p>
+
+              <h6 class="mt-5"><b><u>Crianza</u></b></h6>
+              <p>La crianza estará disponible a partir de la <span class="jornada">Jornada 6</span>.</p>
+              <p>Los Pokémon conseguidos a través de crianza solo podrán tener como máximo 2 stats con los IVs al 31.</p>
             </div>
           </div>
 
-          <div v-if="numSeccion == 6">
-            <h4><u>Sección 6</u></h4>
+          <div class="small" v-if="numSeccion == 7" >
+            <h4><b> <u>Screenshots</u></b></h4>
             <div class="mt-3">
-              {{players}}
+              <p style="">Al contrario que en otras ediciones, en esta no es obligatorio hacer captura de pantalla para validar tu equipo antes de un combate.</p><br>
+              <p>Sin embargo, ambos jugadores pueden pedir una captura de pantalla para comprobar que el equipo es válido al acabar el combate.</p><br>
+              <p>Cabe destacar que el hecho de pedir una captura de pantalla no implica desconfianza si no favorecer a que el combate sea limpio y evitar irregularidades no intencionadas.</p>
+            </div>
+          </div>
+
+          <div class="small" v-if="numSeccion == 8" >
+            <h4><b> <u>Combates</u></b></h4>
+            <div class="mt-3">
+              <p>De forma general, los combates se realizarán el último fin de semana de la jornada.</p>
+              <p>Los jugadores tendrán que ponerse de acuerdo con los contricantes para elegir el horario.</p>
+              <p>Si ambos jugadores deciden jugar antes del fin de semana, será permitido.</p>
+              <p>El límite para hacer el combate será el último domingo a las 23:59.</p>
+              <p>Si un jugador no marca el resultado, el contrincante recibirá el punto.</p>
             </div>
           </div>
         </div>
@@ -66,23 +290,19 @@
 </template>
 
 <script>
-import {getFakePlayers} from '@/api/home'
+import { horarios_jornada, nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/normasHelper.js";
+
 export default {
   data() {
     return{
-      numSeccion: 1,
-      players: ''
+      numSeccion: 0,
+      nivelesPokemon : nivelesPokemon,
+      statsMaximos : statsMaximos,
+      evsMaximos : evsMaximos,
+      potenciaMt : potenciaMt,
+      horariosJornada : horarios_jornada,
     }
   },
-  methods: {
-    async fillPlayers() {
-      let players = await getFakePlayers()
-      this.players = players.data
-    }
-  },
-  mounted() {
-    this.fillPlayers()
-  }
 }
 </script>
 
@@ -96,8 +316,32 @@ export default {
   cursor: pointer;
 }
 
+.secciones:hover{
+  color: red;
+}
+
 .main {
   margin: 0 5%;
+}
+
+.padding-sides{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.seccionActiva{
+  color: red;
+}
+
+.jornada{
+  color: blue;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px){
+  .small{
+    font-size: 12px;
+  }
 }
 
 

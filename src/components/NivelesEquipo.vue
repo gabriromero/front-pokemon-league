@@ -1,32 +1,16 @@
 <template>
-  <p class="title">NIVELES EQUIPO POKÉMON</p>
+  <p class="title text-center mt-4">NIVELES EQUIPO POKÉMON</p>
 
   <div class="divBackground">
     <div class="insideDiv">
       <div class="row">
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-1" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">12</p>
+        <div v-for="(item, index) in nivelesPokemon" :key="index" class="imgDiv col-4 col-sm-2">
+          <img class="pokemon-visible" src="@/assets/pokeballSprite.png" />
+          <p class="label-nivel-1 mb-2">{{item}}</p>
         </div>
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-2" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">13</p>
-        </div>
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-3" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">14</p>
-        </div>
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-4" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">-</p>
-        </div>
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-5" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">-</p>
-        </div>
-        <div class="imgDiv col-xl-2 col-4">
-          <img class="nivel-pokemon-6" src="@/assets/pokeballSprite.png" />
-          <p class="label-nivel-1">-</p>
+        <div v-for="n in difference" :key="n" class="imgDiv col-4 col-sm-2">
+          <img class="pokemon-blur" src="@/assets/pokeballSprite.png" />
+          <p class="label-nivel-1 mb-2">-</p>
         </div>
       </div>
     </div>
@@ -35,7 +19,21 @@
 
 
 <script>
-export default {};
+import {getNormasRuta} from "@/helpers/normasHelper.js";
+
+export default {
+  data() {
+    return {
+      nivelesPokemon : '',
+      difference : '',
+    };
+  },
+  async mounted() {
+    const normasRuta = await getNormasRuta();
+    this.nivelesPokemon = normasRuta["nivelesPokemon"];
+    this.difference = 6 - normasRuta["nivelesPokemon"].length;
+  },
+};
 </script>
   
 <style scoped>
@@ -59,19 +57,15 @@ export default {};
   vertical-align: middle;
 }
 
-.nivel-pokemon-1,
-.nivel-pokemon-2,
-.nivel-pokemon-3 {
+.pokemon-visible {
   width: 70%;
-  height: 70%;
+  height: auto;
 }
 
-.nivel-pokemon-4,
-.nivel-pokemon-5,
-.nivel-pokemon-6 {
+.pokemon-blur {
   width: 70%;
-  height: 70%;
-  filter: blur(3px);
+  height: auto;
+  filter: blur(3px) grayscale(100%);
 }
 
 .label-nivel-1 {
@@ -81,6 +75,13 @@ export default {};
 
 .imgDiv {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 12px;
+    margin-top: 15px;
+  }
 }
 
 </style>

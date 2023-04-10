@@ -17,3 +17,10 @@ export const getMyselfProfile = async (access_token) => {
 
     return profile
 }
+
+export const getActualJornada = async () => {
+
+    const jornada_actual = await myselfProfileEndpointApi.get('/jornada-actual');
+
+    return jornada_actual
+}
