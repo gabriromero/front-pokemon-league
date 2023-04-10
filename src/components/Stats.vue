@@ -119,7 +119,8 @@ export default defineComponent({
           text: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
         }));
         pokemonList.value = options; //seteamos la constante con la lista de nombres de los pokes
-        selectedPokemon.value = options[0].id; // Establece el primer Pokemon como el seleccionado por defecto
+        let randomPokemon = Math.floor(Math.random() * options.length);
+        selectedPokemon.value = options[randomPokemon].id; // Establece el primer Pokemon como el seleccionado por defecto
         updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
       } catch (error) {
         console.error(error);
