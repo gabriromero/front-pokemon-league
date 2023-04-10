@@ -1,11 +1,11 @@
 <template>
-    <p class="mt-4">Los nuevos combates apareceran el Lunes a las 18:00</p>
+    <p class="mt-4">{{textoMensaje}}</p>
     <div class="mt-5">
-        <vue-countdown :time="tiempoSiguientesCombates" v-slot="{ hours, minutes, seconds }">
+        <vue-countdown :time="tiempoSiguientesCombates" v-slot="{  days, hours, minutes, seconds }">
             <div>
                 <br/>
                 <p>Tiempo restante:</p>
-                <h2>{{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                <h2>{{days}}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
             </div>
         </vue-countdown>
     </div>
@@ -17,6 +17,7 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 export default {
     props: {
         tiempoSiguientesCombates: Number,
+        textoMensaje: String
     },
     components: {
         VueCountdown
