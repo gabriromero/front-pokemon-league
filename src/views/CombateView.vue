@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="root" v-if="!isMondayMorning">
     <img
       class="img-background"
       src="@/assets/pokeball_fondo.svg"
@@ -110,19 +110,23 @@
       <br /><br />
     </div>
   </div>
+  <div v-else class="text-center">
+    <Contador :tiempoSiguientesCombates="msUntilMonday" :textoMensaje="textoContador" />
+  </div>
 </template>
 
 <script>
 import { getMyMatches } from "@/api/combate";
 import { postMarkResultMyMatches } from "@/api/combate";
 import { getMyselfProfile } from "@/api/shared";
-import { getHandicap, minHandicap } from "@/helpers/normasHelper.js";
+import { getHandicap, minHandicap, horarios_jornada } from "@/helpers/normasHelper.js";
 import { VTooltip } from 'vuetify/lib/components/VTooltip/VTooltip'
-
+import Contador from '@/components/Contador.vue';
 
 export default {
   components: {
     VTooltip,
+    Contador
   },
   data() {
     return {
@@ -133,7 +137,8 @@ export default {
       nombrePlayerGanador: '',
       myUser: '',
       combatesCargados: false,   
-      minHandicap : minHandicap, 
+      minHandicap : minHandicap,
+      today: new Date(),
     };
   },
   methods: {
@@ -215,6 +220,26 @@ export default {
   mounted() {
     this.fillMyMatches();
     this.fillMyUser();
+  },
+  computed: {
+      isMondayMorning() {
+          return this.today.getDay() === 1 && this.today.getHours() < 18
+      },
+      msUntilMonday() {
+          // Si el torneo aún no ha empezado
+          if(this.today < horarios_jornada[0][0]){
+              this.textoContador = `La liga empezará el ${horarios_jornada[0][0].getDate()} de ${horarios_jornada[0][0].toLocaleString('default', { month: 'long' })}`;
+              return horarios_jornada[0][0].getTime() - this.today.getTime();
+          }
+          // Una vez empezado, entra si es lunes por la mañana
+          if(this.isMondayMorning){
+              const now = new Date();
+              const msInDay = 86400000;
+              const msUntilMonday = (8 - now.getDay()) % 7 * msInDay + (18 - now.getHours()) * 3600000 - now.getMinutes() * 60000 - now.getSeconds() * 1000 - now.getMilliseconds();
+              this.textoContador = "Los nuevos combates apareceran el Lunes a las 18:00";
+              return msUntilMonday;
+          }
+      }
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="firstBorder">
+    <div v-if="!isMondayMorning" class="firstBorder">
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
@@ -20,15 +20,45 @@
             </div>
         </div>
     </div>
+    <div v-else class="text-center">
+        <Contador :tiempoSiguientesCombates="msUntilMonday" :textoMensaje="textoContador" />
+    </div>
 </template>
 
 <script>
 import {getMatches} from '@/api/home'
-import { getJornada } from '@/helpers/normasHelper'
+import Contador from '@/components/Contador.vue';
+import { getJornada, horarios_jornada } from '@/helpers/normasHelper';
+
 export default {
+    components: {
+        Contador
+    },
+    computed: {
+        isMondayMorning() {
+            return this.today.getDay() === 1 && this.today.getHours() < 18
+        },
+        msUntilMonday() {
+            // Si el torneo aún no ha empezado
+            if(this.today < horarios_jornada[0][0]){
+                this.textoContador = `La liga empezará el ${horarios_jornada[0][0].getDate()} de ${horarios_jornada[0][0].toLocaleString('default', { month: 'long' })}`;
+                return horarios_jornada[0][0].getTime() - this.today.getTime();
+            }
+            // Una vez empezado, entra si es lunes por la mañana
+            if(this.isMondayMorning){
+                const now = new Date();
+                const msInDay = 86400000;
+                const msUntilMonday = (8 - now.getDay()) % 7 * msInDay + (18 - now.getHours()) * 3600000 - now.getMinutes() * 60000 - now.getSeconds() * 1000 - now.getMilliseconds();
+                this.textoContador = "Los nuevos combates apareceran el Lunes a las 18:00";
+                return msUntilMonday;
+            }
+        }
+    },
     data() {
         return {
+            today: new Date(),
             numSeccion: 1,
+            textoContador : "",
             matches: [
                 {
                     "jornada": 1,
