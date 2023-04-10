@@ -5,11 +5,11 @@
             <div>
                 <br/>
                 <p>Tiempo restante:</p>
-                <div v-if="days>0">
-                    <h2>{{days}}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                <div class="tiempo-restante" v-if="days>0">
+                    <span>{{days}}d : {{ hours }}h : {{ minutes }}m : {{ seconds }}s </span>
                 </div>
-                <div v-else>
-                    <h2>{{ hours }}h : {{ minutes }}m : {{ seconds }}s </h2>
+                <div class="tiempo-restante" v-else>
+                    <span>{{ hours }}h : {{ minutes }}m : {{ seconds }}s </span>
                 </div>
                 
             </div>
@@ -32,4 +32,8 @@ export default {
 </script>
 
 <style>
+.tiempo-restante {
+    text-align: center;
+    font-size: 1rem;
+}
 </style>
