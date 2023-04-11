@@ -1,44 +1,42 @@
 <template>
-  <p class="title">STATS POKÉMON</p>
+  <p class="title text-center">STATS POKÉMON</p>
 
   <div class="row">
-    <div class="col-xl-4">
+    <div class="col-4 ">
       <div class="imgDiv">
-        <img class="imgClass" id="imgId" :src="imageUrl" />
+        <a :href="`http://en.pokemmo.shoutwiki.com/wiki/${selectedPokemon}`" target="blank"><img class="imgClass" id="imgId" :src="imageUrl" /></a>
       </div>
-      <div
-        v-if="pokemonTypes.length === 1"
-        class="row"
-        style="margin-top: 10px"
-      >
-        <div class="imgTiposSolo1 col-sm-12 col-12">
-          <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
-        </div>
-      </div>
-      <div
-        v-else-if="pokemonTypes.length === 2"
-        class="row"
-        style="margin-top: 10px"
-      >
-        <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" :src="rutaImgType1" />
-        </div>
-        <div class="imgTipos col-sm-6 col-6">
-          <img class="pkmTypeImg" :src="rutaImgType2" />
-        </div>
-      </div>
-
       <div class="row">
-        <div class="col-lg-12 col-12">STATS BASE:</div>
-        <div class="divStatsBase">
-          <div class="divStatsBaseInside">
-            <p class="valorStatBase">{{ sumaBaseStats }}</p>
+        <div
+          v-if="pokemonTypes.length === 1"
+          class="col-12 center-vertical"
+        >
+          <div class="imgTiposSolo1 col-sm-12 col-12">
+            <img class="pkmTypeImgSolo1" :src="rutaImgType1" />
+          </div>
+        </div>
+        <div
+          v-else-if="pokemonTypes.length === 2"
+          class="center-vertical"
+        >
+          <div class="imgTipos col-6">
+            <img class="pkmTypeImg" :src="rutaImgType1" />
+          </div>
+          <div class="imgTipos col-6">
+            <img class="pkmTypeImg" :src="rutaImgType2" />
+          </div>
+        </div>
+      </div>
+      <div class="center-vertical mt-2" style="display: block;">
+        <div class="divBackground">
+          <div class="insideDiv">
+            <p class="maxStats">{{ sumaBaseStats }}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="namePkmDiv col-xl-8 col-12">
+    <div class="namePkmDiv col-8">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -55,33 +53,33 @@
       </div>
 
       <div class="row">
-        <div class="labelPS col-sm-9 col-6">PS</div>
-        <div class="statPS col-sm-3 col-6">{{ baseStatsPs }}</div>
+        <div class="labelPS col-9">PS</div>
+        <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
       <div class="row">
-        <div class="labelAtaque col-sm-9 col-6">ATAQUE</div>
-        <div class="statAtaque col-sm-3 col-6">{{ baseStatsAt }}</div>
+        <div class="labelAtaque col-9">ATAQUE</div>
+        <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
       <div class="row">
-        <div class="labelDefensa col-sm-9 col-6">DEFENSA</div>
-        <div class="statDefensa col-sm-3 col-6">{{ baseStatsDf }}</div>
+        <div class="labelDefensa col-9">DEFENSA</div>
+        <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
       <div class="row">
-        <div class="labelVelocidad col-sm-9 col-6">VELOCIDAD</div>
-        <div class="statVelocidad col-sm-3 col-6">{{ baseStatsVel }}</div>
+        <div class="labelAtEsp col-9">AT ESP.</div>
+        <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
       <div class="row">
-        <div class="labelAtEsp col-sm-9 col-6">AT ESP.</div>
-        <div class="statAtEsp col-sm-3 col-6">{{ baseStatsAtEsp }}</div>
+        <div class="labelDefEsp col-9">DEF ESP.</div>
+        <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
 
       <div class="row">
-        <div class="labelDefEsp col-sm-9 col-6">DEF ESP.</div>
-        <div class="statDefEsp col-sm-3 col-6">{{ baseStatsDfEsp }}</div>
+        <div class="labelVelocidad col-9">VELOCIDAD</div>
+        <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
     </div>
   </div>
@@ -91,10 +89,11 @@
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
+import Limites from "@/components/Limites.vue";
 import { API_PKM } from "@/helpers/generalHelper";
 
 export default defineComponent({
-  components: { Select2 },
+  components: { Select2, Limites },
   setup() {
     //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
     const pokemonList = ref([]);
@@ -133,7 +132,7 @@ export default defineComponent({
         imageUrl.value =
           response.data.sprites.versions["generation-v"][
             "black-white"
-          ].animated.front_default; //aqui obtenemos los sprites animados gracias a la API :)
+          ].front_default; //aqui obtenemos los sprites animados gracias a la API :)
         baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
         baseStatsAt.value = response.data.stats["1"].base_stat;
         baseStatsDf.value = response.data.stats["2"].base_stat;
@@ -180,6 +179,7 @@ export default defineComponent({
 
   mounted() {
     this.getPokemonList();
+    window.addEventListener('resize', this.handleResize);
   },
   watch: {
     //método que observa cambios en el componente. En este caso, cuando hay un cambio en la variable 'selectedPôkemon' ejecuta updateImage() para cambiar la imagen del div
@@ -254,11 +254,10 @@ export default defineComponent({
 }
 
 .buscadorPkmBackgroundDiv {
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: #c2bdbd;
   width: 97.5%;
-  margin-left: 10px;
 }
 
 .buscadorPkmInsideDiv {
@@ -278,10 +277,9 @@ export default defineComponent({
 .labelVelocidad,
 .labelAtEsp,
 .labelDefEsp {
-  margin-top: 33px;
+  margin-top: 4%;
   padding-left: 20px;
   font-weight: bold;
-  font-size: 1.2em;
   display: flex;
   align-content: center;
   align-items: center;
@@ -293,12 +291,12 @@ export default defineComponent({
 .statVelocidad,
 .statAtEsp,
 .statDefEsp {
-  margin-top: 33px;
+  margin-top: 4%;
   text-align: center;
   border: 2px solid;
   border-radius: 15px 15px 15px 15px;
   background-color: white;
-  font-size: 1.2em;
+  margin-left: -10px;
 }
 
 .divStatsBase {
@@ -322,6 +320,13 @@ export default defineComponent({
   vertical-align: middle;
 }
 
+.center-vertical{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 601px) {
   .title {
     font-size: 15px;
@@ -342,10 +347,13 @@ export default defineComponent({
   .labelAtEsp,
   .labelDefEsp {
     font-size: 0.9em;
-    padding-left: 0px;
     display: flex;
     align-content: center;
     align-items: center;
+  }
+
+  .namePkmDiv{
+    font-size: 0.6em;
   }
 
   .divStatsBase {
@@ -357,5 +365,27 @@ export default defineComponent({
   .divStatsBase {
     margin-bottom: 15px;
   }
+}
+
+.divBackground {
+  background-color: #C2BDBD;
+  border: 2px solid;
+  border-radius: 15px 15px 15px 15px;  
+  margin-bottom: 5%;
+}
+
+.insideDiv {
+  background-color: white;
+  border: 2px solid;
+  border-radius: 15px 15px 15px 15px;
+  height: auto;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+.maxStats {
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 0;
 }
 </style>

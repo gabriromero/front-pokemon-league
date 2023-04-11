@@ -2,9 +2,9 @@
   <div>
     <p class="title text-center">ZONAS DE CAPTURA</p>
     
-    <div class="divBackground">
+    <div v-if="jornada" class="divBackground">
         <div class="insideDiv">
-            <img id="map" class="img-fluid p-3 w-100" src="@/assets/mapa.png" alt="">
+            <img id="map" class="img-fluid p-1" style="border-radius: 15px;" :src="require(`@/assets/mapas/mapa_j${jornada}.png`)" alt="">
         </div>
     </div>
 
@@ -13,8 +13,17 @@
 </template>
 
 <script>
+import {getJornada} from "@/helpers/normasHelper.js";
 export default {
-
+  data() {
+    return {
+      jornada: '',
+    };
+  },
+  async mounted() {
+    const jornada = await getJornada();
+    this.jornada = jornada;
+  },
 }
 </script>
 
@@ -54,6 +63,10 @@ export default {
     font-size: 12px;
     margin-top: 15px;
    }
+}
+
+.img-fluid {
+  width: 100%;
 }
 
 </style>

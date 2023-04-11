@@ -45,11 +45,12 @@
     </div>
   
 
-  <router-view class="mt-5" />
+  <router-view class="mt-5 general-padding"/>
 </template>
 
 <script>
 import { getLoginResponse } from '@/api/home'
+import { getMyselfProfile } from '@/api/shared'
 
 export default {
   data() {
@@ -85,16 +86,20 @@ export default {
           this.incorrectCredentials = false
         }
         else{
+          console.log('here');
           this.incorrectCredentials = true
         }
       } catch (err) {
         console.log(err);
+        this.incorrectCredentials = true
       }
     },
-    checkSession(){
+    async checkSession(){
       const accessToken = localStorage.getItem('access_token');
 
-      if (accessToken) {
+      const logged = await getMyselfProfile(accessToken);
+
+      if (logged) {
         this.isAuthenticated = true
       } else {
         this.isAuthenticated = false
@@ -144,6 +149,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.general-padding{
+  padding-left: 3%;
+  padding-right: 3%;
 }
 
 /* Navbar stuff */
@@ -200,8 +210,7 @@ nav a.router-link-exact-active {
   transform: rotate(0deg);
 }
 .popup-overlay {
-  position: fixed;
-  top: -20%;
+  position: fixed;  
   left: 0;
   width: 100%;
   height: 100%;
@@ -209,12 +218,14 @@ nav a.router-link-exact-active {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .popup {
   background-color: white;
   padding: 20px;
-  z-index: 9999;
+  position: absolute;
+  top: 20%;
 }
 
 .popup-content {
