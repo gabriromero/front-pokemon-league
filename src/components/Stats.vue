@@ -52,33 +52,33 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="labelPS col-9">PS</div>
+      <div class="row justify-content-between">
+        <div class="labelPS col-9" :style="{ width: `calc(${baseStatsPs}/350 * 100%)` }" :class="{ 'gray1-bg': tonoGris1PS, 'gray2-bg': tonoGris2PS, 'gray3-bg': tonoGris3PS, 'gray4-bg': tonoGris4PS}">PS</div>
         <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelAtaque col-9">ATAQUE</div>
+      <div class="row justify-content-between">
+        <div class="labelAtaque col-9" :style="{ width: `calc(${baseStatsAt}/350 * 100%)` }"  :class="{ 'gray1-bg': tonoGris1At, 'gray2-bg': tonoGris2At, 'gray3-bg': tonoGris3At, 'gray4-bg': tonoGris4At}">ATAQUE</div>
         <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelDefensa col-9">DEFENSA</div>
+      <div class="row justify-content-between">
+        <div class="labelDefensa col-9" :style="{ width: `calc(${baseStatsDf}/350 * 100%)` }"  :class="{ 'gray1-bg': tonoGris1Df, 'gray2-bg': tonoGris2Df, 'gray3-bg': tonoGris3Df, 'gray4-bg': tonoGris4Df}">DEFENSA</div>
         <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelAtEsp col-9">AT ESP.</div>
+      <div class="row justify-content-between">
+        <div class="labelAtEsp col-9" :style="{ width: `calc(${baseStatsAtEsp}/350 * 100%)` }"  :class="{ 'gray1-bg': tonoGris1AEsp, 'gray2-bg': tonoGris2AEsp, 'gray3-bg': tonoGris3AEsp, 'gray4-bg': tonoGris4AEsp }">AT.ESP.</div>
         <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelDefEsp col-9">DEF ESP.</div>
+      <div class="row justify-content-between">
+        <div class="labelDefEsp col-9" :style="{ width: `calc(${baseStatsDfEsp}/350 * 100%)` }"  :class="{ 'gray1-bg': tonoGris1DEsp, 'gray2-bg': tonoGris2DEsp, 'gray3-bg': tonoGris3DEsp, 'gray4-bg': tonoGris4DEsp }">DEF.ESP.</div>
         <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelVelocidad col-9">VELOCIDAD</div>
+      <div class="row justify-content-between">
+        <div class="labelVelocidad col-9" :style="{ width: `calc(${baseStatsVel}/350 * 100%)` }"  :class="{ 'gray1-bg': tonoGris1Vel, 'gray2-bg': tonoGris2Vel, 'gray3-bg': tonoGris3Vel, 'gray4-bg': tonoGris4Vel }">VELOCIDAD</div>
         <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
     </div>
@@ -91,6 +91,7 @@ import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
 import Limites from "@/components/Limites.vue";
 import { API_PKM } from "@/helpers/generalHelper";
+import { left } from "@popperjs/core";
 
 export default defineComponent({
   components: { Select2, Limites },
@@ -175,6 +176,81 @@ export default defineComponent({
     };
   },
 
+  computed:{
+    tonoGris1PS() {
+      return this.baseStatsPs / 320 < 0.25;
+    },
+    tonoGris2PS() {
+      return this.baseStatsPs / 320 >= 0.25 && this.baseStatsPs / 320 <= 0.5;
+    },
+    tonoGris3PS() {
+      return this.baseStatsPs / 320 >= 0.5 && this.baseStatsPs / 320 <= 0.75;
+    },
+    tonoGris4PS() {
+      return this.baseStatsPs / 320 > 0.75;
+    },
+    tonoGris1At() {
+      return this.baseStatsAt / 320 < 0.25;
+    },
+    tonoGris2At() {
+      return this.baseStatsAt / 320 >= 0.25 && this.baseStatsAt / 320 <= 0.5;
+    },
+    tonoGris3At() {
+      return this.baseStatsAt / 320 >= 0.5 && this.baseStatsAt / 320 <= 0.75;
+    },
+    tonoGris4At() {
+      return this.baseStatsAt / 320 > 0.75;
+    },
+    tonoGris1Df() {
+      return this.baseStatsDf / 320 < 0.25;
+    },
+    tonoGris2Df() {
+      return this.baseStatsDf / 320 >= 0.25 && this.baseStatsDf / 320 <= 0.5;
+    },
+    tonoGris3Df() {
+      return this.baseStatsDf / 320 >= 0.5 && this.baseStatsDf / 320 <= 0.75;
+    },
+    tonoGris4Df() {
+      return this.baseStatsDf / 320 > 0.75;
+    },
+    tonoGris1AEsp() {
+      return this.baseStatsAtEsp / 320 < 0.25;
+    },
+    tonoGris2AEsp() {
+      return this.baseStatsAtEsp / 320 >= 0.25 && this.baseStatsAtEsp / 320 <= 0.5;
+    },
+    tonoGris3AEsp() {
+      return this.baseStatsAtEsp / 320 >= 0.5 && this.baseStatsAtEsp / 320 <= 0.75;
+    },
+    tonoGris4AEsp() {
+      return this.baseStatsAtEsp / 320 > 0.75;
+    },
+    tonoGris1DEsp() {
+      return this.baseStatsDfEsp / 320 < 0.25;
+    },
+    tonoGris2DEsp() {
+      return this.baseStatsDfEsp / 320 >= 0.25 && this.baseStatsDfEsp / 320 <= 0.5;
+    },
+    tonoGris3DEsp() {
+      return this.baseStatsDfEsp / 320 >= 0.5 && this.baseStatsDfEsp / 320 <= 0.75;
+    },
+    tonoGris4DEsp() {
+      return this.baseStatsDfEsp / 320 > 0.75;
+    },
+    tonoGris1Vel() {
+      return this.baseStatsVel / 320 < 0.25;
+    },
+    tonoGris2Vel() {
+      return this.baseStatsVel / 320 >= 0.25 && this.baseStatsVel / 320 <= 0.5;
+    },
+    tonoGris3Vel() {
+      return this.baseStatsVel / 320 >= 0.5 && this.baseStatsVel / 320 <= 0.75;
+    },
+    tonoGris4Vel() {
+      return this.baseStatsVel / 320 > 0.75;
+    },
+  },
+
   mounted() {
     this.getPokemonList();
     window.addEventListener('resize', this.handleResize);
@@ -185,6 +261,8 @@ export default defineComponent({
       this.updateCaracterisiticas();
     },
   },
+
+  
 });
 </script>
   
@@ -348,6 +426,7 @@ export default defineComponent({
     display: flex;
     align-content: center;
     align-items: center;
+    
   }
 
   .namePkmDiv{
@@ -385,5 +464,18 @@ export default defineComponent({
   text-align: center;
   vertical-align: middle;
   margin-bottom: 0;
+}
+
+.gray1-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.gray2-bg {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.gray3-bg {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.gray4-bg {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
