@@ -70,7 +70,7 @@ export default {
 }
 @media (orientation: Portrait) {
   .container-perfil {
-    width: 90%;
+    width: 600px;
   }
   .nombreFicha {
     font-size: 2.5vw !important;
@@ -85,10 +85,10 @@ export default {
     width: 100%;
   }
   .medallas-movil {
-    display: inline-flex;
+    display: block;
     justify-content: center;
-    height: 50%;
-  
+    width: 600px;
+    margin-top: 3%;
   }
   
   
