@@ -178,8 +178,10 @@ export default defineComponent({
     setGradientColor(stats){
       let minRange = 0.2;
       let maxRange = 0.5;
+      let limit = 255;
+
       let differene = maxRange - minRange;
-      let range = stats/255*differene+minRange;
+      let range = stats/limit*differene+minRange;
 
       return `rgba(0, 0, 0, ${range})`;
     },
