@@ -29,13 +29,10 @@ export default {};
 
 <style scoped>
 .perfil {
-  border: 1px solid;
-  border-color: grey;
-  border-radius: 15px;
-  background-color: #d9d9d9;
-  margin-left: 5%;
-  margin-right: 5%;
-  height: 100%;
+  border: 1px, solid, black;
+  width: 100%;
+  margin-left: 0px !important;
+  margin-right: 0px !important; 
 }
 row {
   height: 10%;
@@ -50,11 +47,10 @@ row {
   width: 50%;
   cursor: pointer;
 }
-@media (min-width:900px) {
-.img-arrow{
-  width: 70%;
-}
-
+@media (min-width: 900px) {
+  .img-arrow {
+    width: 70%;
+  }
 }
 .arrow:last-child {
   transform: rotate(180deg);
@@ -90,7 +86,6 @@ row {
   height: 70%;
   padding: 10%;
   width: 100%;
-  min-width: 30px;
 }
 .container-selected {
   height: fit-content;
