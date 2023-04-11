@@ -194,8 +194,6 @@ export default defineComponent({
       this.updateCaracterisiticas();
     },
   },
-
-  
 });
 </script>
   
@@ -359,7 +357,6 @@ export default defineComponent({
     display: flex;
     align-content: center;
     align-items: center;
-    
   }
 
   .namePkmDiv{
@@ -398,5 +395,4 @@ export default defineComponent({
   vertical-align: middle;
   margin-bottom: 0;
 }
-
 </style>
