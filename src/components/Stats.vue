@@ -399,17 +399,4 @@ export default defineComponent({
   margin-bottom: 0;
 }
 
-.gray1-bg {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-.gray2-bg {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.gray3-bg {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.gray4-bg {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 </style>
