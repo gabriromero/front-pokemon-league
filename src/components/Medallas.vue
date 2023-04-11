@@ -41,7 +41,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .medallas {
   background-color: #d9d9d9;
@@ -74,7 +73,6 @@ img {
   padding: 20%;
   filter: grayscale(100%);
 }
-
 @media (orientation: Portrait) {
   .medalla {
     margin-top: 7px;

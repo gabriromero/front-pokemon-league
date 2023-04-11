@@ -90,8 +90,6 @@ export default {
     width: 600px;
     margin-top: 3%;
   }
-  
-  
 }
 .selector {
   text-align: center;
