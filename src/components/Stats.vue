@@ -52,33 +52,33 @@
         </div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelPS col-9" :style="{ width: setLabelWidth(baseStatsPs), backgroundColor: setGradientColor(baseStatsPs) }">PS</div>
+      <div class="row">
+        <div class="labelPS col-9">PS</div>
         <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelAtaque col-9" :style="{ width: setLabelWidth(baseStatsAt), backgroundColor: setGradientColor(baseStatsAt) }">ATAQUE</div>
+      <div class="row">
+        <div class="labelAtaque col-9">ATAQUE</div>
         <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelDefensa col-9" :style="{ width: setLabelWidth(baseStatsDf), backgroundColor: setGradientColor(baseStatsDf) }">DEFENSA</div>
+      <div class="row">
+        <div class="labelDefensa col-9">DEFENSA</div>
         <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelAtEsp col-9" :style="{ width: setLabelWidth(baseStatsAtEsp), backgroundColor: setGradientColor(baseStatsAtEsp) }">AT.ESP.</div>
+      <div class="row">
+        <div class="labelAtEsp col-9">AT ESP.</div>
         <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelDefEsp col-9" :style="{ width: setLabelWidth(baseStatsDfEsp), backgroundColor: setGradientColor(baseStatsDfEsp) }">DEF.ESP.</div>
+      <div class="row">
+        <div class="labelDefEsp col-9">DEF ESP.</div>
         <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
 
-      <div class="row justify-content-between">
-        <div class="labelVelocidad col-9" :style="{ width: setLabelWidth(baseStatsVel), backgroundColor: setGradientColor(baseStatsVel) }">VELOCIDAD</div>
+      <div class="row">
+        <div class="labelVelocidad col-9">VELOCIDAD</div>
         <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
     </div>
@@ -174,24 +174,7 @@ export default defineComponent({
       updateCaracterisiticas,
     };
   },
-  methods:{
-    setGradientColor(stats){
-      let minRange = 0.2;
-      let maxRange = 0.5;
-      let limit = 255;
 
-      let differene = maxRange - minRange;
-      let range = stats/limit*differene+minRange;
-
-      return `rgba(0, 0, 0, ${range})`;
-    },
-    setLabelWidth(stats){
-      let maxWidth = 350;
-      let percentage = stats/maxWidth*100;
-
-      return `calc(${percentage}%)`
-    }
-  },
   mounted() {
     this.getPokemonList();
     window.addEventListener('resize', this.handleResize);
