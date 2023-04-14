@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="namePkmDiv col-8">
+    <div class="namePkmDiv col-8 leftPadding">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -379,6 +379,12 @@ export default defineComponent({
 @media screen and (max-width: 991px) {
   .divStatsBase {
     margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .leftPadding{
+    padding-left: 5%;
   }
 }
 
