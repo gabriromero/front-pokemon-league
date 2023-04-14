@@ -52,32 +52,32 @@
         </div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelPS col-9" :style="{ width: setLabelWidth(baseStatsPs), backgroundColor: setGradientColor(baseStatsPs) }">PS</div>
         <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelAtaque col-9" :style="{ width: setLabelWidth(baseStatsAt), backgroundColor: setGradientColor(baseStatsAt) }">ATAQUE</div>
         <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelDefensa col-9" :style="{ width: setLabelWidth(baseStatsDf), backgroundColor: setGradientColor(baseStatsDf) }">DEFENSA</div>
         <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelAtEsp col-9" :style="{ width: setLabelWidth(baseStatsAtEsp), backgroundColor: setGradientColor(baseStatsAtEsp) }">AT.ESP.</div>
         <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelDefEsp col-9" :style="{ width: setLabelWidth(baseStatsDfEsp), backgroundColor: setGradientColor(baseStatsDfEsp) }">DEF.ESP.</div>
         <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
 
-      <div class="row justify-content-between">
+      <div class="row justify-content-between divEstadistica">
         <div class="labelVelocidad col-9" :style="{ width: setLabelWidth(baseStatsVel), backgroundColor: setGradientColor(baseStatsVel) }">VELOCIDAD</div>
         <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
@@ -402,5 +402,9 @@ export default defineComponent({
   text-align: center;
   vertical-align: middle;
   margin-bottom: 0;
+}
+
+.divEstadistica{
+  padding-right: 12px;
 }
 </style>
