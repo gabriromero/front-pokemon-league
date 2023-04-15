@@ -86,11 +86,9 @@
 </template>
   
 <script>
-import axios from "axios";
 import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
 import Limites from "@/components/Limites.vue";
-import { API_PKM } from "@/helpers/apiHelper";
 import { getApiPokemonList, getApiPokemonData } from "@/api/home";
 
 export default defineComponent({
@@ -136,31 +134,40 @@ export default defineComponent({
     async updateCaracterisiticas(){
       try {
         const response = await getApiPokemonData(this.selectedPokemon);
-        this.imageUrl = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
-        this.baseStatsPs = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
-        this.baseStatsAt = response.data.stats["1"].base_stat;
-        this.baseStatsDf = response.data.stats["2"].base_stat;
-        this.baseStatsVel = response.data.stats["5"].base_stat;
-        this.baseStatsAtEsp = response.data.stats["3"].base_stat;
-        this.baseStatsDfEsp = response.data.stats["4"].base_stat;
-        this.sumaBaseStats =
-        this.baseStatsPs +
-        this.baseStatsAt +
-        this.baseStatsDf +
-          this.baseStatsVel +
-          this.baseStatsAtEsp +
-          this.baseStatsDfEsp;
-        this.pokemonTypes = response.data.types.map((type) => type.type.name);
-        this.rutaImgType1 = require("@/assets/pkmTypes/" +
-          this.pokemonTypes[0] +
-          ".png");
-        if(this.pokemonTypes[1]){
-          this.rutaImgType2 = require("@/assets/pkmTypes/" +
-            this.pokemonTypes[1] +
-            ".png");
-        }
+        this.updateImageUrl(response);
+        this.updateBaseStats(response);
+        this.updateSumaBaseStats();
+        this.updatePokemonTypes(response);
+        this.updateRutaImgTypes();
       } catch (error) {
         console.error(error);
+      }
+    },
+    updateImageUrl(response) {
+  this.imageUrl = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
+    },
+
+    updateBaseStats(response) {
+      this.baseStatsPs = response.data.stats["0"].base_stat;
+      this.baseStatsAt = response.data.stats["1"].base_stat;
+      this.baseStatsDf = response.data.stats["2"].base_stat;
+      this.baseStatsVel = response.data.stats["5"].base_stat;
+      this.baseStatsAtEsp = response.data.stats["3"].base_stat;
+      this.baseStatsDfEsp = response.data.stats["4"].base_stat;
+    },
+
+    updateSumaBaseStats() {
+      this.sumaBaseStats = this.baseStatsPs + this.baseStatsAt + this.baseStatsDf + this.baseStatsVel + this.baseStatsAtEsp + this.baseStatsDfEsp;
+    },
+
+    updatePokemonTypes(response) {
+      this.pokemonTypes = response.data.types.map(type => type.type.name);
+    },
+
+    updateRutaImgTypes() {
+      this.rutaImgType1 = require(`@/assets/pkmTypes/${this.pokemonTypes[0]}.png`);
+      if (this.pokemonTypes[1]) {
+        this.rutaImgType2 = require(`@/assets/pkmTypes/${this.pokemonTypes[1]}.png`);
       }
     },
     setGradientColor(stats){
