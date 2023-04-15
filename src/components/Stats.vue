@@ -29,7 +29,7 @@
       </div>
       <div class="center-vertical mt-2" style="display: block;">
         <div class="divBackground">
-          <div class="insideDiv" :style="{backgroundImage: superaStats()}">
+          <div class="insideDiv" :style="{backgroundColor: superaStats()}">
             <p class="maxStats">{{ sumaBaseStats }}</p>
           </div>
         </div>
@@ -188,9 +188,9 @@ export default defineComponent({
     },
     superaStats() {
       if ( this.sumaBaseStats > this.statsMaximos ) {
-        return 'linear-gradient(to bottom, #F1A092, #F1A092)';
+        return '#F3B6AC';
       } else {
-        return 'linear-gradient(to bottom, #ABE7AB, #ABE7AB)';
+        return '#CFF3AC';
       }
     },
     typeGradient() {
