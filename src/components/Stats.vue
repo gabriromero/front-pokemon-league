@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-4 ">
-      <div class="imgDiv" :style="{backgroundImage: superaStats()}">
+      <div class="imgDiv" :style="{backgroundImage: typeGradient()}">
         <a :href="`http://en.pokemmo.shoutwiki.com/wiki/${selectedPokemon}`" target="blank"><img class="imgClass" id="imgId" :src="imageUrl" /></a>
       </div>
       <div class="row">
@@ -29,7 +29,7 @@
       </div>
       <div class="center-vertical mt-2" style="display: block;">
         <div class="divBackground">
-          <div class="insideDiv">
+          <div class="insideDiv" :style="{backgroundImage: superaStats()}">
             <p class="maxStats">{{ sumaBaseStats }}</p>
           </div>
         </div>
@@ -188,11 +188,41 @@ export default defineComponent({
     },
     superaStats() {
       if ( this.sumaBaseStats > this.statsMaximos ) {
-        return 'linear-gradient(to bottom, #e8e3e2, #F5DEDA)';
+        return 'linear-gradient(to bottom, #F1A092, #F1A092)';
       } else {
-        return 'linear-gradient(to bottom, #F3F6F3, #DBECDB)';
+        return 'linear-gradient(to bottom, #ABE7AB, #ABE7AB)';
       }
-    }
+    },
+    typeGradient() {
+      let typeHexColor = {
+        normal: '#E0E0D6',
+        fighting: '#ECCECD',
+        flying: '#DBE0F9',
+        poison: '#D8A9D5',
+        ground: '#CFC097',
+        rock: '#E1DCC7',
+        bug: '#D6DEA5',
+        ghost: '#959099',
+        steel: '#D0D0E1',
+        fire: '#FFAC93',
+        water: '#A3B3E7',
+        grass: '#CBF8C3',
+        electric: '#F5E8AF',
+        psychic: '#FABDC9',
+        ice: '#D5EEEE',
+        dragon: '#C0B1FB',
+        dark: '#8C8785',
+        fairy: '#EDCEE0',
+      }
+
+      let type1 = this.pokemonTypes[0];
+      let type2 = this.pokemonTypes[1];
+      if (type2) {
+        return `linear-gradient(to right, ${typeHexColor[type1]} ,${typeHexColor[type2]} )`;
+      } else {
+        return `linear-gradient(to bottom, white, ${typeHexColor[type1]})`;
+      }
+    },
   },
   mounted() {
     this.getPokemonList();
