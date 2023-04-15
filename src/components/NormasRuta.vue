@@ -11,7 +11,7 @@
           </div>
         </div>
         <div>
-          <Stats />
+          <Stats :statsMaximos="`${statsMaximos}`"/>
           <NivelesEquipo />
         </div>
       </div>

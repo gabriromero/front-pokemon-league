@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-4 ">
-      <div class="imgDiv">
+      <div class="imgDiv" :style="{backgroundImage: superaStats()}">
         <a :href="`http://en.pokemmo.shoutwiki.com/wiki/${selectedPokemon}`" target="blank"><img class="imgClass" id="imgId" :src="imageUrl" /></a>
       </div>
       <div class="row">
@@ -94,6 +94,9 @@ import { API_PKM } from "@/helpers/generalHelper";
 
 export default defineComponent({
   components: { Select2, Limites },
+  props: {
+    statsMaximos: Number
+  },
   setup() {
     //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
     const pokemonList = ref([]);
@@ -190,6 +193,13 @@ export default defineComponent({
       let percentage = stats/maxWidth*100;
 
       return `calc(${percentage}%)`
+    },
+    superaStats() {
+      if ( this.sumaBaseStats > this.statsMaximos ) {
+        return 'linear-gradient(to bottom, #e8e3e2, #F5DEDA)';
+      } else {
+        return 'linear-gradient(to bottom, #F3F6F3, #DBECDB)';
+      }
     }
   },
   mounted() {
