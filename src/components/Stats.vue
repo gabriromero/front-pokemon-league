@@ -90,7 +90,7 @@ import axios from "axios";
 import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
 import Limites from "@/components/Limites.vue";
-import { API_PKM } from "@/helpers/generalHelper";
+import { API_PKM } from "@/helpers/apiHelper";
 
 export default defineComponent({
   components: { Select2, Limites },

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {getFakePlayers} from '@/api/home'
+import {getPlayers} from '@/api/home'
 import { computed } from 'vue'
 export default {
 
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     async fillPlayers() {
-      let players = await getFakePlayers()
+      let players = await getPlayers()
       this.players = players.data
     }
   },
