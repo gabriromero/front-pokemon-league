@@ -120,16 +120,16 @@ export default defineComponent({
     async getPokemonList(){
       try {
         const response = await getApiPokemonList(this.maxPokedex); 
-        const options = response.data.results.map((pokemon) => ({
-          //todos los datos los metemos en un map para añadirlo después a la constante que usaremos para nutrir el select2
+
+        this.pokemonList = response.data.results.map((pokemon) => ({
           id: pokemon.name,
           text: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
         }));
-        this.pokemonList = options; //seteamos la constante con la lista de nombres de los pokes
-        let randomPokemon = Math.floor(Math.random() * options.length);
-        this.selectedPokemon = options[randomPokemon].id;
-        this.updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
-      } catch (error) {
+        
+        let randomPokemon = Math.floor(Math.random() * this.pokemonList.length);
+        this.selectedPokemon = this.pokemonList[randomPokemon].id;
+      } 
+      catch (error) {
         console.error(error);
       }
     },
@@ -189,7 +189,6 @@ export default defineComponent({
   },
   mounted() {
     this.getPokemonList();
-    window.addEventListener('resize', this.handleResize);
   },
   watch: {
     //método que observa cambios en el componente. En este caso, cuando hay un cambio en la variable 'selectedPôkemon' ejecuta updateImage() para cambiar la imagen del div
