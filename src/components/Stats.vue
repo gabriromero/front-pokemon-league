@@ -91,6 +91,7 @@ import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
 import Limites from "@/components/Limites.vue";
 import { API_PKM } from "@/helpers/apiHelper";
+import { getApiPokemonList, getApiPokemonData } from "@/api/home";
 
 export default defineComponent({
   components: { Select2, Limites },
@@ -99,6 +100,7 @@ export default defineComponent({
   },
   data() {
     return {
+      maxPokedex: 649,
       pokemonList: [],
       selectedPokemon: '',
       imageUrl: '',
@@ -117,7 +119,7 @@ export default defineComponent({
   methods:{
     async getPokemonList(){
       try {
-        const response = await axios.get(`${API_PKM}?limit=649`); //solo queremos mostrar hasta 5a gen
+        const response = await getApiPokemonList(this.maxPokedex); 
         const options = response.data.results.map((pokemon) => ({
           //todos los datos los metemos en un map para añadirlo después a la constante que usaremos para nutrir el select2
           id: pokemon.name,
@@ -133,7 +135,7 @@ export default defineComponent({
     },
     async updateCaracterisiticas(){
       try {
-        const response = await axios.get(`${API_PKM}/${this.selectedPokemon}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
+        const response = await getApiPokemonData(this.selectedPokemon);
         this.imageUrl = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
         this.baseStatsPs = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
         this.baseStatsAt = response.data.stats["1"].base_stat;
