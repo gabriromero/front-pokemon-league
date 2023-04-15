@@ -97,23 +97,25 @@ export default defineComponent({
   props: {
     statsMaximos: Number
   },
-  setup() {
-    //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
-    const pokemonList = ref([]);
-    const selectedPokemon = ref("");
-    const imageUrl = ref("");
-    const baseStatsPs = ref("");
-    const baseStatsAt = ref("");
-    const baseStatsDf = ref("");
-    const baseStatsVel = ref("");
-    const baseStatsAtEsp = ref("");
-    const baseStatsDfEsp = ref("");
-    const sumaBaseStats = ref("");
-    const pokemonTypes = ref([""]);
-    const rutaImgType1 = ref("");
-    const rutaImgType2 = ref("");
-
-    const getPokemonList = async () => {
+  data() {
+    return {
+      pokemonList: [],
+      selectedPokemon: '',
+      imageUrl: '',
+      baseStatsPs: '',
+      baseStatsAt: '',
+      baseStatsDf: '',
+      baseStatsVel: '',
+      baseStatsAtEsp: '',
+      baseStatsDfEsp: '',
+      sumaBaseStats: '',
+      pokemonTypes: [],
+      rutaImgType1: '',
+      rutaImgType2: ''
+    };
+  },
+  methods:{
+    async getPokemonList(){
       try {
         const response = await axios.get(`${API_PKM}?limit=649`); //solo queremos mostrar hasta 5a gen
         const options = response.data.results.map((pokemon) => ({
@@ -121,63 +123,44 @@ export default defineComponent({
           id: pokemon.name,
           text: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
         }));
-        pokemonList.value = options; //seteamos la constante con la lista de nombres de los pokes
+        this.pokemonList = options; //seteamos la constante con la lista de nombres de los pokes
         let randomPokemon = Math.floor(Math.random() * options.length);
-        selectedPokemon.value = options[randomPokemon].id;
-        updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
+        this.selectedPokemon = options[randomPokemon].id;
+        this.updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
       } catch (error) {
         console.error(error);
       }
-    };
-
-    const updateCaracterisiticas = async () => {
+    },
+    async updateCaracterisiticas(){
       try {
-        const response = await axios.get(`${API_PKM}/${selectedPokemon.value}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
-        imageUrl.value = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
-        baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
-        baseStatsAt.value = response.data.stats["1"].base_stat;
-        baseStatsDf.value = response.data.stats["2"].base_stat;
-        baseStatsVel.value = response.data.stats["5"].base_stat;
-        baseStatsAtEsp.value = response.data.stats["3"].base_stat;
-        baseStatsDfEsp.value = response.data.stats["4"].base_stat;
-        sumaBaseStats.value =
-          baseStatsPs.value +
-          baseStatsAt.value +
-          baseStatsDf.value +
-          baseStatsVel.value +
-          baseStatsAtEsp.value +
-          baseStatsDfEsp.value;
-        pokemonTypes.value = response.data.types.map((type) => type.type.name);
-        rutaImgType1.value = require("@/assets/pkmTypes/" +
-          pokemonTypes.value[0] +
+        const response = await axios.get(`${API_PKM}/${this.selectedPokemon}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
+        this.imageUrl = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
+        this.baseStatsPs = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
+        this.baseStatsAt = response.data.stats["1"].base_stat;
+        this.baseStatsDf = response.data.stats["2"].base_stat;
+        this.baseStatsVel = response.data.stats["5"].base_stat;
+        this.baseStatsAtEsp = response.data.stats["3"].base_stat;
+        this.baseStatsDfEsp = response.data.stats["4"].base_stat;
+        this.sumaBaseStats =
+        this.baseStatsPs +
+        this.baseStatsAt +
+        this.baseStatsDf +
+          this.baseStatsVel +
+          this.baseStatsAtEsp +
+          this.baseStatsDfEsp;
+        this.pokemonTypes = response.data.types.map((type) => type.type.name);
+        this.rutaImgType1 = require("@/assets/pkmTypes/" +
+          this.pokemonTypes[0] +
           ".png");
-        rutaImgType2.value = require("@/assets/pkmTypes/" +
-          pokemonTypes.value[1] +
-          ".png");
+        if(this.pokemonTypes[1]){
+          this.rutaImgType2 = require("@/assets/pkmTypes/" +
+            this.pokemonTypes[1] +
+            ".png");
+        }
       } catch (error) {
         console.error(error);
       }
-    };
-
-    return {
-      pokemonList,
-      selectedPokemon,
-      imageUrl,
-      baseStatsPs,
-      baseStatsAt,
-      baseStatsDf,
-      baseStatsVel,
-      baseStatsAtEsp,
-      baseStatsDfEsp,
-      sumaBaseStats,
-      pokemonTypes,
-      rutaImgType1,
-      rutaImgType2,
-      getPokemonList,
-      updateCaracterisiticas,
-    };
-  },
-  methods:{
+    },
     setGradientColor(stats){
       let minRange = 0.2;
       let maxRange = 0.5;
