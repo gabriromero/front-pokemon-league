@@ -1,5 +1,5 @@
 <template>
-    <div v-if="true || !isMondayMorning && tournamentHasStarted" class="firstBorder">
+    <div v-if="!isMondayMorning && tournamentHasStarted" class="firstBorder">
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
