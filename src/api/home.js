@@ -1,23 +1,10 @@
 import axios from 'axios'
-import {API_URL} from '@/helpers/generalHelper'
-
-// Endpoints
-const fakeEndpointApi = axios.create({
-    baseURL: API_URL + '/classification'
-})
-
-const loginEndpointApi = axios.create({
-    baseURL: API_URL
-})
-    
-const matchesEndpointApi = axios.create({
-    baseURL: API_URL + '/matches'
-})
+import {API_URL, API_PKM} from '@/helpers/apiHelper'
 
 // Methods
-export const getFakePlayers = async() =>{
+export const getPlayers = async() =>{
  
-    const players = fakeEndpointApi.get()
+    const players = await axios.get(API_URL + '/classification')
 
     return players
 }
@@ -26,7 +13,7 @@ export const getLoginResponse = async(credentials) =>{
 
     if(credentials.includes('#')){
         const [username, password] = credentials.split('#');
-        const loginResponse = loginEndpointApi.post('/login',{
+        const loginResponse = axios.post(API_URL + '/login',{
             username: username,
             password: password
         })
@@ -37,6 +24,19 @@ export const getLoginResponse = async(credentials) =>{
 }
 
 export const getMatches = async() =>{
-    const matches = matchesEndpointApi.get()
+    const matches = axios.get(API_URL + '/matches')
+
     return matches
+}
+
+export const getApiPokemonList = async(maxPokedex) =>{
+    const pokemon = axios.get(API_PKM + `?limit=${maxPokedex}`)
+
+    return pokemon
+}
+
+export const getApiPokemonData = async(pokemonSelected) =>{
+    const pokemon = axios.get(API_PKM + `/${pokemonSelected}`);
+
+    return pokemon
 }

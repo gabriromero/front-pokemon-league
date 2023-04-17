@@ -7,7 +7,7 @@
             <tr v-for="(player, index) in playersOrdenados" :key="player.username"
               class="grayBackColor borderClassification">
               <th v-if="player.username != '---' ">
-                <img class="trainerImage" :src="require(`@/assets/${player.profile_pic}.png`)" />
+                <img class="trainerImage" :src="require(`@/assets/skins/${player.profile_pic}.png`)" />
               </th>
               <td class="trainerName fontAdaptative">{{ player.username }}</td>
               <th class="medalAlign">
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {getFakePlayers} from '@/api/home'
+import {getPlayers} from '@/api/home'
 import { computed } from 'vue'
 export default {
 
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     async fillPlayers() {
-      let players = await getFakePlayers()
+      let players = await getPlayers()
       this.players = players.data
     }
   },
@@ -136,14 +136,17 @@ export default {
 }
 
 th {
-  width: 14%;
+  padding: 1% !important;
+}
+td {
+  padding: 1% !important;
 }
 
 .trainerImage {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 25px;
+  width: 37px;
   height: auto;
 }
 

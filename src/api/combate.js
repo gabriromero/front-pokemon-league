@@ -1,12 +1,6 @@
 import axios from 'axios'
 import { getJornada } from '@/helpers/normasHelper'
-import { API_URL, } from '@/helpers/generalHelper'
-
-// Endpoints
-const myMatchesEndpointApi = axios.create({
-    baseURL: API_URL
-})
-
+import { API_URL, } from '@/helpers/apiHelper'
 
 // Methods
 export const getMyMatches = async (access_token) => {

@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-4 ">
-      <div class="imgDiv">
+      <div class="imgDiv" :style="{backgroundImage: typeGradient()}">
         <a :href="`http://en.pokemmo.shoutwiki.com/wiki/${selectedPokemon}`" target="blank"><img class="imgClass" id="imgId" :src="imageUrl" /></a>
       </div>
       <div class="row">
@@ -29,14 +29,14 @@
       </div>
       <div class="center-vertical mt-2" style="display: block;">
         <div class="divBackground">
-          <div class="insideDiv">
+          <div class="insideDiv" :style="{backgroundColor: superaStats()}">
             <p class="maxStats">{{ sumaBaseStats }}</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="namePkmDiv col-8">
+    <div class="namePkmDiv col-8 leftPadding">
       <div class="row">
         <div class="buscadorPkmBackgroundDiv">
           <div class="buscadorPkmInsideDiv">
@@ -52,33 +52,33 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="labelPS col-9">PS</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelPS col-9" :style="{ width: setLabelWidth(baseStatsPs), backgroundColor: setGradientColor(baseStatsPs) }">PS</div>
         <div class="statPS col-3">{{ baseStatsPs }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelAtaque col-9">ATAQUE</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelAtaque col-9" :style="{ width: setLabelWidth(baseStatsAt), backgroundColor: setGradientColor(baseStatsAt) }">ATAQUE</div>
         <div class="statAtaque col-3">{{ baseStatsAt }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelDefensa col-9">DEFENSA</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelDefensa col-9" :style="{ width: setLabelWidth(baseStatsDf), backgroundColor: setGradientColor(baseStatsDf) }">DEFENSA</div>
         <div class="statDefensa col-3">{{ baseStatsDf }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelAtEsp col-9">AT ESP.</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelAtEsp col-9" :style="{ width: setLabelWidth(baseStatsAtEsp), backgroundColor: setGradientColor(baseStatsAtEsp) }">AT.ESP.</div>
         <div class="statAtEsp col-3">{{ baseStatsAtEsp }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelDefEsp col-9">DEF ESP.</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelDefEsp col-9" :style="{ width: setLabelWidth(baseStatsDfEsp), backgroundColor: setGradientColor(baseStatsDfEsp) }">DEF.ESP.</div>
         <div class="statDefEsp col-3">{{ baseStatsDfEsp }}</div>
       </div>
 
-      <div class="row">
-        <div class="labelVelocidad col-9">VELOCIDAD</div>
+      <div class="row justify-content-between divEstadistica">
+        <div class="labelVelocidad col-9" :style="{ width: setLabelWidth(baseStatsVel), backgroundColor: setGradientColor(baseStatsVel) }">VELOCIDAD</div>
         <div class="statVelocidad col-3">{{ baseStatsVel }}</div>
       </div>
     </div>
@@ -86,98 +86,146 @@
 </template>
   
 <script>
-import axios from "axios";
 import { defineComponent, ref } from "vue";
 import Select2 from "vue3-select2-component";
 import Limites from "@/components/Limites.vue";
-import { API_PKM } from "@/helpers/generalHelper";
+import { getApiPokemonList, getApiPokemonData } from "@/api/home";
 
 export default defineComponent({
   components: { Select2, Limites },
-  setup() {
-    //El método setup es una función que se ejecuta antes de que se monte el componente en la página. En lugar de usar opciones de configuración como data, computed y methods, el método setup utiliza funciones que devuelven objetos que representan el estado y las acciones del componente
-    const pokemonList = ref([]);
-    const selectedPokemon = ref("");
-    const imageUrl = ref("");
-    const baseStatsPs = ref("");
-    const baseStatsAt = ref("");
-    const baseStatsDf = ref("");
-    const baseStatsVel = ref("");
-    const baseStatsAtEsp = ref("");
-    const baseStatsDfEsp = ref("");
-    const sumaBaseStats = ref("");
-    const pokemonTypes = ref([""]);
-    const rutaImgType1 = ref("");
-    const rutaImgType2 = ref("");
-
-    const getPokemonList = async () => {
+  props: {
+    statsMaximos: Number
+  },
+  data() {
+    return {
+      maxPokedex: 649,
+      pokemonList: [],
+      selectedPokemon: '',
+      imageUrl: '',
+      baseStatsPs: '',
+      baseStatsAt: '',
+      baseStatsDf: '',
+      baseStatsVel: '',
+      baseStatsAtEsp: '',
+      baseStatsDfEsp: '',
+      sumaBaseStats: '',
+      pokemonTypes: [],
+      rutaImgType1: '',
+      rutaImgType2: ''
+    };
+  },
+  methods:{
+    async getPokemonList(){
       try {
-        const response = await axios.get(`${API_PKM}?limit=649`); //solo queremos mostrar hasta 5a gen
-        const options = response.data.results.map((pokemon) => ({
-          //todos los datos los metemos en un map para añadirlo después a la constante que usaremos para nutrir el select2
+        const response = await getApiPokemonList(this.maxPokedex); 
+
+        this.pokemonList = response.data.results.map((pokemon) => ({
           id: pokemon.name,
           text: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
         }));
-        pokemonList.value = options; //seteamos la constante con la lista de nombres de los pokes
-        let randomPokemon = Math.floor(Math.random() * options.length);
-        selectedPokemon.value = options[randomPokemon].id;
-        updateCaracterisiticas(); //llamamos a esta función para cambiar tanto la imagen como las stats del poke al primer seleccionado
-      } catch (error) {
+        
+        let randomPokemon = Math.floor(Math.random() * this.pokemonList.length);
+        this.selectedPokemon = this.pokemonList[randomPokemon].id;
+      } 
+      catch (error) {
         console.error(error);
       }
-    };
-
-    const updateCaracterisiticas = async () => {
+    },
+    async updateCaracterisiticas(){
       try {
-        const response = await axios.get(`${API_PKM}/${selectedPokemon.value}`); //la constante 'selectedPokemon' sería como el 'myValue' que había antes
-        imageUrl.value = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
-        baseStatsPs.value = response.data.stats["0"].base_stat; //obtenemos todas las stats del poke :p
-        baseStatsAt.value = response.data.stats["1"].base_stat;
-        baseStatsDf.value = response.data.stats["2"].base_stat;
-        baseStatsVel.value = response.data.stats["5"].base_stat;
-        baseStatsAtEsp.value = response.data.stats["3"].base_stat;
-        baseStatsDfEsp.value = response.data.stats["4"].base_stat;
-        sumaBaseStats.value =
-          baseStatsPs.value +
-          baseStatsAt.value +
-          baseStatsDf.value +
-          baseStatsVel.value +
-          baseStatsAtEsp.value +
-          baseStatsDfEsp.value;
-        pokemonTypes.value = response.data.types.map((type) => type.type.name);
-        rutaImgType1.value = require("@/assets/pkmTypes/" +
-          pokemonTypes.value[0] +
-          ".png");
-        rutaImgType2.value = require("@/assets/pkmTypes/" +
-          pokemonTypes.value[1] +
-          ".png");
+        const response = await getApiPokemonData(this.selectedPokemon);
+        this.updateImageUrl(response);
+        this.updateBaseStats(response);
+        this.updateSumaBaseStats();
+        this.updatePokemonTypes(response);
+        this.updateRutaImgTypes();
       } catch (error) {
         console.error(error);
       }
-    };
+    },
+    updateImageUrl(response) {
+  this.imageUrl = (Math.floor(Math.random() * 4000) + 1) == 1 ? response.data.sprites.front_shiny : response.data.sprites.front_default;
+    },
 
-    return {
-      pokemonList,
-      selectedPokemon,
-      imageUrl,
-      baseStatsPs,
-      baseStatsAt,
-      baseStatsDf,
-      baseStatsVel,
-      baseStatsAtEsp,
-      baseStatsDfEsp,
-      sumaBaseStats,
-      pokemonTypes,
-      rutaImgType1,
-      rutaImgType2,
-      getPokemonList,
-      updateCaracterisiticas,
-    };
+    updateBaseStats(response) {
+      this.baseStatsPs = response.data.stats["0"].base_stat;
+      this.baseStatsAt = response.data.stats["1"].base_stat;
+      this.baseStatsDf = response.data.stats["2"].base_stat;
+      this.baseStatsVel = response.data.stats["5"].base_stat;
+      this.baseStatsAtEsp = response.data.stats["3"].base_stat;
+      this.baseStatsDfEsp = response.data.stats["4"].base_stat;
+    },
+
+    updateSumaBaseStats() {
+      this.sumaBaseStats = this.baseStatsPs + this.baseStatsAt + this.baseStatsDf + this.baseStatsVel + this.baseStatsAtEsp + this.baseStatsDfEsp;
+    },
+
+    updatePokemonTypes(response) {
+      this.pokemonTypes = response.data.types.map(type => type.type.name);
+    },
+
+    updateRutaImgTypes() {
+      this.rutaImgType1 = require(`@/assets/pkmTypes/${this.pokemonTypes[0]}.png`);
+      if (this.pokemonTypes[1]) {
+        this.rutaImgType2 = require(`@/assets/pkmTypes/${this.pokemonTypes[1]}.png`);
+      }
+    },
+    setGradientColor(stats){
+      let minRange = 0.2;
+      let maxRange = 0.5;
+      let limit = 255;
+
+      let differene = maxRange - minRange;
+      let range = stats/limit*differene+minRange;
+
+      return `rgba(0, 0, 0, ${range})`;
+    },
+    setLabelWidth(stats){
+      let maxWidth = 350;
+      let percentage = stats/maxWidth*100;
+
+      return `calc(${percentage}%)`
+    },
+    superaStats() {
+      if ( this.sumaBaseStats > this.statsMaximos ) {
+        return '#F3B6AC';
+      } else {
+        return '#CFF3AC';
+      }
+    },
+    typeGradient() {
+      let typeHexColor = {
+        normal: '#E0E0D6',
+        fighting: '#ECCECD',
+        flying: '#DBE0F9',
+        poison: '#D8A9D5',
+        ground: '#CFC097',
+        rock: '#E1DCC7',
+        bug: '#D6DEA5',
+        ghost: '#959099',
+        steel: '#D0D0E1',
+        fire: '#FFAC93',
+        water: '#A3B3E7',
+        grass: '#CBF8C3',
+        electric: '#F5E8AF',
+        psychic: '#FABDC9',
+        ice: '#D5EEEE',
+        dragon: '#C0B1FB',
+        dark: '#8C8785',
+        fairy: '#EDCEE0',
+      }
+
+      let type1 = this.pokemonTypes[0];
+      let type2 = this.pokemonTypes[1];
+      if (type2) {
+        return `linear-gradient(to right, ${typeHexColor[type1]} ,${typeHexColor[type2]} )`;
+      } else {
+        return `linear-gradient(to bottom, white, ${typeHexColor[type1]})`;
+      }
+    },
   },
-
   mounted() {
     this.getPokemonList();
-    window.addEventListener('resize', this.handleResize);
   },
   watch: {
     //método que observa cambios en el componente. En este caso, cuando hay un cambio en la variable 'selectedPôkemon' ejecuta updateImage() para cambiar la imagen del div
@@ -365,6 +413,12 @@ export default defineComponent({
   }
 }
 
+@media screen and (min-width: 992px) {
+  .leftPadding{
+    padding-left: 5%;
+  }
+}
+
 .divBackground {
   background-color: #C2BDBD;
   border: 2px solid;
@@ -385,5 +439,9 @@ export default defineComponent({
   text-align: center;
   vertical-align: middle;
   margin-bottom: 0;
+}
+
+.divEstadistica{
+  padding-right: 12px;
 }
 </style>

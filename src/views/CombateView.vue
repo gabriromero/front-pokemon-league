@@ -15,12 +15,12 @@
             <div class="single-match container-fluid">
               <div class="row d-flex align-items-center" v-if="!hasMarkedResult(myMatch) && (!confirmResults[index] && !confirmedResults[index])">
                 <div :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_1_username);">
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false"/>
+                  <img class="mt-1 mb-1 trainerImage" src="@/assets/skins/trainer-10.png" draggable="false"/>
                   {{ myMatch.player_1_username }}
                 </div>
                 <div :id="'player-2-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_2_username);">
                   {{ myMatch.player_2_username }}
-                  <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" draggable="false"/>
+                  <img class="mt-1 mb-1 trainerImage" src="@/assets/skins/trainer-11.png" draggable="false"/>
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">

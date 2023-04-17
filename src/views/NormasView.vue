@@ -39,7 +39,7 @@
                     <i>Toda la información se avisará con antelación a través del canal de Discord.<br/></i>
                   </div>
                   <div class="mt-2">
-                    <a href="https://discord.gg/sdxeyUkBYM">
+                    <a href="https://discord.gg/wkehHGdJBS">
                       <img src="@/assets/discord.png" alt="" class="img-fluid" style="height: 60px;">
                     </a>
                   </div>

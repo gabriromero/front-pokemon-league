@@ -6,13 +6,13 @@
                 <div class="singleMatchPadding" v-for="(match) in matches" :key="match.result">
                     <div class="d-flex align-items-baseline singleMatch fontAdaptative">
                         <div class="w-50" :class="match.player_1_finished && match.player_2_finished ? (match.player_1_username === match.result ? 'winnerColor' : 'loserColor') : ''">
-                            <img class="mt-1 mb-1 trainerImage" src="@/assets/trainerPixel.png" /> {{ match.player_1_username }}
+                            <img class="mt-1 mb-1 trainerImage" src="@/assets/skins/trainer-1.png" /> {{ match.player_1_username }}
                         </div>
                         <div class="w-auto">
                             VS
                         </div>
                         <div class="pe-1 w-50 text-end" :class="match.player_1_finished && match.player_2_finished ? (match.player_2_username === match.result ? 'winnerColor' : 'loserColor') : ''">
-                            {{ match.player_2_username}} <img class="trainerImage" src="@/assets/trainerPixel.png" />
+                            {{ match.player_2_username}} <img class="trainerImage" src="@/assets/skins/trainer-2.png" />
                         </div>
                     </div>
                 </div>

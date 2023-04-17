@@ -140,15 +140,16 @@ async function getNormasRuta() {
 
 
 export async function getJornada() {
-    /*
-    POR FECHA
+    let jornadaActual = await getActualJornada();
+
+    if(jornadaActual.data !==10) {
+        return jornadaActual.data;
+    }
+    
     const fechaActual = new Date();
     const posicionJornada = horarios_jornada.findIndex(([startDay, finalDay]) => fechaActual >= startDay && fechaActual <= finalDay);
 
     return posicionJornada === -1 ? -1 : posicionJornada + 1;
-    */
-    let jornadaActual = await getActualJornada();
-    return jornadaActual.data;
 }
 
 export const minHandicap = Object.keys(handicaps).reduce((a, b) => Math.min(a, b));
