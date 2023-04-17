@@ -51,6 +51,22 @@ row {
     width: 70%;
   }
 }
+@media (max-width: 450px){
+  .img-arrow {
+    width: 50% !important;
+  }
+  .container-image{
+    width: 120% !important;
+  }
+}
+@media (max-width: 400px){
+  .img-arrow {
+    width: 50% !important;
+  }
+  .container-image{
+    width: 150% !important;
+  }
+}
 .arrow:last-child {
   transform: rotate(180deg);
 }
