@@ -30,7 +30,6 @@ export default {};
 <style scoped>
 .perfil {
   border: 1px, solid, black;
-  width: 100%;
   margin-left: 0px !important;
   margin-right: 0px !important; 
 }
@@ -56,12 +55,10 @@ row {
   transform: rotate(180deg);
 }
 .carrusel {
-  border: 1px, solid, black;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10%;
-  height: 100%;
 }
 .carrusel-selected {
   border: 3px solid;
@@ -85,7 +82,7 @@ row {
   margin: 0 10px;
   height: 70%;
   padding: 10%;
-  width: 100%;
+  width: 70%;
 }
 .container-selected {
   height: fit-content;
@@ -100,7 +97,7 @@ row {
 }
 .img-selected {
   height: 30%;
-  width: 100%;
+  width: 90%;
   padding: 10%;
   overflow: hidden;
 }

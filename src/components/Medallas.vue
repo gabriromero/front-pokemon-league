@@ -45,8 +45,6 @@ export default {
 .medallas {
   background-color: #d9d9d9;
   border-radius: 15px;
-  margin-left: 5%;
-  margin-right: 5%;
   border: 1px solid;
   border-color: grey;
   display: flex;
