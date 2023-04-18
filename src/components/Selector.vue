@@ -47,7 +47,7 @@ row {
 }
 @media (min-width: 900px) {
   .img-arrow {
-    width: 70%;
+    width: 50%;
   }
 }
 @media (max-width: 450px) {
@@ -81,12 +81,14 @@ row {
   border-color: #454545;
 }
 .container-image {
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #c2bdbd;
   margin-right: 5%;
+  padding-bottom: 10px;
+  padding-top: 10px;
   border-radius: 15px;
 }
 .last {
