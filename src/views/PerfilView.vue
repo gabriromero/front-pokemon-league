@@ -18,12 +18,13 @@
           <Medallas :ladoMedalla="'R'" />
         </div>
       </div>
-      <div class="medallas-movil">
-        <Medallas_Portrait />
-      </div>
       <div class="estadisticas-div">
         <ProfileStats />
       </div>
+      <div class="medallas-movil">
+        <Medallas_Portrait />
+      </div>
+     
     </div>
   </div>
 </template>
