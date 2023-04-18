@@ -1,10 +1,10 @@
 <template>
   <div class="root">
     <div class="mainCenter">
-      <p class="tituloFicha pl-title text-center border border-dark">
+      <p class="tituloFicha pl-title text-center border border-2 border-dark">
         FICHA ENTRENADOR
       </p>
-      <p class="nombreFicha pl-title text-center border border-dark">Guzzom</p>
+      <p class="nombreFicha pl-title text-center border border-2 border-dark">Guzzom</p>
     </div>
     <div class="principal">
       <div class="row selector_medallas">
@@ -46,8 +46,6 @@ export default {
   display: block;
   justify-content: center;
   margin-top: 3%;
-}
-.estadisticas {
 }
 .medallas-movil {
   display: none;
@@ -96,6 +94,11 @@ export default {
     margin-right: 5%;
     margin-left: 5%;
   }
+  @media (max-width: 400px) {
+    .nombreFicha {
+    font-size: 3.5vw !important;
+  }
+  }
 }
 .selector {
   text-align: center;
@@ -113,28 +116,28 @@ export default {
   height: 100%;
 }
 .tituloFicha {
-  border-radius: 20px;
+  border-radius: 10px;
   width: 120%;
   margin: 0 auto;
-  padding: 5x;
+  padding: 5px;
   font-weight: bold;
   font-size: 1.5vw;
 }
 .nombreFicha {
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 0 auto;
   width: fit-content;
-  padding: 15px;
   margin-top: 10px;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
+  padding-inline: 10%;
 }
 .mainCenter {
   margin: auto;
-  width: 50%;
   padding: 10px;
   width: fit-content;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  color: black;
 }
 </style>

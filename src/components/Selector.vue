@@ -31,7 +31,7 @@ export default {};
 .perfil {
   border: 1px, solid, black;
   margin-left: 0px !important;
-  margin-right: 0px !important; 
+  margin-right: 0px !important;
 }
 row {
   height: 10%;
@@ -40,7 +40,6 @@ row {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: fit-content;
 }
 .img-arrow {
   width: 50%;
@@ -51,19 +50,19 @@ row {
     width: 70%;
   }
 }
-@media (max-width: 450px){
+@media (max-width: 450px) {
   .img-arrow {
     width: 50% !important;
   }
-  .container-image{
+  .container-image {
     width: 120% !important;
   }
 }
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .img-arrow {
     width: 50% !important;
   }
-  .container-image{
+  .container-image {
     width: 150% !important;
   }
 }
@@ -82,7 +81,6 @@ row {
   border-color: #454545;
 }
 .container-image {
-  height: 80%;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -96,25 +94,27 @@ row {
 }
 .img-carrusel {
   margin: 0 10px;
-  height: 70%;
+  width: 100%;
+  height: auto;
   padding: 10%;
-  width: 70%;
 }
 .container-selected {
-  height: fit-content;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 20px solid #d4d4d4;
   border-radius: 20px;
   text-align: center;
   margin: 20%;
-  margin-top: 15%;
+  margin-top: 9%;
   background-color: #d4d4d4;
   outline: 15px solid #888686;
   -webkit-box-shadow: 0 0 0 8px #888686;
 }
 .img-selected {
-  height: 30%;
-  width: 90%;
-  padding: 10%;
+  width: 100%;
+  height: auto;
   overflow: hidden;
 }
 </style>
