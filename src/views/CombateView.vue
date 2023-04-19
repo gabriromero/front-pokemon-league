@@ -1,5 +1,5 @@
 <template>
-  <div id="root" v-if="true || ( !isMondayMorning  && tournamentHasStarted )">
+  <div id="root" v-if="!isMondayMorning  && tournamentHasStarted">
     <img
       class="img-background"
       src="@/assets/pokeball_fondo.svg"
