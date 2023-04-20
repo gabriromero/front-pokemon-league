@@ -5,15 +5,15 @@
         <img class="img-arrow" v-on:click="cambiarIzquierda" src="@/assets/arrow.png" />
       </div>
       <div class="container-image">
-        <img v-if="done" class="img-carrusel" :src="require(`@/assets/skins/trainer-${left}.png`)" />
+        <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${left}.png`)" />
         <span v-else class="loader"></span>
       </div>
       <div class="container-image carrusel-selected">
-        <img v-if="done" class="img-carrusel" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
+        <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
         <span v-else class="loader"></span>
       </div>
       <div class="container-image last">
-        <img v-if="done" class="img-carrusel" :src="require(`@/assets/skins/trainer-${right}.png`)" />
+        <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${right}.png`)" />
         <span v-else class="loader"></span>
       </div>
       <div class="arrow">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="container-selected">
-      <img v-if="done" class="img-selected" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
+      <img v-if="skinsLoaded" class="img-selected" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
       <span v-else class="loader"></span>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
       left: "",
       middle: "",
       right: "",
-      done: false
+      skinsLoaded: false
     };
   },
   methods: {
@@ -52,7 +52,7 @@ export default {
       this.left = this.anterior(numProfile)
       this.middle = numProfile
       this.right = this.siguiente(numProfile)
-      this.done = true
+      this.skinsLoaded = true
     },
     getProfilePic(value) {
       let regex = /^trainer-(\d+)$/;
