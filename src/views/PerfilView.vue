@@ -75,7 +75,7 @@ export default {
         fechasUltimaJornada[fechasUltimaJornada.length - 1];
       let diferenciaFechas = ultimaFechaJornada - hoy;
       let diferenciaDias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
-      this.diasRestantesTorneo = diferenciaDias;
+      this.diasRestantesTorneo = diferenciaDias + 1;
     },
   },
   mounted() {

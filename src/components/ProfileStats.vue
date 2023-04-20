@@ -2,15 +2,15 @@
   <div class="stats-container">
     <div class="mb-2 d-flex justify-content-between">
       <span class="text-container"> Combates Ganados: </span>
-      <span class="text-container num"> {{combatesJugados-combatesGanados}}</span>
+      <span class="text-container num">{{combatesGanados}}</span>
     </div>
     <div class="mb-2 d-flex justify-content-between">
       <span class="text-container"> Combates Perdidos: </span>
-      <span class="text-container num"> {{combatesGanados}} </span>
+      <span class="text-container num">{{combatesJugados-combatesGanados}}</span>
     </div>
     <div class="mb-2 d-flex justify-content-between">
       <span class="text-container"> Días restantes jornada: </span>
-      <span class="text-container num"> {{diasRestantesJornada}} </span>
+      <span class="text-container num">{{diasRestantesJornada}} </span>
     </div>
     <div class="d-flex justify-content-between">
       <span class="text-container"> Días restantes del torneo: </span>
