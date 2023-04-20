@@ -1,30 +1,92 @@
 <template>
-  <div class="perfil">
+  <div v-if="middle" class="perfil">
     <div class="carrusel">
       <div class="arrow">
-        <img class="img-arrow" src="@/assets/arrow.png" />
+        <img class="img-arrow" v-on:click="cambiarIzquierda" src="@/assets/arrow.png" />
       </div>
       <div class="container-image">
-        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+        <img class="img-carrusel" :src="require(`@/assets/skins/trainer-${left}.png`)" />
       </div>
       <div class="container-image carrusel-selected">
-        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+        <img class="img-carrusel" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
       </div>
       <div class="container-image last">
-        <img class="img-carrusel" src="@/assets/skins/azul.png" />
+        <img class="img-carrusel" :src="require(`@/assets/skins/trainer-${right}.png`)" />
       </div>
       <div class="arrow">
-        <img class="img-arrow" src="@/assets/arrow.png" />
+        <img class="img-arrow" v-on:click="cambiarDerecha" src="@/assets/arrow.png" />
       </div>
     </div>
     <div class="container-selected">
-      <img class="img-selected" src="@/assets/skins/verde.png" />
+      <img class="img-selected" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import {putProfilePic} from "@/api/perfil";
+import { getMyselfProfile } from "@/api/shared";
+export default {
+  data() {
+    return {
+      profileplayer: "",
+      left: "",
+      middle: "",
+      right: "",
+    };
+  },
+  methods: {
+    async getPlayer() {
+      const accessToken = localStorage.getItem("access_token")
+      let player = await getMyselfProfile(accessToken)
+      this.profileplayer = player.data
+      this.setPlayer()
+    },
+    setPlayer() {
+      let numProfile = this.getProfilePic(this.profileplayer.profile_pic)
+      this.left = this.anterior(numProfile)
+      this.middle = numProfile
+      this.right = this.siguiente(numProfile)
+    },
+    getProfilePic(value) {
+      let regex = /^trainer-(\d+)$/;
+      let match = value.match(regex);
+      let number = parseInt(match[1]);
+      return number
+    },
+    cambiarIzquierda() {
+      const accessToken = localStorage.getItem("access_token")
+      this.left = this.anterior(this.left)
+      this.middle = this.anterior(this.middle)
+      this.right = this.anterior(this.right)
+      putProfilePic(`trainer-${this.middle}`,accessToken)
+    },
+    cambiarDerecha() {
+      const accessToken = localStorage.getItem("access_token")
+      this.left = this.siguiente(this.left)
+      this.middle = this.siguiente(this.middle)
+      this.right = this.siguiente(this.right)
+      putProfilePic(`trainer-${this.middle}`,accessToken)
+    },
+    anterior(value) {
+      value = value - 1;
+      if (value == 0) {
+        value = 30;
+      }
+      return value;
+    },
+    siguiente(value) {
+      value = value + 1;
+      if (value == 31) {
+        value = 1;
+      }
+      return value;
+    }
+  },
+  mounted(){
+    this.getPlayer()
+  }
+};
 </script>
 
 <style scoped>
