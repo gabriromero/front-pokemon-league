@@ -32,7 +32,7 @@
         <Medallas_Portrait />
       </div>
       <a class="boton-cerrar-sesion">
-        <span>Cerrar Sesión</span>
+        <span @click="logout">Cerrar Sesión</span>
       </a>
     </div>
   </div>
@@ -80,6 +80,14 @@ export default {
       let diferenciaDias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
       this.diasRestantesTorneo = diferenciaDias + 1;
     },
+    logout() {
+      this.deleteAccessToken();
+      window.location.href = "#";
+      location.reload();
+    },
+    deleteAccessToken() {
+      localStorage.removeItem("access_token");
+    }
   },
   mounted() {
     this.getPlayer();
@@ -101,7 +109,7 @@ export default {
   margin-top: 3%;
   border: 1px solid grey;
 }
-.boton-cerrar-sesion:hover{
+.boton-cerrar-sesion:hover {
   background-color: #e47474;
   cursor: pointer;
 }
