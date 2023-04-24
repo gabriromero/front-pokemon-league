@@ -31,6 +31,9 @@
       <div class="medallas-movil">
         <Medallas_Portrait />
       </div>
+      <a class="boton-cerrar-sesion">
+        <span>Cerrar Sesión</span>
+      </a>
     </div>
   </div>
 </template>
@@ -86,6 +89,22 @@ export default {
 };
 </script>
 <style scoped>
+.boton-cerrar-sesion {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c7a1a1;
+  color: black;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 3%;
+  border: 1px solid grey;
+}
+.boton-cerrar-sesion:hover{
+  background-color: #e47474;
+  cursor: pointer;
+}
 .selector_medallas {
   display: flex;
 }
