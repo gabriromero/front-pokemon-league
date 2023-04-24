@@ -27,7 +27,7 @@
         <Medallas_Portrait />
       </div>
       <a class="boton-cerrar-sesion">
-        <span>Cerrar Sesión</span>
+        <span @click="logout">Cerrar Sesión</span>
       </a>
     </div>
   </div>
@@ -40,6 +40,16 @@ import Medallas_Portrait from "@/components/Medallas_Portrait.vue";
 import ProfileStats from "@/components/ProfileStats.vue";
 export default {
   components: { Selector, Medallas, Medallas_Portrait, ProfileStats },
+  methods: {
+    logout() {
+      this.deleteAccessToken();
+      window.location.href = "#";
+      location.reload();
+    },
+    deleteAccessToken() {
+      localStorage.removeItem("access_token");
+    },
+  },
 };
 </script>
 <style scoped>
@@ -55,7 +65,7 @@ export default {
   margin-top: 3%;
   border: 1px solid grey;
 }
-.boton-cerrar-sesion:hover{
+.boton-cerrar-sesion:hover {
   background-color: #e47474;
   cursor: pointer;
 }
