@@ -4,7 +4,7 @@
       <div class="arrow">
         <img class="img-arrow" v-on:click="cambiarIzquierda" src="@/assets/arrow.png" />
       </div>
-      <div class="container-image">
+      <div v-on:click="cambiarIzquierda" class="container-image carrousel-selector">
         <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${left}.png`)" />
         <span v-else class="loader"></span>
       </div>
@@ -12,7 +12,7 @@
         <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${middle}.png`)" />
         <span v-else class="loader"></span>
       </div>
-      <div class="container-image last">
+      <div v-on:click="cambiarDerecha" class="container-image last carrousel-selector">
         <img v-if="skinsLoaded" class="img-carrusel" :src="require(`@/assets/skins/trainer-${right}.png`)" />
         <span v-else class="loader"></span>
       </div>
@@ -212,5 +212,9 @@ row {
   width: 100%;
   height: auto;
   overflow: hidden;
+}
+
+.carrousel-selector{
+  cursor: pointer;
 }
 </style>
