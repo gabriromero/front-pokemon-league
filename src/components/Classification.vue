@@ -199,4 +199,10 @@ td {
         font-size: 12px;
     }
 }
+
+@media screen and (min-width: 601px) {
+    .fontAdaptative {
+        font-size: 15px;
+    }
+}
 </style>
