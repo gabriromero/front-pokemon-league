@@ -5,7 +5,7 @@
         FICHA ENTRENADOR
       </p>
       <p class="nombreFicha pl-title text-center border border-2 border-dark">
-        Guzzom
+        {{ player.username }}
       </p>
     </div>
     <div class="principal">
@@ -21,7 +21,12 @@
         </div>
       </div>
       <div class="estadisticas-div">
-        <ProfileStats />
+        <ProfileStats
+          :combatesGanados="`${player.matches_won}`"
+          :combatesJugados="`${player.matches_played}`"
+          :diasRestantesJornada="`${diasRestantesJornada}`"
+          :diasRestantesTorneo="`${diasRestantesTorneo}`"
+        />
       </div>
       <div class="medallas-movil">
         <Medallas_Portrait />
@@ -38,9 +43,43 @@ import Selector from "@/components/Selector.vue";
 import Medallas from "@/components/Medallas.vue";
 import Medallas_Portrait from "@/components/Medallas_Portrait.vue";
 import ProfileStats from "@/components/ProfileStats.vue";
+import { getMyselfProfile } from "@/api/shared";
+import { getJornada } from "@/helpers/normasHelper";
+import { horarios_jornada } from "@/helpers/normasHelper";
 export default {
   components: { Selector, Medallas, Medallas_Portrait, ProfileStats },
+  data() {
+    return {
+      player: "",
+      diasRestantesJornada: "",
+      diasRestantesTorneo: "",
+    };
+  },
   methods: {
+    async getPlayer() {
+      const accessToken = localStorage.getItem("access_token");
+      let player = await getMyselfProfile(accessToken);
+      this.player = player.data;
+    },
+    async getRestantesJornada() {
+      let hoy = new Date();
+      let numJornada = await getJornada();
+      let fechasJornada = horarios_jornada[numJornada - 1][1];
+      let diasRestantesJornada = fechasJornada - hoy;
+      let diferenciaDias = Math.floor(
+        diasRestantesJornada / (1000 * 60 * 60 * 24)
+      );
+      this.diasRestantesJornada = diferenciaDias + 1;
+    },
+    async getRestantesTorneo() {
+      let hoy = new Date();
+      let fechasUltimaJornada = horarios_jornada[horarios_jornada.length - 1];
+      let ultimaFechaJornada =
+        fechasUltimaJornada[fechasUltimaJornada.length - 1];
+      let diferenciaFechas = ultimaFechaJornada - hoy;
+      let diferenciaDias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
+      this.diasRestantesTorneo = diferenciaDias + 1;
+    },
     logout() {
       this.deleteAccessToken();
       window.location.href = "#";
@@ -48,7 +87,12 @@ export default {
     },
     deleteAccessToken() {
       localStorage.removeItem("access_token");
-    },
+    }
+  },
+  mounted() {
+    this.getPlayer();
+    this.getRestantesJornada();
+    this.getRestantesTorneo();
   },
 };
 </script>
