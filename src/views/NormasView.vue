@@ -157,7 +157,9 @@
               <h6 class="mt-5"><b><u>Pokémon iniciales salvajes</u></b></h6>
               <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
               <h6 class="mt-5"><b><u>Semilegendarios</u></b></h6>
-              <p>Solo estarán disponibles en la <span class="jornada">Jornada 9</span> y solo se podrá llevar a uno en el equipo.</p><br>
+              <p>Solo estarán disponibles en la <span class="jornada">Jornada 9</span> y solo se podrá llevar a uno en el equipo.</p>
+              <h6 class="mt-5"><b><u>Pokémon Alfa</u></b></h6>
+              <p>Está prohibido el uso de Pokémon Alfa en combate.</p><br>
             </div>
           </div>
 

@@ -19,7 +19,7 @@ export const evsMaximos = {
 
 export const statsMaximos = {
     1:389, 2:419, 3:449, 4:499, 
-    5:499, 6:559, 7:559, 8:559, 9:"MAX"
+    5:539, 6:559, 7:559, 8:559, 9:"MAX"
 }
 
 /*
