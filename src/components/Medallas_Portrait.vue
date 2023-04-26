@@ -2,35 +2,55 @@
   <div class="medallas panel-body">
     <div class="medalla_gird">
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Céfiro.png" />
+        <img class="medalla1-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Colmena.png" />
+        <img class="medalla2-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Planicie.png" />
+        <img class="medalla3-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Niebla.png" />
+        <img class="medalla4-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Tormenta.png" />
+        <img class="medalla5-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Mineral.png" />
+        <img class="medalla6-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Glaciar.png" />
+        <img class="medalla7-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" />
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img src="@/assets/Medallas/Medalla_Dragón.png" />
+        <img class="medalla8-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { getJornada } from '@/helpers/normasHelper'
+export default {
+  data () {
+    return {
+      jornadaActual: ''
+    }
+  },
+  async mounted() {
+    const jornada = await getJornada();
+    this.jornadaActual = jornada;
+    this.medallasConseguidas(this.jornadaActual);
+  },
+  methods: {
+    medallasConseguidas(jornadaActual){
+      for (let i = 1; i < jornadaActual; i++) {           
+        const elementoMedalla = document.querySelector(`.medalla${i}-movil`);   
+        elementoMedalla.style.filter = 'grayscale(0%)';
+      }
+    }
+  }
+};
 </script>
 
 

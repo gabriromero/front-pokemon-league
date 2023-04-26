@@ -2,42 +2,65 @@
   <div class="medallas panel-body col">
     <div class="medalla ratio ratio-1x1">
       <img
+        class="medalla1"
         v-if="ladoMedalla == 'L'"
-        src="@/assets/Medallas/Medalla_Céfiro.png"
+        src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png"
       />
-      <img v-else src="@/assets/Medallas/Medalla_Tormenta.png" />
+      <img class="medalla5" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" />
     </div>
 
     <div class="medalla ratio ratio-1x1">
       <img
+        class="medalla2"
         v-if="ladoMedalla == 'L'"
-        src="@/assets/Medallas/Medalla_Colmena.png"
+        src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png"
       />
-      <img v-else src="@/assets/Medallas/Medalla_Mineral.png" />
+      <img class="medalla6" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" />
     </div>
     <div class="medalla ratio ratio-1x1">
       <img
+        class="medalla3"
         v-if="ladoMedalla == 'L'"
-        src="@/assets/Medallas/Medalla_Planicie.png"
+        src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png"
       />
-      <img v-else src="@/assets/Medallas/Medalla_Glaciar.png" />
+      <img class="medalla7" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" />
     </div>
 
     <div class="medalla ratio ratio-1x1">
       <img
+        class="medalla4"
         v-if="ladoMedalla == 'L'"
-        src="@/assets/Medallas/Medalla_Niebla.png"
+        src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png"
       />
-      <img v-else src="@/assets/Medallas/Medalla_Dragón.png" />
+      <img class="medalla8" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" />
     </div>
   </div>
 </template>
 
 <script>
+import { getJornada } from '@/helpers/normasHelper'
 export default {
   props: {
     ladoMedalla: String,
   },
+  data () {
+    return {
+      jornadaActual: ''
+    }
+  },
+  async mounted() {
+    const jornada = await getJornada();
+    this.jornadaActual = jornada;
+    this.medallasConseguidas(this.jornadaActual);
+  },
+  methods: {
+    medallasConseguidas(jornadaActual){
+      for (let i = 1; i < jornadaActual; i++) {           
+        const elementoMedalla = document.querySelector(`.medalla${i}`);   
+        elementoMedalla.style.filter = 'grayscale(0%)';
+      }
+    }
+  }
 };
 </script>
 
