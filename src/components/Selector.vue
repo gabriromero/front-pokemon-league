@@ -30,14 +30,17 @@
 <script>
 import {putProfilePic} from "@/api/perfil";
 import { getMyselfProfile } from "@/api/shared";
+import { getAvailableSkins } from "@/api/perfil";
 export default {
   data() {
     return {
+      num_skins: 30,
       profileplayer: "",
       left: "",
       middle: "",
       right: "",
-      skinsLoaded: false
+      skinsLoaded: false,
+      availableSkins: "",
     };
   },
   methods: {
@@ -47,8 +50,17 @@ export default {
       this.profileplayer = player.data
       this.setPlayer()
     },
+    async retrieveAvailableSkins() {
+      this.availableSkins = await getAvailableSkins(this.num_skins);
+      this.getPlayer()
+    },
     setPlayer() {
       let numProfile = this.getProfilePic(this.profileplayer.profile_pic)
+
+      if(!this.availableSkins.includes(numProfile)){
+        this.availableSkins = this.insertarOrdenado(this.availableSkins, numProfile)
+      }
+
       this.left = this.anterior(numProfile)
       this.middle = numProfile
       this.right = this.siguiente(numProfile)
@@ -75,22 +87,30 @@ export default {
       putProfilePic(`trainer-${this.middle}`,accessToken)
     },
     anterior(value) {
-      value = value - 1;
-      if (value == 0) {
-        value = 30;
+      const index = this.availableSkins.indexOf(value);
+      if (index === 0) {
+        return this.availableSkins[this.availableSkins.length - 1];
       }
-      return value;
+      return this.availableSkins[index - 1];
     },
     siguiente(value) {
-      value = value + 1;
-      if (value == 31) {
-        value = 1;
+      const index = this.availableSkins.indexOf(value);
+      if (index === this.availableSkins.length - 1) {
+        return this.availableSkins[0];
       }
-      return value;
+      return this.availableSkins[index + 1];
+    },
+    insertarOrdenado(array, numero){
+      let i = 0;
+      while (i < array.length && array[i] < numero) {
+        i++;
+      }
+      array.splice(i, 0, numero);
+      return array;
     }
   },
   mounted(){
-    this.getPlayer()
+    this.retrieveAvailableSkins();
   }
 };
 </script>
