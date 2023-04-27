@@ -10,12 +10,12 @@
                 <img class="trainerImage" :src="require(`@/assets/skins/${player.profile_pic}.png`)" />
               </th>
               <td class="trainerName fontAdaptative">{{ player.username }}</td>
-              <th class="medalAlign">
+              <th class="medalAlign right-padding-important">
                 <img v-if="index == 0" class="trainerMedal" src="@/assets/goldMedal.png" />
                 <img v-else-if="index == 1" class="trainerMedal" src="@/assets/silverMedal.png" />
                 <img v-else-if="index == 2" class="trainerMedal" src="@/assets/bronzeMedal.png" />
               </th>
-              <td class="trainerScore">{{ player.matches_won }}</td>
+              <td class="trainerScore right-padding-important">{{ player.matches_won }}</td>
             </tr>
           </tbody>
         </table>
@@ -197,6 +197,7 @@ td {
 @media screen and (max-width: 600px) {
     .fontAdaptative {
         font-size: 12px;
+        letter-spacing: -1px;   
     }
 }
 
@@ -204,5 +205,8 @@ td {
     .fontAdaptative {
         font-size: 15px;
     }
+}
+.right-padding-important {
+  padding-right: 10px !important;
 }
 </style>
