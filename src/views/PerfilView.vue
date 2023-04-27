@@ -31,7 +31,7 @@
       <div class="medallas-movil">
         <Medallas_Portrait />
       </div>
-      <a @click="logout" class="boton-cerrar-sesion">
+      <a @click="logout" class="boton-cerrar-sesion mb-3">
         <span>Cerrar Sesión</span>
       </a>
     </div>
