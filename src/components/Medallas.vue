@@ -1,50 +1,42 @@
 <template>
   <div class="medallas panel-body col">
-    <div class="medalla ratio ratio-1x1">
+    <div class="medalla ratio ratio-1x1" ref="medalla1" @mousedown="changeBackgroundColorMedalla($refs.medalla1, '#727171')" @mouseup="changeBackgroundColorMedalla($refs.medalla1, '#aaaaaa')">
       <img
         class="medalla1"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png"
-        @click="sonidoMedalla(1)"
-        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
-        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
+        @click="sonidoMedalla(1)"        
       />
-      <img class="medalla5" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
+      <img class="medalla5" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" />
     </div>
 
-    <div class="medalla ratio ratio-1x1">
+    <div class="medalla ratio ratio-1x1" ref="medalla2" @mousedown="changeBackgroundColorMedalla($refs.medalla2, '#727171')" @mouseup="changeBackgroundColorMedalla($refs.medalla2, '#aaaaaa')">
       <img
         class="medalla2"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png"
-        @click="sonidoMedalla(2)"
-        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
-        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
+        @click="sonidoMedalla(2)"        
       />
-      <img class="medalla6" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
+      <img class="medalla6" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)"/>
     </div>
-    <div class="medalla ratio ratio-1x1">
+    <div class="medalla ratio ratio-1x1" ref="medalla3" @mousedown="changeBackgroundColorMedalla($refs.medalla3, '#727171')" @mouseup="changeBackgroundColorMedalla($refs.medalla3, '#aaaaaa')">
       <img
         class="medalla3"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png"
-        @click="sonidoMedalla(3)"
-        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
-        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
+        @click="sonidoMedalla(3)"        
       />
-      <img class="medalla7" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
+      <img class="medalla7" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')"/>
     </div>
 
-    <div class="medalla ratio ratio-1x1">
+    <div class="medalla ratio ratio-1x1" ref="medalla4" @mousedown="changeBackgroundColorMedalla($refs.medalla4, '#727171')" @mouseup="changeBackgroundColorMedalla($refs.medalla4, '#aaaaaa')">
       <img
         class="medalla4"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png"
-        @click="sonidoMedalla(4)"
-        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
-        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
+        @click="sonidoMedalla(4)"        
       />
-      <img class="medalla8" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
+      <img class="medalla8" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)"/>
     </div>
   </div>
 </template>
@@ -79,8 +71,8 @@ export default {
       sonidoMedalla.play();
     },
 
-    changeBackgroundColorMedalla(event, color) {
-      event.target.style.backgroundColor = color;
+    changeBackgroundColorMedalla(medalla, color) {
+      medalla.style.backgroundColor = color;
     },
 
 
