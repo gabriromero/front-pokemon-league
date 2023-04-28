@@ -5,8 +5,11 @@
         class="medalla1"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png"
+        @click="sonidoMedalla(1)"
+        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
+        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
       />
-      <img class="medalla5" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" />
+      <img class="medalla5" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
     </div>
 
     <div class="medalla ratio ratio-1x1">
@@ -14,16 +17,22 @@
         class="medalla2"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png"
+        @click="sonidoMedalla(2)"
+        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
+        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
       />
-      <img class="medalla6" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" />
+      <img class="medalla6" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
     </div>
     <div class="medalla ratio ratio-1x1">
       <img
         class="medalla3"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png"
+        @click="sonidoMedalla(3)"
+        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
+        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
       />
-      <img class="medalla7" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" />
+      <img class="medalla7" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
     </div>
 
     <div class="medalla ratio ratio-1x1">
@@ -31,8 +40,11 @@
         class="medalla4"
         v-if="ladoMedalla == 'L'"
         src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png"
+        @click="sonidoMedalla(4)"
+        @mousedown="changeBackgroundColorMedalla($event, '#727171')"
+        @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"
       />
-      <img class="medalla8" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" />
+      <img class="medalla8" v-else src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)" @mousedown="changeBackgroundColorMedalla($event, '#727171')" @mouseup="changeBackgroundColorMedalla($event, '#aaaaaa')"/>
     </div>
   </div>
 </template>
@@ -59,7 +71,19 @@ export default {
         const elementoMedalla = document.querySelector(`.medalla${i}`);   
         elementoMedalla.style.filter = 'grayscale(0%)';
       }
-    }
+    },
+
+    sonidoMedalla(nMedalla){
+      console.log(nMedalla);
+      const sonidoMedalla = new Audio(require(`@/assets/Medallas/Sonidos_Medallas/${nMedalla}.mp3`));
+      sonidoMedalla.play();
+    },
+
+    changeBackgroundColorMedalla(event, color) {
+      event.target.style.backgroundColor = color;
+    },
+
+
   }
 };
 </script>
