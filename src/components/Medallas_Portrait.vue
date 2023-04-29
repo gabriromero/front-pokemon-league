@@ -2,28 +2,28 @@
   <div class="medallas panel-body">
     <div class="medalla_gird">
       <div class="medalla ratio ratio-1x1" >
-        <img class="medalla1-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png" @click="sonidoMedalla(1)" @mousedown="changeBackgroundColorMedalla('.medalla1-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla1-movil', '#aaaaaa')"/>
+        <img class="medalla1-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png" @click="sonidoMedalla(1)" @touchstart="changeBackgroundColorMedalla('.medalla1-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla1-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla2-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png" @click="sonidoMedalla(2)" @mousedown="changeBackgroundColorMedalla('.medalla2-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla2-movil', '#aaaaaa')"/>
+        <img class="medalla2-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png" @click="sonidoMedalla(2)" @touchstart="changeBackgroundColorMedalla('.medalla2-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla2-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla3-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png" @click="sonidoMedalla(3)" @mousedown="changeBackgroundColorMedalla('.medalla3-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla3-movil', '#aaaaaa')"/>
+        <img class="medalla3-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png" @click="sonidoMedalla(3)" @touchstart="changeBackgroundColorMedalla('.medalla3-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla3-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla4-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png" @click="sonidoMedalla(4)" @mousedown="changeBackgroundColorMedalla('.medalla4-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla4-movil', '#aaaaaa')"/>
+        <img class="medalla4-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png" @click="sonidoMedalla(4)" @touchstart="changeBackgroundColorMedalla('.medalla4-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla4-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla5-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" @mousedown="changeBackgroundColorMedalla('.medalla5-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla5-movil', '#aaaaaa')"/>
+        <img class="medalla5-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" @touchstart="changeBackgroundColorMedalla('.medalla5-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla5-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla6-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)" @mousedown="changeBackgroundColorMedalla('.medalla6-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla6-movil', '#aaaaaa')"/>
+        <img class="medalla6-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)" @touchstart="changeBackgroundColorMedalla('.medalla6-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla6-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla7-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')" @mousedown="changeBackgroundColorMedalla('.medalla7-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla7-movil', '#aaaaaa')"/>
+        <img class="medalla7-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')" @touchstart="changeBackgroundColorMedalla('.medalla7-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla7-movil', '#aaaaaa')"/>
       </div>
       <div class="medalla ratio ratio-1x1">
-        <img class="medalla8-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)" @mousedown="changeBackgroundColorMedalla('.medalla8-movil', '#727171')" @mouseup="changeBackgroundColorMedalla('.medalla8-movil', '#aaaaaa')"/>
+        <img class="medalla8-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)" @touchstart="changeBackgroundColorMedalla('.medalla8-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla8-movil', '#aaaaaa')"/>
       </div>
     </div>
   </div>
