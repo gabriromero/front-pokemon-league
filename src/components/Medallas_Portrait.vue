@@ -1,29 +1,29 @@
 <template>
   <div class="medallas panel-body">
     <div class="medalla_gird">
-      <div class="medalla ratio ratio-1x1" ref="medalla1" @touchstart="changeBackgroundColorMedalla($refs.medalla1, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla1, '#aaaaaa')">
-        <img class="medalla1-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png" @click="sonidoMedalla(1)" />
+      <div class="medalla ratio ratio-1x1" >
+        <img class="medalla1-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_1.png" @click="sonidoMedalla(1)" @touchstart="changeBackgroundColorMedalla('.medalla1-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla1-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla2" @touchstart="changeBackgroundColorMedalla($refs.medalla2, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla2, '#aaaaaa')">
-        <img class="medalla2-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png" @click="sonidoMedalla(2)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla2-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_2.png" @click="sonidoMedalla(2)" @touchstart="changeBackgroundColorMedalla('.medalla2-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla2-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla3" @touchstart="changeBackgroundColorMedalla($refs.medalla3, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla3, '#aaaaaa')">
-        <img class="medalla3-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png" @click="sonidoMedalla(3)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla3-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_3.png" @click="sonidoMedalla(3)" @touchstart="changeBackgroundColorMedalla('.medalla3-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla3-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla4" @touchstart="changeBackgroundColorMedalla($refs.medalla4, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla4, '#aaaaaa')">
-        <img class="medalla4-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png" @click="sonidoMedalla(4)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla4-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_4.png" @click="sonidoMedalla(4)" @touchstart="changeBackgroundColorMedalla('.medalla4-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla4-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla5" @touchstart="changeBackgroundColorMedalla($refs.medalla5, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla5, '#aaaaaa')">
-        <img class="medalla5-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla5-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_5.png" @click="sonidoMedalla(5)" @touchstart="changeBackgroundColorMedalla('.medalla5-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla5-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla6" @touchstart="changeBackgroundColorMedalla($refs.medalla6, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla6, '#aaaaaa')">
-        <img class="medalla6-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla6-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_6.png" @click="sonidoMedalla(6)" @touchstart="changeBackgroundColorMedalla('.medalla6-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla6-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla7" @touchstart="changeBackgroundColorMedalla($refs.medalla7, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla7, '#aaaaaa')">
-        <img class="medalla7-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla7-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_7.png" @click="sonidoMedalla('mondongo')" @touchstart="changeBackgroundColorMedalla('.medalla7-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla7-movil', '#aaaaaa')"/>
       </div>
-      <div class="medalla ratio ratio-1x1" ref="medalla8" @touchstart="changeBackgroundColorMedalla($refs.medalla8, '#727171')" @touchend="changeBackgroundColorMedalla($refs.medalla8, '#aaaaaa')">
-        <img class="medalla8-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)"/>
+      <div class="medalla ratio ratio-1x1">
+        <img class="medalla8-movil" src="@/assets/Medallas/Medallas_Kanto/Medalla_8.png" @click="sonidoMedalla(8)" @touchstart="changeBackgroundColorMedalla('.medalla8-movil', '#727171')" @touchend="changeBackgroundColorMedalla('.medalla8-movil', '#aaaaaa')"/>
       </div>
     </div>
   </div>
@@ -51,13 +51,27 @@ export default {
     },
 
     sonidoMedalla(nMedalla){
-      console.log(nMedalla);
-      const sonidoMedalla = new Audio(require(`@/assets/Medallas/Sonidos_Medallas/${nMedalla}.mp3`));
-      sonidoMedalla.play();
+      
+      let elementoMedalla = null;
+
+      if(nMedalla != 'mondongo'){
+        elementoMedalla = document.querySelector(`.medalla${nMedalla}-movil`);
+      }else{
+        elementoMedalla = document.querySelector('.medalla7-movil');
+      }      
+
+      if(elementoMedalla.style.filter === 'grayscale(0%)'){
+        const sonidoMedalla = new Audio(require(`@/assets/Medallas/Sonidos_Medallas/${nMedalla}.mp3`));
+        sonidoMedalla.play();
+      }   
     },
 
     changeBackgroundColorMedalla(medalla, color) {
-      medalla.style.backgroundColor = color;
+      const elementoMedalla = document.querySelector(medalla);            
+
+      if(elementoMedalla.style.filter === 'grayscale(0%)'){
+        elementoMedalla.style.backgroundColor = color;
+      }
     },
 
   }
@@ -93,7 +107,7 @@ export default {
   align-items: center;
 }
 .medalla img {
-  width: 60%;
+  padding: 15%;
   height: 60%;
   filter: grayscale(100%);
   position: relative;
