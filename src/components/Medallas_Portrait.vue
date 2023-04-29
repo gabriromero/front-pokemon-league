@@ -109,7 +109,7 @@ export default {
 .medalla img {
   padding: 15%;
   height: 60%;
-  filter: grayscale(100%);
+  filter: grayscale(1%) brightness(10%) contrast(10%); 
   position: relative;
 }
 </style>
