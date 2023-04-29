@@ -92,6 +92,7 @@ export default {
 
       if(elementoMedalla.style.filter === 'grayscale(0%)'){
         elementoMedalla.style.backgroundColor = color;
+        elementoMedalla.style.borderRadius = '10px';
       }
       
     },
