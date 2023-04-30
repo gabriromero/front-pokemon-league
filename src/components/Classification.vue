@@ -196,7 +196,7 @@ td {
 
 @media screen and (max-width: 600px) {
     .fontAdaptative {
-        font-size: 12px;
+        font-size: 11.5px;
         letter-spacing: -1px;   
     }
 }

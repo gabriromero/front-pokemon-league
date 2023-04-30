@@ -14,11 +14,11 @@
           <div v-for="(myMatch, index) in myMatches" :key="index" v-show="!(myMatch.player_1_finished == 1 && myMatch.player_2_finished == 1)" class="border-single-match">
             <div class="single-match container-fluid">
               <div class="row d-flex align-items-center" v-if="!hasMarkedResult(myMatch) && (!confirmResults[index] && !confirmedResults[index])">
-                <div :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_1_username);">
+                <div :style="{ 'font-size': myMatch.player_1_username.length > 10 ? '0.60em' : '' }" :id="'player-1-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_1_username);">
                   <img class="mt-1 mb-1 trainerImage" :src="require(`@/assets/skins/${myMatch.player_1_profile_pic}.png`)" draggable="false"/>
                   {{ myMatch.player_1_username }}
                 </div>
-                <div :id="'player-2-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_2_username);">
+                <div :style="{ 'font-size': myMatch.player_2_username.length > 10 ? '0.60em' : '' }" :id="'player-2-' + index" class="col-lg-5 trainer-select" v-on:click="confirmResults[index] = !confirmResults[index]; obtainPlayerName(index, myMatch.player_2_username);">
                   {{ myMatch.player_2_username }}
                   <img class="mt-1 mb-1 trainerImage" :src="require(`@/assets/skins/${myMatch.player_2_profile_pic}.png`)" draggable="false"/>
                 </div>
