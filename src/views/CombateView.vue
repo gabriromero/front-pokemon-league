@@ -1,5 +1,5 @@
 <template>
-  <div id="root" v-if="!isMondayMorning  && tournamentHasStarted">
+  <div id="root" v-if="true || (!isMondayMorning  && tournamentHasStarted)">
     <img
       class="img-background"
       src="@/assets/pokeball_fondo.svg"
@@ -223,7 +223,7 @@ export default {
   },
   computed: {
       isMondayMorning() {
-          return this.today.getDay() === 1 && this.today.getHours() < 18
+        return this.today.getDay() === 1 && this.today.getHours() >= 6 && this.today.getHours() < 18
       },
       tournamentHasStarted() {
           return this.today >= horarios_jornada[0][0]

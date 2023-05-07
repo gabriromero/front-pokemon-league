@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!isMondayMorning && tournamentHasStarted" class="firstBorder">
+    <div v-if="true || (!isMondayMorning && tournamentHasStarted)" class="firstBorder">
         <div class="matchBorder ">
             <div class="totalBorder">
                 <div class="mt-2"></div>
@@ -36,7 +36,7 @@ export default {
     },
     computed: {
         isMondayMorning() {
-            return this.today.getDay() === 1 && this.today.getHours() < 18
+            return this.today.getDay() === 1 && this.today.getHours() >= 6 && this.today.getHours() < 18
         },
         tournamentHasStarted() {
             return this.today >= horarios_jornada[0][0]

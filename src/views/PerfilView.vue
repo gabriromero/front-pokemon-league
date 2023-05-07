@@ -65,7 +65,7 @@ export default {
       let hoy = new Date();
       let numJornada = await getJornada();
       let fechasJornada = horarios_jornada[numJornada - 1][1];
-      let diasRestantesJornada = fechasJornada - hoy;
+      let diasRestantesJornada = Math.abs(fechasJornada - hoy);
       let diferenciaDias = Math.floor(
         diasRestantesJornada / (1000 * 60 * 60 * 24)
       );
@@ -76,7 +76,7 @@ export default {
       let fechasUltimaJornada = horarios_jornada[horarios_jornada.length - 1];
       let ultimaFechaJornada =
         fechasUltimaJornada[fechasUltimaJornada.length - 1];
-      let diferenciaFechas = ultimaFechaJornada - hoy;
+      let diferenciaFechas = Math.abs(ultimaFechaJornada - hoy);
       let diferenciaDias = Math.floor(diferenciaFechas / (1000 * 60 * 60 * 24));
       this.diasRestantesTorneo = diferenciaDias + 1;
     },
