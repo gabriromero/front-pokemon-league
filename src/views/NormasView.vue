@@ -141,6 +141,14 @@
               </div>
             </div>
 
+            <h4 class="mt-5"><u>Rutas disponibles</u></h4>
+            <div v-for="(jornada, clave) in nuevasRutas" :key="clave" class="row mt-2">
+              <b class="mt-5"><u>Jornada {{ clave }}</u></b>
+              <div v-for="ruta in jornada" :key="ruta" class="col-3 p-4">
+                <a class="nombreRuta" :href="ruta[1]+'#Pok.C3.A9mon'" target="_blank">{{ ruta[0] }}</a>
+              </div>
+            </div>
+
           </div>
 
           <div class="small" v-if="numSeccion == 3">
@@ -302,17 +310,18 @@
 </template>
 
 <script>
-import { horarios_jornada, nivelesPokemon, statsMaximos, evsMaximos, potenciaMt} from "@/helpers/normasHelper.js";
+import { horarios_jornada, nivelesPokemon, statsMaximos, evsMaximos, potenciaMt, nuevasRutas } from "@/helpers/normasHelper.js";
 
 export default {
   data() {
     return{
-      numSeccion: 0,
+      numSeccion: 2,
       nivelesPokemon : nivelesPokemon,
       statsMaximos : statsMaximos,
       evsMaximos : evsMaximos,
       potenciaMt : potenciaMt,
       horariosJornada : horarios_jornada,
+      nuevasRutas : nuevasRutas,
     }
   },
 }
@@ -348,6 +357,11 @@ export default {
 .jornada{
   color: blue;
   font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 @media screen and (max-width: 600px){

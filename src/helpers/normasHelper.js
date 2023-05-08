@@ -49,7 +49,7 @@ export const potenciaMt = {
     "8-9": "MAX",
 }
 
-const nuevasRutas = {
+export const nuevasRutas = {
     1: [["Pueblo Paleta", "http://en.pokemmo.shoutwiki.com/wiki/Pallet_Town"],
         ["Ruta 1", "http://en.pokemmo.shoutwiki.com/wiki/Kanto_Route_1"],
         ["Ciudad Verde", "http://en.pokemmo.shoutwiki.com/wiki/Viridian_City"],
