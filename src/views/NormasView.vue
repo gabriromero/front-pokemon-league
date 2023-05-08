@@ -144,7 +144,7 @@
             <h4 class="mt-5"><u>Rutas disponibles</u></h4>
             <div v-for="(jornada, clave) in nuevasRutas" :key="clave" class="row mt-2">
               <b class="mt-5"><u>Jornada {{ clave }}</u></b>
-              <div v-for="ruta in jornada" :key="ruta" class="col-3 p-4">
+              <div v-for="ruta in jornada" :key="ruta" class="col-12 col-sm-6 col-md-3 p-4">
                 <a class="nombreRuta" :href="ruta[1]+'#Pok.C3.A9mon'" target="_blank">{{ ruta[0] }}</a>
               </div>
             </div>
@@ -315,7 +315,7 @@ import { horarios_jornada, nivelesPokemon, statsMaximos, evsMaximos, potenciaMt,
 export default {
   data() {
     return{
-      numSeccion: 2,
+      numSeccion: 0,
       nivelesPokemon : nivelesPokemon,
       statsMaximos : statsMaximos,
       evsMaximos : evsMaximos,
