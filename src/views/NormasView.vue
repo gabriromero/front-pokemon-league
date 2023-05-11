@@ -161,7 +161,7 @@
           <div class="small" v-if="numSeccion == 4" >
             <h4><b><u>Pokémon válidos</u></b></h4>
             <div class="mt-3">
-              <p>Solo serán válidos los Pokémon capturados por el mismo entrenador o por un inegrante de la liga y capturados dentro de las zonas de captura disponibles por Jornada.</p>
+              <p>Solo serán válidos los Pokémon capturados por un integrante de la liga y capturados dentro de las zonas de captura disponibles por Jornada.</p>
               <h6 class="mt-5"><b><u>Pokémon iniciales salvajes</u></b></h6>
               <p>Solo se podrán capturar los mismos iniciales salvajes que el elegido al incio de la partida.</p>
               <h6 class="mt-5"><b><u>Semilegendarios</u></b></h6>
