@@ -82,7 +82,7 @@
                   <div class="col-lg-4">
                     <img
                       class="mt-1 mb-1 trainerImage"
-                      src="@/assets/trainerPixel.png"
+                      :src="require(`@/assets/skins/${myMatch.player_1_profile_pic}.png`)"
                       draggable="false"
                     />
                     {{myMatch.player_1_username}}
@@ -91,7 +91,7 @@
                   <div class="col-lg-4">
                     <img
                       class="mt-1 mb-1 trainerImage"
-                      src="@/assets/trainerPixel.png"
+                      :src="require(`@/assets/skins/${myMatch.player_2_profile_pic}.png`)"
                       draggable="false"
                     />
                     {{myMatch.player_2_username}}
