@@ -79,7 +79,7 @@ export default {
 
   computed:{
     playersOrdenados: function(){
-      return _.orderBy(this.players, ['matches_won', 'username'], ['desc', 'asc']);
+      return _.orderBy(this.players, ['matches_won', 'matches_played','username'], ['desc', 'desc','asc']);
     }
   }
 }
