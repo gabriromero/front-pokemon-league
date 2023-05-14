@@ -97,8 +97,8 @@
                     {{myMatch.player_2_username}}
                   </div>
                   <div id="winner" class="col-lg-3">
-                    <h3 v-if="myMatch.player_1_id == myMatch.result"><b>GANA <br>{{myMatch.player_1_username}}</b></h3>
-                    <h3 v-else-if="myMatch.player_2_id == myMatch.result"><b>GANA <br>{{myMatch.player_2_username}}</b></h3>
+                    <h3 v-if="myMatch.player_1_id == myMatch.result"><b>GANA <br><span :style="{ fontSize: 28 - myMatch.player_1_username.length  + 'px' }">{{myMatch.player_1_username}}</span></b></h3>
+                    <h3 v-else-if="myMatch.player_2_id == myMatch.result"><b>GANA <br><span :style="{ fontSize: 28 - myMatch.player_1_username.length + 'px' }">{{myMatch.player_2_username}}</span></b></h3>
                   </div>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export default {
     async fillMyMatches() {
       const accessToken = localStorage.getItem("access_token");
       let myMatches = await getMyMatches(accessToken);
-      this.myMatches = myMatches.data;     
+      this.myMatches = myMatches.data;
       this.combatesCargados = true; 
     },
 
