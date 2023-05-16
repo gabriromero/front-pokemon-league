@@ -5,7 +5,7 @@
         <table class="table">
           <tbody>
             <tr v-for="(player, index) in playersOrdenados" :key="player.username"
-              class="grayBackColor borderClassification">
+            :class="[(index <= 6) ? 'grayBackColor' : 'lightBackColor', 'borderClassification']">
               <th v-if="player.username != '---' ">
                 <img class="trainerImage" :src="require(`@/assets/skins/${player.profile_pic}.png`)" />
               </th>
@@ -104,6 +104,10 @@ export default {
 
 .grayBackColor {
   background-color: #d4d4d4;
+}
+
+.lightBackColor {
+  background-color: #efeeee;
 }
 
 .whiteBackColor {
