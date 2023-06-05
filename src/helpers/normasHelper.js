@@ -6,10 +6,10 @@ export const horarios_jornada = [
     [new Date(2023, 4, 15), new Date(2023, 4, 21)],
     [new Date(2023, 4, 22), new Date(2023, 4, 28)],
     [new Date(2023, 4, 29), new Date(2023, 5, 4)],
-    [new Date(2023, 5, 5), new Date(2023, 5, 18)],
-    [new Date(2023, 5, 19), new Date(2023, 6, 2)],
-    [new Date(2023, 6, 3), new Date(2023, 6, 16)],
-    [new Date(2023, 6, 17), new Date(2023, 6, 23)],
+    [new Date(2023, 5, 5), new Date(2023, 5, 11)],
+    [new Date(2023, 5, 12), new Date(2023, 5, 18)],
+    [new Date(2023, 5, 19), new Date(2023, 5, 25)],
+    [new Date(2023, 5, 26), new Date(2023, 7, 31)],
 ];
 
 export const evsMaximos = {

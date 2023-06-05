@@ -264,7 +264,7 @@
 
             </div>
 
-            <div class="mt-5"><i><p>El handicap de 10 de diferencia no se aplicará en la <span class="jornada">Jornada 9</span>.</p>
+            <div class="mt-5"><i><p>Los handicaps no se aplicarán en la <span class="jornada">Jornada 9</span>.</p>
                               Los puntos en la <span class="jornada">Jornada 9</span> <u>serán dobles</u>.</i></div>
           </div>
 
