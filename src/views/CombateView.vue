@@ -24,14 +24,14 @@
                 </div>
                 <div class="col-lg-2 handicap">
                   <div class="handicap-div">
-                    <span v-if="myMatch.diferencia < minHandicap"> Sin handicap </span>
-                    <span v-else> Handicap de +{{ myMatch.diferencia }} </span>
+                    <span v-if="Math.abs(myMatch.diferencia) < minHandicap"> Sin handicap </span>
+                    <span v-else> Handicap de +{{ Math.abs(myMatch.diferencia) }} </span>
                     
                     <v-tooltip
-                      v-if="myMatch.diferencia >= minHandicap" 
+                      v-if="Math.abs(myMatch.diferencia) >= minHandicap" 
                       activator="parent"
                       location="bottom"
-                    ><span v-html="getHandicap(myMatch.diferencia)"></span> 
+                    ><span v-html="getHandicap(Math.abs(myMatch.diferencia))"></span> 
                     </v-tooltip>
                   </div>
                 </div>
